@@ -1555,9 +1555,13 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .split-section .container {
+  .split__inner {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+
+  .split__visual {
+    justify-content: center;
   }
 
   .gamif-grid {
