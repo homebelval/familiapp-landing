@@ -893,3 +893,153 @@ button {
   background: var(--purple-light);
   color: var(--purple-dark);
 }
+
+/* 6. SPLIT PARENT / ENFANT
+   ============================================================ */
+.split-section {
+  padding: var(--section-py) 0;
+  background: linear-gradient(135deg, var(--purple) 0%, var(--purple-dark) 60%, #f093fb 100%);
+  color: var(--white);
+}
+
+.split-section .section__label {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--white);
+}
+
+.split-section .section__title {
+  color: var(--white);
+}
+
+.split-section .section__sub {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.split__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.split__features {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.split__features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.split__features li::before {
+  content: '✓';
+  background: rgba(255, 255, 255, 0.2);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 900;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.split__visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.split-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.split-card:hover {
+  transform: translateY(-4px);
+}
+
+.split-card__icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.split-card__name {
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+}
+
+.split-card__desc {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.split-arrow {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+/* 7. GAMIFICATION
+   ============================================================ */
+.gamif-accent {
+  color: var(--purple);
+}
+
+.gamif-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 56px;
+}
+
+.gamif-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px 20px;
+  text-align: center;
+  border: 1.5px solid var(--border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gamif-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.gamif-card__icon {
+  font-size: 2.2rem;
+  margin-bottom: 14px;
+}
+
+.gamif-card__title {
+  font-size: 0.98rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.gamif-card__desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
