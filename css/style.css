@@ -1089,8 +1089,8 @@ button {
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
   max-width: 760px;
   margin: 40px auto 0;
 }
