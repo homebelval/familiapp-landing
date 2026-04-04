@@ -340,7 +340,71 @@
 
     <!-- PRICING -->
     <section class="section" id="tarifs">
-      <!-- Task 8 -->
+      <div class="container">
+  <div class="section--center">
+    <span class="section__label">Tarifs</span>
+    <h2 class="section__title">Commencez gratuitement,<br>évoluez à votre rythme</h2>
+    <p class="section__sub">30 jours d'essai gratuit sur tous les plans. Sans carte bancaire requise.</p>
+  </div>
+
+  <!-- Toggle mensuel/annuel -->
+  <div class="pricing-toggle">
+    <button class="pricing-toggle__btn pricing-toggle__btn--active" id="toggle-monthly" aria-pressed="true">Mensuel</button>
+    <button class="pricing-toggle__btn" id="toggle-annual" aria-pressed="false">Annuel <span class="pricing-toggle__save">−2 mois offerts</span></button>
+  </div>
+
+  <div class="pricing-grid">
+
+    <!-- Plan Essentiel -->
+    <div class="pricing-card animate-on-scroll">
+      <div class="pricing-card__name">Essentiel</div>
+      <div class="pricing-card__price">
+        <span class="pricing-card__amount" data-monthly="3,90€" data-annual="39€">3,90€</span>
+        <span class="pricing-card__period" data-monthly="/mois" data-annual="/an">/mois</span>
+      </div>
+      <div class="pricing-card__save">
+        <span class="pricing-card__save-monthly">ou 39€/an — économisez 10€</span>
+        <span class="pricing-card__save-annual" hidden>soit 3,25€/mois — vous économisez 10€</span>
+      </div>
+      <ul class="pricing-card__list">
+        <li>Tâches & routines illimitées</li>
+        <li>Calendrier partagé (Google & Outlook)</li>
+        <li>Dashboard parent</li>
+        <li>App Fammily pour les enfants</li>
+        <li>Cagnotte virtuelle & récompenses</li>
+        <li>Jusqu'à 4 profils enfants</li>
+        <li>Support par email</li>
+      </ul>
+      <a href="register.html" class="btn btn--outline pricing-card__cta">Démarrer gratuitement</a>
+    </div>
+
+    <!-- Plan Premium -->
+    <div class="pricing-card pricing-card--popular animate-on-scroll">
+      <div class="pricing-card__badge">⭐ Plus populaire</div>
+      <div class="pricing-card__name">Premium</div>
+      <div class="pricing-card__price">
+        <span class="pricing-card__amount" data-monthly="7,90€" data-annual="79€">7,90€</span>
+        <span class="pricing-card__period" data-monthly="/mois" data-annual="/an">/mois</span>
+      </div>
+      <div class="pricing-card__save">
+        <span class="pricing-card__save-monthly">ou 79€/an — économisez 20€</span>
+        <span class="pricing-card__save-annual" hidden>soit 6,58€/mois — vous économisez 20€</span>
+      </div>
+      <ul class="pricing-card__list">
+        <li><strong>Tout Essentiel +</strong></li>
+        <li>Temps d'écran intelligent (boîtier requis)</li>
+        <li>Suivi Pronote+ & bonus scolaires</li>
+        <li>Profils enfants illimités</li>
+        <li>Rapports mensuels détaillés</li>
+        <li>Mode kiosque famille</li>
+        <li>Support prioritaire</li>
+      </ul>
+      <a href="register.html" class="btn btn--primary pricing-card__cta">Démarrer gratuitement</a>
+    </div>
+
+  </div>
+  <p class="pricing-note">💡 Tous les forfaits incluent 30 jours d'essai gratuit, sans carte bancaire requise</p>
+</div>
     </section>
 
     <!-- TESTIMONIALS -->
