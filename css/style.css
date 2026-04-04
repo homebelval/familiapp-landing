@@ -777,3 +777,119 @@ button {
   font-size: 0.6rem;
   color: var(--text-muted);
 }
+
+/* 4. PROOF BAND
+   ============================================================ */
+.proof-band {
+  background: var(--purple);
+  padding: 18px 0;
+}
+
+.proof-band__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.proof-band__item {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.proof-band__num {
+  font-weight: 900;
+  color: var(--white);
+}
+
+.proof-band__sep {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 1.2rem;
+}
+
+/* 5. FEATURES
+   ============================================================ */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.feat-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px;
+  border: 1.5px solid var(--border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--purple), var(--purple-dark));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.feat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(102, 126, 234, 0.2);
+}
+
+.feat-card:hover::before {
+  transform: scaleX(1);
+}
+
+.feat-card__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 18px;
+}
+
+.feat-card__title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.feat-card__desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.feat-card__tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 6px;
+  margin-top: 14px;
+}
+
+.feat-card__tag--essential {
+  background: var(--green-light);
+  color: #065f46;
+}
+
+.feat-card__tag--premium {
+  background: var(--purple-light);
+  color: var(--purple-dark);
+}
