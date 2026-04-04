@@ -1,0 +1,224 @@
+/* ============================================================
+   FamilyApp Landing — Main Stylesheet
+   Sections: 1-Base 2-Header 3-Hero 4-Sections 5-Components 6-Responsive
+   ============================================================ */
+
+/* 1. RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Couleurs */
+  --purple:       #667eea;
+  --purple-dark:  #764ba2;
+  --purple-light: #ede9fe;
+  --green:        #10b981;
+  --green-dark:   #059669;
+  --green-light:  #d1fae5;
+  --amber:        #f59e0b;
+  --amber-light:  #fef3c7;
+  --rose-light:   #fce7f3;
+  --red-light:    #fee2e2;
+  --blue-light:   #dbeafe;
+
+  /* Neutrals */
+  --text:         #1a1a2e;
+  --text-muted:   #6b7280;
+  --bg:           #fffdf9;
+  --white:        #ffffff;
+  --border:       #f0ece6;
+  --dark-bg:      #0f0f1a;
+
+  /* Spacing */
+  --section-py:   96px;
+  --container:    1120px;
+
+  /* Shape */
+  --radius:       20px;
+  --radius-sm:    12px;
+  --radius-pill:  50px;
+
+  /* Shadow */
+  --shadow:       0 8px 32px rgba(102, 126, 234, 0.10);
+  --shadow-lg:    0 20px 60px rgba(102, 126, 234, 0.18);
+  --shadow-green: 0 6px 24px rgba(16, 185, 129, 0.35);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Container */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Section wrapper */
+.section {
+  padding: var(--section-py) 0;
+}
+
+.section--alt {
+  background: linear-gradient(180deg, var(--white) 0%, #faf5ff 100%);
+}
+
+/* Section header */
+.section__label {
+  display: inline-block;
+  background: var(--purple-light);
+  color: var(--purple-dark);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.section__title {
+  font-size: 2.4rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.section__sub {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+.section--center {
+  text-align: center;
+}
+
+.section--center .section__sub {
+  margin: 0 auto;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.88rem;
+  border: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn--outline {
+  background: transparent;
+  border: 2px solid var(--purple);
+  color: var(--purple);
+}
+
+.btn--outline:hover {
+  background: var(--purple);
+  color: var(--white);
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+  color: var(--white);
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.35);
+}
+
+.btn--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.45);
+}
+
+.btn--green {
+  background: linear-gradient(135deg, #34d399, var(--green), var(--green-dark));
+  color: var(--white);
+  box-shadow: var(--shadow-green);
+  border: none;
+}
+
+.btn--green:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.45);
+}
+
+.btn--white {
+  background: var(--white);
+  color: var(--green-dark);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border: none;
+}
+
+.btn--white:hover {
+  transform: translateY(-2px);
+}
+
+.btn--lg {
+  padding: 16px 36px;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
