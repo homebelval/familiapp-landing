@@ -4,9 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO Meta — à compléter en Task 11 -->
-  <title>FamilyApp — L'organisation familiale gamifiée | Essai gratuit 30 jours</title>
-  <meta name="description" content="Gérez les tâches, le calendrier, Pronote et le temps d'écran de toute la famille. Parents sereins, enfants motivés. Essai gratuit 30 jours sans CB.">
+  <!-- Primary SEO -->
+  <title>FamilyApp — Organisez votre famille en toute sérénité</title>
+  <meta name="description" content="FamilyApp : agenda partagé, gestion des tâches, suivi scolaire Pronote, contrôle parental et bien plus. Essai gratuit 30 jours, sans CB.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://family-app.fr/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://family-app.fr/">
+  <meta property="og:title" content="FamilyApp — Organisez votre famille en toute sérénité">
+  <meta property="og:description" content="Agenda partagé, tâches, suivi scolaire Pronote, contrôle parental. 2 000+ familles nous font confiance. Essai gratuit 30 jours.">
+  <meta property="og:image" content="https://family-app.fr/og-image.png">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="FamilyApp">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FamilyApp — Organisez votre famille en toute sérénité">
+  <meta name="twitter:description" content="Agenda partagé, tâches, suivi scolaire Pronote, contrôle parental. Essai gratuit 30 jours.">
+  <meta name="twitter:image" content="https://family-app.fr/og-image.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/images/favicon.png">
@@ -587,7 +604,77 @@
 </div>
   </footer>
 
-  <!-- Schema.org JSON-LD — Task 11 -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "FamilyApp",
+      "url": "https://family-app.fr",
+      "description": "Application de gestion familiale : agenda partagé, tâches, suivi scolaire Pronote, contrôle parental.",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "description": "Essai gratuit 30 jours"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "2000"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "FamilyApp est-il gratuit ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, FamilyApp propose un plan Gratuit complet et un essai de 30 jours du plan Family Plus sans carte bancaire requise."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment fonctionne la synchronisation Pronote ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FamilyApp se connecte à Pronote via votre identifiant élève pour récupérer automatiquement les notes, devoirs et absences de vos enfants."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de membres peut-on ajouter ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le plan Gratuit permet jusqu'à 4 membres. Le plan Family Plus permet jusqu'à 8 membres."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Mes données sont-elles sécurisées ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, toutes les données sont hébergées en Europe (Infomaniak) et chiffrées. Aucune donnée n'est vendue à des tiers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puis-je annuler à tout moment ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, vous pouvez annuler votre abonnement à tout moment depuis votre profil. Aucun engagement, aucune pénalité."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
   <!-- JS -->
   <script src="js/main.js" defer></script>
