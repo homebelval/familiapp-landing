@@ -1467,7 +1467,7 @@ button {
     gap: 48px;
   }
 
-  .features__grid {
+  .features-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1551,7 +1551,7 @@ button {
   }
 
   /* Sections — single column */
-  .features__grid {
+  .features-grid {
     grid-template-columns: 1fr;
   }
 
