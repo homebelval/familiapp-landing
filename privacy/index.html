@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Politique de confidentialité — FamilyApp</title>
+  <meta name="description" content="Politique de confidentialité de FamilyApp - Conforme RGPD et Google OAuth">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://family-app.fr/privacy/">
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <style>
+    /* Legal hero */
+    .legal-hero {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--purple-dark) 50%, #f093fb 100%);
+      padding: 140px 20px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .legal-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+      opacity: 0.3;
+    }
+    .legal-hero h1 {
+      color: #fff;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    .legal-hero .subtitle {
+      color: rgba(255,255,255,0.9);
+      font-size: 1.05rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Legal content */
+    .legal-content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 24px 100px;
+    }
+    .legal-content > p:first-of-type {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #444;
+      margin-bottom: 48px;
+      padding: 24px;
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      border-left: 4px solid var(--purple);
+      border-radius: var(--radius-sm);
+    }
+    .legal-content h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-top: 56px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid var(--purple);
+    }
+    .legal-content h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #333;
+      margin-top: 36px;
+      margin-bottom: 12px;
+    }
+    .legal-content h4 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #444;
+      margin-top: 24px;
+      margin-bottom: 10px;
+    }
+    .legal-content p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 16px;
+    }
+    .legal-content ul {
+      margin: 16px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .legal-content ul li {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 10px;
+      padding-left: 28px;
+      position: relative;
+    }
+    .legal-content ul li::before {
+      content: "▸";
+      position: absolute;
+      left: 8px;
+      color: var(--purple);
+      font-weight: bold;
+    }
+    .legal-content strong { color: var(--text); font-weight: 700; }
+    .legal-content a { color: var(--purple); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .3s; }
+    .legal-content a:hover { border-bottom-color: var(--purple); }
+    .legal-content code { background: #f1f3f5; padding: 2px 7px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.9rem; color: #e83e8c; }
+
+    /* Info box */
+    .info-box {
+      background: #f0f9ff;
+      border-left: 4px solid #0284c7;
+      padding: 24px;
+      margin: 28px 0;
+      border-radius: var(--radius-sm);
+    }
+    .info-box h3, .info-box h4 { color: #0284c7; }
+    .info-box h3:first-child { margin-top: 0; }
+
+    /* Table */
+    .legal-content table { width: 100%; border-collapse: collapse; margin: 28px 0; box-shadow: 0 2px 8px rgba(0,0,0,.08); border-radius: var(--radius-sm); overflow: hidden; }
+    .legal-content table thead { background: linear-gradient(135deg, var(--purple), var(--purple-dark)); color: #fff; }
+    .legal-content table th { padding: 14px 16px; text-align: left; font-weight: 700; }
+    .legal-content table td { padding: 14px 16px; border-bottom: 1px solid #e9ecef; }
+    .legal-content table tbody tr:hover { background: #f8f9fa; }
+
+    /* Contact highlight */
+    .contact-highlight {
+      font-size: 1.2rem !important;
+      margin: 28px 0 !important;
+      padding: 18px;
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      border-radius: var(--radius-sm);
+      text-align: center;
+    }
+    .contact-highlight a { font-weight: 700; font-size: 1.3rem; }
+
+    @media (max-width: 768px) {
+      .legal-content table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header__inner">
+        <a href="/" class="header__logo">
+          <div class="header__logo-mark" aria-hidden="true">🏠</div>
+          <span class="header__logo-text">Family<span>App</span></span>
+        </a>
+        <nav class="header__nav" id="header-nav" role="navigation" aria-label="Navigation principale">
+          <a href="/#fonctionnalites" class="header__link">Fonctionnalités</a>
+          <a href="/#tarifs" class="header__link">Tarifs</a>
+          <a href="/#temoignages" class="header__link">Témoignages</a>
+          <a href="/#faq" class="header__link">FAQ</a>
+          <a href="https://app.family-app.fr/login" class="btn btn--outline" rel="noopener">Connexion</a>
+          <a href="/register.html" class="btn btn--primary">🎁 Essai gratuit</a>
+        </nav>
+        <button class="header__hamburger" id="hamburger-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="header-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="legal-hero">
+    <div class="container">
+      <h1>Politique de confidentialité</h1>
+      <p class="subtitle">Dernière mise à jour : 11 février 2026</p>
+    </div>
+  </section>
+
+  <div class="legal-content">
+    <p>
+      La protection de vos données personnelles est une priorité absolue pour FamilyApp.
+      Cette politique explique de manière transparente comment nous collectons, utilisons,
+      stockons et protégeons vos informations conformément au RGPD (Règlement Général sur
+      la Protection des Données) et aux exigences de Google OAuth.
+    </p>
+
+    <h2>1. Responsable du traitement</h2>
+    <p><strong>FamilyApp</strong></p>
+    <p>📍 Basé en France (Union Européenne)</p>
+    <p>📧 Contact : <a href="mailto:app.familiale@gmail.com">app.familiale@gmail.com</a></p>
+    <p>⏱️ Délai de réponse : sous 30 jours maximum</p>
+
+    <h2>2. Données collectées</h2>
+
+    <h3>2.1. Données de compte et d'authentification</h3>
+    <ul>
+      <li><strong>Nom, prénom, adresse email</strong> : collectés lors de l'inscription</li>
+      <li><strong>Mot de passe</strong> : chiffré et stocké de manière sécurisée (Firebase Authentication)</li>
+      <li><strong>Identifiant Google</strong> : si vous choisissez l'authentification Google</li>
+      <li><strong>Adresse IP</strong> : pour des raisons de sécurité et de prévention des abus</li>
+    </ul>
+
+    <h3>2.2. Données familiales</h3>
+    <ul>
+      <li><strong>Informations sur les membres de la famille</strong> : prénoms, âges, relations</li>
+      <li><strong>Tâches et événements</strong> : créés et gérés par les parents</li>
+      <li><strong>Récompenses et argent de poche</strong> : montants et historiques</li>
+      <li><strong>Temps d'écran</strong> : durées d'utilisation des appareils (si activé)</li>
+    </ul>
+
+    <h3>2.3. Données techniques</h3>
+    <ul>
+      <li><strong>Type d'appareil et système d'exploitation</strong></li>
+      <li><strong>Navigateur utilisé</strong></li>
+      <li><strong>Logs de connexion</strong> : horodatages des accès</li>
+    </ul>
+
+    <h2>3. Intégration Google Calendar (Lecture seule)</h2>
+
+    <div class="info-box">
+      <h3>🔐 Engagement de transparence</h3>
+
+      <h4>3.1. Autorisation explicite</h4>
+      <p>L'accès à votre Google Calendar nécessite votre <strong>consentement explicite</strong>. Vous devez autoriser FamilyApp via le processus OAuth sécurisé de Google.</p>
+
+      <h4>3.2. Scope utilisé (portée limitée)</h4>
+      <p><strong>Scope demandé :</strong> <code>https://www.googleapis.com/auth/calendar.events.readonly</code></p>
+      <p>Cela signifie que FamilyApp peut <strong>uniquement lire</strong> vos événements calendrier. Nous ne pouvons <strong>ni modifier, ni supprimer, ni créer</strong> d'événements.</p>
+
+      <h4>3.3. Utilisation des données</h4>
+      <p><strong>Ce que nous faisons :</strong></p>
+      <ul>
+        <li>✅ Afficher vos événements familiaux dans l'application</li>
+        <li>✅ Synchroniser votre planning familial en temps réel</li>
+        <li>✅ Vous permettre de voir les événements à venir dans le widget calendrier</li>
+      </ul>
+      <p><strong>Ce que nous ne faisons PAS :</strong></p>
+      <ul>
+        <li>❌ Stocker vos événements de manière permanente dans notre base de données</li>
+        <li>❌ Partager vos événements avec des tiers</li>
+        <li>❌ Vendre ou monétiser vos données calendrier</li>
+        <li>❌ Utiliser vos données à des fins publicitaires</li>
+        <li>❌ Modifier ou supprimer vos événements</li>
+      </ul>
+
+      <h4>3.4. Stockage et conservation</h4>
+      <p><strong>Tokens d'accès OAuth :</strong> stockés de manière chiffrée dans Firebase (Europe) uniquement pour permettre la synchronisation.</p>
+      <p><strong>Événements calendrier :</strong> récupérés en temps réel à chaque affichage. Aucune copie permanente n'est conservée dans notre base de données.</p>
+      <p><strong>Cache temporaire :</strong> les événements peuvent être mis en cache temporairement dans votre navigateur pendant votre session active uniquement.</p>
+
+      <h4>3.5. Révocation de l'accès</h4>
+      <p>Vous pouvez <strong>révoquer l'accès à tout moment</strong> de deux manières :</p>
+      <ul>
+        <li><strong>Dans FamilyApp :</strong> Paramètres → Intégrations → Google Calendar → "Déconnecter"</li>
+        <li><strong>Dans votre compte Google :</strong> <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">myaccount.google.com/permissions</a></li>
+      </ul>
+      <p>Lors de la déconnexion, nous supprimons immédiatement tous les tokens d'accès et vous ne pourrez plus voir vos événements Google dans l'application.</p>
+
+      <h4>3.6. Nettoyage automatique</h4>
+      <p>Un processus automatique quotidien vérifie la validité des tokens OAuth et supprime ceux qui ont été révoqués par l'utilisateur.</p>
+    </div>
+
+    <h2>4. Finalités du traitement</h2>
+    <p>Vos données sont utilisées uniquement pour :</p>
+    <ul>
+      <li><strong>Fourniture du service :</strong> gestion de votre compte et fonctionnalités de l'application</li>
+      <li><strong>Synchronisation :</strong> intégration avec Google Calendar (si activée)</li>
+      <li><strong>Sécurité :</strong> prévention des abus et fraudes</li>
+      <li><strong>Amélioration du service :</strong> statistiques anonymisées d'usage</li>
+      <li><strong>Communication :</strong> notifications importantes et mises à jour</li>
+    </ul>
+
+    <h2>5. Base légale du traitement</h2>
+    <ul>
+      <li><strong>Exécution du contrat :</strong> fourniture du service FamilyApp</li>
+      <li><strong>Consentement :</strong> pour l'intégration Google Calendar et certaines fonctionnalités optionnelles</li>
+      <li><strong>Intérêt légitime :</strong> sécurité et prévention des fraudes</li>
+      <li><strong>Obligation légale :</strong> conservation des données fiscales (si applicable)</li>
+    </ul>
+
+    <h2>6. Durée de conservation</h2>
+    <ul>
+      <li><strong>Données de compte actif :</strong> tant que votre compte existe</li>
+      <li><strong>Après suppression du compte :</strong> 30 jours maximum (puis effacement définitif)</li>
+      <li><strong>Logs de sécurité :</strong> 6 mois maximum</li>
+      <li><strong>Tokens OAuth :</strong> révoqués immédiatement lors de la déconnexion</li>
+      <li><strong>Données de facturation :</strong> 10 ans (obligation légale)</li>
+    </ul>
+
+    <h2>7. Partage et transfert des données</h2>
+
+    <h3>7.1. Services techniques essentiels</h3>
+    <p>Vos données sont hébergées et traitées par les services suivants :</p>
+    <ul>
+      <li><strong>Firebase (Google Cloud Platform)</strong> : hébergement en Europe (Belgique) — <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Politique de confidentialité Firebase</a></li>
+      <li><strong>Google OAuth</strong> : authentification sécurisée — conformité RGPD</li>
+    </ul>
+
+    <h3>7.2. Aucun partage commercial</h3>
+    <ul>
+      <li>❌ Aucune vente de données à des tiers</li>
+      <li>❌ Aucune plateforme de marketing ou d'emailing tiers</li>
+      <li>❌ Aucun service de profilage ou ciblage publicitaire</li>
+    </ul>
+
+    <h2>8. Sécurité des données</h2>
+
+    <h3>8.1. Mesures techniques</h3>
+    <ul>
+      <li><strong>Chiffrement :</strong> toutes les données sont chiffrées en transit (HTTPS/TLS) et au repos (Firebase)</li>
+      <li><strong>Authentification sécurisée :</strong> Firebase Authentication avec bcrypt pour les mots de passe</li>
+      <li><strong>Tokens OAuth :</strong> stockés de manière chiffrée et expirés automatiquement</li>
+      <li><strong>Accès restreint :</strong> seules les personnes autorisées ont accès aux serveurs</li>
+    </ul>
+
+    <h3>8.2. Authentification disponible</h3>
+    <ul>
+      <li>✅ Authentification Google (recommandée)</li>
+      <li>✅ Email + mot de passe</li>
+      <li>🔜 Authentification à deux facteurs (2FA) — en développement</li>
+    </ul>
+
+    <h2>9. Vos droits (RGPD)</h2>
+    <p>Conformément au RGPD, vous disposez des droits suivants :</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Droit</th>
+          <th>Description</th>
+          <th>Comment l'exercer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Accès</strong></td><td>Obtenir une copie de vos données</td><td>Email à app.familiale@gmail.com</td></tr>
+        <tr><td><strong>Rectification</strong></td><td>Corriger des données inexactes</td><td>Directement dans l'app ou par email</td></tr>
+        <tr><td><strong>Suppression</strong></td><td>Effacer vos données</td><td>Paramètres → Supprimer mon compte</td></tr>
+        <tr><td><strong>Portabilité</strong></td><td>Recevoir vos données (format JSON)</td><td>Email à app.familiale@gmail.com</td></tr>
+        <tr><td><strong>Opposition</strong></td><td>Refuser certains traitements</td><td>Email à app.familiale@gmail.com</td></tr>
+        <tr><td><strong>Limitation</strong></td><td>Restreindre l'utilisation de vos données</td><td>Email à app.familiale@gmail.com</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Délai de réponse :</strong> sous 30 jours maximum</p>
+    <p><strong>Réclamation :</strong> Si vous estimez que vos droits ne sont pas respectés, vous pouvez déposer une plainte auprès de la CNIL : <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a></p>
+
+    <h2>10. Cookies et technologies similaires</h2>
+    <p>FamilyApp utilise des cookies strictement nécessaires au fonctionnement de l'application :</p>
+    <ul>
+      <li><strong>Cookies de session :</strong> pour maintenir votre connexion</li>
+      <li><strong>Cookies de sécurité :</strong> pour prévenir les attaques CSRF</li>
+      <li><strong>Cookies de préférence :</strong> pour mémoriser vos paramètres (thème sombre, etc.)</li>
+    </ul>
+    <p><strong>Nous n'utilisons aucun cookie publicitaire ou de tracking.</strong></p>
+
+    <h2>11. Modifications de cette politique</h2>
+    <p>Nous nous réservons le droit de modifier cette politique de confidentialité. En cas de changement substantiel, nous vous en informerons par :</p>
+    <ul>
+      <li>📧 Email à l'adresse associée à votre compte</li>
+      <li>📱 Notification dans l'application</li>
+      <li>🌐 Mise à jour de la date en haut de cette page</li>
+    </ul>
+
+    <h2>12. Contact</h2>
+    <p>Pour toute question concernant la protection de vos données personnelles :</p>
+    <p class="contact-highlight">📧 <a href="mailto:app.familiale@gmail.com">app.familiale@gmail.com</a></p>
+    <p><strong>Délai de réponse garanti :</strong> sous 30 jours maximum</p>
+
+    <h2>13. Conformité Google OAuth API Services</h2>
+    <p>L'utilisation de FamilyApp avec Google Calendar est soumise aux <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, incluant les exigences de Limited Use.</p>
+    <p><strong>Engagement FamilyApp :</strong></p>
+    <ul>
+      <li>✅ Utilisation limitée aux fonctionnalités décrites ci-dessus</li>
+      <li>✅ Aucun transfert de données à des tiers (sauf services techniques essentiels)</li>
+      <li>✅ Aucune utilisation à des fins publicitaires</li>
+      <li>✅ Lecture seule uniquement (scope readonly)</li>
+    </ul>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/" class="header__logo">
+            <div class="header__logo-mark" aria-hidden="true">🏠</div>
+            <span class="header__logo-text" style="color:var(--white);">Family<span>App</span></span>
+          </a>
+          <p class="footer__tagline">L'organisation familiale gamifiée. Parents sereins, enfants motivés.</p>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">Produit</h3>
+          <ul>
+            <li><a href="/#fonctionnalites">Fonctionnalités</a></li>
+            <li><a href="/#tarifs">Tarifs</a></li>
+            <li><a href="/#temoignages">Témoignages</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">Entreprise</h3>
+          <ul>
+            <li><a href="#">À propos</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="mailto:contact@family-app.fr">Contact</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">Légal</h3>
+          <ul>
+            <li><a href="/terms/">Conditions d'utilisation</a></li>
+            <li><a href="/privacy/">Politique de confidentialité</a></li>
+            <li><a href="#">Mentions légales</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 FamilyApp — Tous droits réservés</span>
+        <span>🇫🇷 Made in France with ❤️</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>
