@@ -1,0 +1,2 @@
+OG Image placeholder — replace with a 1200×630px PNG before deploying to production.
+Suggested content: FamilyApp logo centered on purple gradient background.
