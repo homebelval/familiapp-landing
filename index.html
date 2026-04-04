@@ -61,7 +61,141 @@
   <main>
     <!-- HERO -->
     <section class="hero" id="accueil">
-      <!-- Task 4 & 5 -->
+      <div class="container">
+  <div class="hero__inner">
+    <!-- Côté texte -->
+    <div class="hero__text">
+      <div class="hero__badge">⭐ +2 000 familles organisées en France</div>
+      <h1 class="hero__title">
+        L'organisation familiale<br>
+        <span class="hero__title-accent">enfin fun</span>
+        pour petits et grands
+      </h1>
+      <p class="hero__sub">
+        Tâches gamifiées, calendrier partagé, suivi Pronote et temps d'écran —
+        tout ce qu'il faut pour une famille sereine et des enfants motivés.
+      </p>
+      <div class="hero__ctas">
+        <a href="register.html" class="btn btn--green btn--lg">🎁 Essai gratuit 30 jours</a>
+        <a href="#fonctionnalites" class="hero__cta-ghost">Découvrir l'app ↓</a>
+      </div>
+      <ul class="hero__trust">
+        <li>✓ Sans engagement</li>
+        <li>✓ Sans carte bancaire</li>
+        <li>✓ 🇫🇷 Made in France</li>
+      </ul>
+    </div>
+
+    <!-- Côté visuel -->
+    <div class="hero__visual" aria-hidden="true">
+      <!-- Tablette — dashboard parent -->
+      <div class="mockup-tablet">
+        <div class="mockup-tablet__screen">
+          <div class="mockup-tablet__header">
+            <span class="mockup-tablet__title">Dashboard famille</span>
+            <span class="mockup-badge mockup-badge--purple">Vue parent</span>
+          </div>
+          <div class="mockup-family-grid">
+            <div class="mockup-family-card">
+              <div class="mockup-avatar" style="background:#fef3c7;">👧</div>
+              <div class="mockup-family-name">Emma</div>
+              <div class="mockup-family-tasks">4/5 tâches</div>
+              <div class="mockup-progress"><div class="mockup-progress__fill" style="width:80%;background:var(--green);"></div></div>
+            </div>
+            <div class="mockup-family-card">
+              <div class="mockup-avatar" style="background:#ede9fe;">👦</div>
+              <div class="mockup-family-name">Lucas</div>
+              <div class="mockup-family-tasks">2/4 tâches</div>
+              <div class="mockup-progress"><div class="mockup-progress__fill" style="width:50%;background:var(--amber);"></div></div>
+            </div>
+            <div class="mockup-family-card">
+              <div class="mockup-avatar" style="background:#d1fae5;">🧒</div>
+              <div class="mockup-family-name">Léa</div>
+              <div class="mockup-family-tasks">3/3 tâches</div>
+              <div class="mockup-progress"><div class="mockup-progress__fill" style="width:100%;background:var(--purple);"></div></div>
+            </div>
+            <div class="mockup-family-card mockup-family-card--event">
+              <div class="mockup-event-label">📅 Prochain</div>
+              <div class="mockup-event-name">Foot Lucas</div>
+              <div class="mockup-event-time">Demain 18h</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Téléphone — app Fammily enfant -->
+      <div class="mockup-phone">
+        <div class="mockup-phone__notch" aria-hidden="true"></div>
+        <div class="mockup-phone__screen">
+          <!-- Greeting -->
+          <div class="mockup-phone__header">
+            <div class="mockup-phone__greeting">Salut <strong>Emma</strong> ! 👋</div>
+            <div class="mockup-streak">🔥 12j</div>
+          </div>
+
+          <!-- Tâches -->
+          <div class="mockup-card">
+            <div class="mockup-card__title">Mes tâches</div>
+            <div class="mockup-task">
+              <div class="mockup-task__check mockup-task__check--done" aria-label="Complété"></div>
+              <span class="mockup-task__label mockup-task__label--done">Ranger chambre</span>
+              <span class="mockup-pts">+10⭐</span>
+            </div>
+            <div class="mockup-task">
+              <div class="mockup-task__check mockup-task__check--done" aria-label="Complété"></div>
+              <span class="mockup-task__label mockup-task__label--done">Mettre la table</span>
+              <span class="mockup-pts">+5⭐</span>
+            </div>
+            <div class="mockup-task">
+              <div class="mockup-task__check" aria-label="À faire"></div>
+              <span class="mockup-task__label">Devoirs de maths</span>
+              <span class="mockup-pts">+15⭐</span>
+            </div>
+            <div class="mockup-task">
+              <div class="mockup-task__check" aria-label="À faire"></div>
+              <span class="mockup-task__label">Lecture 20 min</span>
+              <span class="mockup-pts">+10⭐</span>
+            </div>
+          </div>
+
+          <!-- Cagnotte -->
+          <div class="mockup-card">
+            <div class="mockup-cagnotte">
+              <div>
+                <div class="mockup-card__title">Ma cagnotte 💰</div>
+                <div class="mockup-cagnotte__amount">12,50 €</div>
+              </div>
+              <div class="mockup-cagnotte__goal">
+                <div class="mockup-cagnotte__goal-label">Objectif vélo</div>
+                <div class="mockup-cagnotte__goal-amount">25 €</div>
+              </div>
+            </div>
+            <div class="mockup-progress" style="margin-top:6px;">
+              <div class="mockup-progress__fill" style="width:50%;"></div>
+            </div>
+            <div class="mockup-progress__labels">
+              <span>50% atteint</span>
+              <span>encore 12,50€</span>
+            </div>
+          </div>
+
+          <!-- Pronote -->
+          <div class="mockup-card">
+            <div class="mockup-card__title">Dernière note Pronote</div>
+            <div class="mockup-grade">
+              <div class="mockup-grade__score">16/20</div>
+              <div>
+                <div class="mockup-grade__subject">Maths — Contrôle</div>
+                <div class="mockup-grade__bonus">Bonus débloqué ! 🎉</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mockup-phone__bar" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+</div>
     </section>
 
     <!-- SOCIAL PROOF BAND -->
