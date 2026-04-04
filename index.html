@@ -24,7 +24,38 @@
 
   <!-- HEADER -->
   <header class="header" id="header">
-    <!-- Task 3 -->
+    <div class="container">
+      <div class="header__inner">
+        <!-- Logo -->
+        <a href="#accueil" class="header__logo">
+          <div class="header__logo-mark" aria-hidden="true">🏠</div>
+          <span class="header__logo-text">Family<span>App</span></span>
+        </a>
+
+        <!-- Navigation desktop -->
+        <nav class="header__nav" id="header-nav" role="navigation" aria-label="Navigation principale">
+          <a href="#fonctionnalites" class="header__link">Fonctionnalités</a>
+          <a href="#tarifs" class="header__link">Tarifs</a>
+          <a href="#temoignages" class="header__link">Témoignages</a>
+          <a href="#faq" class="header__link">FAQ</a>
+          <a href="https://app.family-app.fr/login" class="btn btn--outline" rel="noopener">Connexion</a>
+          <a href="register.html" class="btn btn--primary">🎁 Essai gratuit</a>
+        </nav>
+
+        <!-- Bouton hamburger mobile -->
+        <button
+          class="header__hamburger"
+          id="hamburger-btn"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+          aria-controls="header-nav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
   </header>
 
   <main>
