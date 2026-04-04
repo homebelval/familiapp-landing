@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://family-app.fr/sitemap.xml
