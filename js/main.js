@@ -1,5 +1,47 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ─── 0C. 3D tilt on feature cards ────────────────────────────────────────
+  const tiltCards = document.querySelectorAll('.feat-card');
+  tiltCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width  - 0.5;
+      const y = (e.clientY - rect.top)  / rect.height - 0.5;
+      const rotY =  x * 12;
+      const rotX = -y * 10;
+      card.style.transition = 'box-shadow 0.3s ease, border-color 0.3s ease';
+      card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-6px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transition = 'transform 0.5s ease, box-shadow 0.3s ease, border-color 0.3s ease';
+      card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)';
+    });
+  });
+
+  // ─── 0E. Mockup live animation ───────────────────────────────────────────
+  const mockupTasks = document.querySelectorAll('.mockup-task');
+  mockupTasks.forEach((task, i) => {
+    task.style.opacity = '0';
+    task.style.transform = 'translateX(-8px)';
+    task.style.transition = 'opacity .4s ease, transform .4s ease';
+    setTimeout(() => {
+      task.style.opacity = '1';
+      task.style.transform = 'translateX(0)';
+    }, 400 + i * 220);
+  });
+
+  // Animate pts badges appearing
+  const ptsBadges = document.querySelectorAll('.mockup-pts');
+  ptsBadges.forEach((badge, i) => {
+    badge.style.opacity = '0';
+    badge.style.transform = 'scale(0.5)';
+    badge.style.transition = 'opacity .3s ease, transform .3s ease';
+    setTimeout(() => {
+      badge.style.opacity = '1';
+      badge.style.transform = 'scale(1)';
+    }, 700 + i * 220);
+  });
+
   // ─── 0A. Animated counters ─────────────────────────────────────────────────
   const counters = document.querySelectorAll('.stats-band__num[data-target]');
   if (counters.length > 0 && 'IntersectionObserver' in window) {

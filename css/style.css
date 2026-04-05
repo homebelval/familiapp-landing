@@ -655,6 +655,11 @@ button {
   background: linear-gradient(90deg, var(--purple), var(--purple-dark));
   height: 100%;
   border-radius: 2px;
+  animation: progressFill 1.8s cubic-bezier(.4,0,.2,1) both;
+}
+@keyframes progressFill {
+  from { transform: scaleX(0); transform-origin: left; }
+  to   { transform: scaleX(1); transform-origin: left; }
 }
 
 /* -- Téléphone -- */
@@ -707,6 +712,11 @@ button {
   font-weight: 800;
   padding: 3px 7px;
   border-radius: 8px;
+  animation: streakPulse 2.5s ease-in-out infinite;
+}
+@keyframes streakPulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.12); }
 }
 
 .mockup-phone__bar {
@@ -898,14 +908,18 @@ button {
   margin-top: 56px;
 }
 
+/* C — 3D tilt cards */
 .feat-card {
   background: var(--white);
   border-radius: var(--radius);
   padding: 32px;
   border: 1.5px solid var(--border);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
   position: relative;
   overflow: hidden;
+  will-change: transform;
+  transform-style: preserve-3d;
+  transform: perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0);
 }
 
 .feat-card::before {
@@ -922,7 +936,6 @@ button {
 }
 
 .feat-card:hover {
-  transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
   border-color: rgba(102, 126, 234, 0.2);
 }
