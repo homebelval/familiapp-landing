@@ -1,5 +1,68 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ─── 0A. Animated counters ─────────────────────────────────────────────────
+  const counters = document.querySelectorAll('.stats-band__num[data-target]');
+  if (counters.length > 0 && 'IntersectionObserver' in window) {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.dataset.target, 10);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1400;
+        const step = 16;
+        const steps = duration / step;
+        let current = 0;
+        const increment = target / steps;
+        const timer = setInterval(() => {
+          current = Math.min(current + increment, target);
+          el.textContent = Math.round(current) + suffix;
+          if (current >= target) clearInterval(timer);
+        }, step);
+        counterObserver.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => counterObserver.observe(c));
+  } else {
+    counters.forEach(c => {
+      c.textContent = c.dataset.target + (c.dataset.suffix || '');
+    });
+  }
+
+  // ─── 0D. Typing effect ────────────────────────────────────────────────────
+  const typingEl = document.getElementById('typing-text');
+  if (typingEl) {
+    const words = ['enfin fun', 'plus zen', 'simplifiée', 'bien organisée'];
+    let wordIndex = 0;
+    let charIndex = words[0].length;
+    let isDeleting = false;
+    let pause = false;
+
+    function type() {
+      const current = words[wordIndex];
+      if (pause) { pause = false; setTimeout(type, 1400); return; }
+
+      if (!isDeleting) {
+        charIndex++;
+        typingEl.textContent = current.substring(0, charIndex);
+        if (charIndex === current.length) { isDeleting = true; pause = true; }
+        setTimeout(type, 90);
+      } else {
+        charIndex--;
+        typingEl.textContent = current.substring(0, charIndex);
+        if (charIndex === 0) {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          pause = true;
+        }
+        setTimeout(type, 50);
+      }
+    }
+    // Start after initial pause
+    setTimeout(type, 2200);
+  }
+
+
   // ─── 1. Header scroll effect ───────────────────────────────────────────────
   const header = document.getElementById('header');
   if (header) {
