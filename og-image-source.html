@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 630px; overflow: hidden;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 60%, #f093fb 100%);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 60px 80px;
+  }
+  .left { flex: 1; }
+  .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 18px; font-weight: 600;
+    padding: 8px 20px; border-radius: 50px;
+    margin-bottom: 28px;
+  }
+  h1 {
+    color: #fff; font-size: 58px; font-weight: 900;
+    line-height: 1.1; margin-bottom: 20px;
+  }
+  h1 span { color: #a7f3d0; }
+  p { color: rgba(255,255,255,0.85); font-size: 22px; line-height: 1.5; max-width: 560px; }
+  .logo {
+    position: absolute; top: 48px; left: 80px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .logo-mark {
+    width: 52px; height: 52px; background: rgba(255,255,255,0.2);
+    border-radius: 14px; display: flex; align-items: center;
+    justify-content: center; font-size: 28px;
+  }
+  .logo-text {
+    font-size: 28px; font-weight: 800; color: #fff;
+  }
+  .logo-text span { color: #a7f3d0; }
+  .right {
+    width: 300px; flex-shrink: 0;
+    display: flex; flex-direction: column; gap: 16px;
+    margin-left: 60px;
+  }
+  .feat {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 16px; padding: 20px 24px;
+    display: flex; align-items: center; gap: 16px;
+    color: #fff; font-size: 17px; font-weight: 600;
+  }
+  .feat span { font-size: 28px; }
+  .bottom {
+    position: absolute; bottom: 48px; left: 80px;
+    color: rgba(255,255,255,0.7); font-size: 16px;
+  }
+</style>
+</head>
+<body>
+  <div class="logo">
+    <div class="logo-mark">🏠</div>
+    <div class="logo-text">Family<span>App</span></div>
+  </div>
+  <div class="left" style="margin-top: 40px;">
+    <div class="badge">🚀 Bêta ouverte</div>
+    <h1>L'organisation<br>familiale<br><span>enfin fun</span></h1>
+    <p>Tâches, calendrier, Pronote et contrôle parental — en une seule app 100% française.</p>
+  </div>
+  <div class="right">
+    <div class="feat"><span>✅</span> Tâches gamifiées</div>
+    <div class="feat"><span>📅</span> Calendrier partagé</div>
+    <div class="feat"><span>📱</span> Temps d'écran</div>
+    <div class="feat"><span>📚</span> Suivi Pronote</div>
+  </div>
+  <div class="bottom">family-app.fr · 🇫🇷 Made in France</div>
+</body>
+</html>
