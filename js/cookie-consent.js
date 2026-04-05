@@ -36,30 +36,39 @@
     banner.setAttribute('role', 'dialog');
     banner.setAttribute('aria-label', 'Consentement cookies');
     banner.innerHTML = [
-      '<div style="max-width:860px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:16px;justify-content:space-between;">',
-        '<p style="margin:0;font-size:.9rem;line-height:1.5;flex:1;min-width:200px;">',
-          '🍪 Nous utilisons des cookies pour analyser l\'audience et améliorer votre expérience. ',
-          '<a href="/privacy/" style="color:#a78bfa;text-decoration:underline;">En savoir plus</a>',
-        '</p>',
-        '<div style="display:flex;gap:10px;flex-shrink:0;">',
+      '<div style="max-width:900px;margin:0 auto;">',
+        '<div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:14px;">',
+          '<span style="font-size:1.6rem;line-height:1;">🍪</span>',
+          '<div>',
+            '<p style="margin:0 0 4px;font-size:1rem;font-weight:700;color:#fff;">Respect de votre vie privée</p>',
+            '<p style="margin:0;font-size:.875rem;line-height:1.55;color:rgba(255,255,255,.8);">',
+              'Nous utilisons des cookies pour mesurer l\'audience et améliorer votre expérience sur FamilyApp. ',
+              'Vous pouvez accepter ou refuser leur utilisation. ',
+              '<a href="/privacy/" style="color:#a78bfa;text-decoration:underline;white-space:nowrap;">Politique de confidentialité</a>',
+            '</p>',
+          '</div>',
+        '</div>',
+        '<div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end;">',
           '<button id="cookie-refuse" style="',
-            'background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff;',
-            'padding:8px 18px;border-radius:8px;cursor:pointer;font-size:.85rem;font-family:inherit;',
-            'transition:background .2s;">Refuser</button>',
+            'background:transparent;border:1.5px solid rgba(255,255,255,.35);color:rgba(255,255,255,.85);',
+            'padding:10px 22px;border-radius:10px;cursor:pointer;font-size:.875rem;font-family:inherit;',
+            'transition:all .2s;min-width:120px;">Tout refuser</button>',
           '<button id="cookie-accept" style="',
-            'background:#7c3aed;border:none;color:#fff;',
-            'padding:8px 20px;border-radius:8px;cursor:pointer;font-size:.85rem;font-weight:600;font-family:inherit;',
-            'transition:background .2s;">Accepter</button>',
+            'background:linear-gradient(135deg,#7c3aed,#6d28d9);border:none;color:#fff;',
+            'padding:10px 26px;border-radius:10px;cursor:pointer;font-size:.875rem;font-weight:700;font-family:inherit;',
+            'box-shadow:0 4px 14px rgba(124,58,237,.5);transition:all .2s;min-width:120px;">✓ Tout accepter</button>',
         '</div>',
       '</div>'
     ].join('');
 
     banner.style.cssText = [
       'position:fixed;bottom:0;left:0;right:0;z-index:9999;',
-      'background:rgba(15,10,30,.96);backdrop-filter:blur(8px);',
-      'color:#fff;padding:16px 24px;',
-      'box-shadow:0 -4px 24px rgba(0,0,0,.3);',
-      'animation:cookieSlideUp .3s ease;'
+      'background:linear-gradient(135deg,rgba(20,10,40,.97),rgba(30,15,55,.97));',
+      'backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);',
+      'color:#fff;padding:20px 28px;',
+      'box-shadow:0 -6px 32px rgba(0,0,0,.4),0 -1px 0 rgba(124,58,237,.3);',
+      'border-top:1px solid rgba(124,58,237,.25);',
+      'animation:cookieSlideUp .35s cubic-bezier(.16,1,.3,1);'
     ].join('');
 
     // Animation CSS
