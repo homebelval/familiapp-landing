@@ -1182,8 +1182,8 @@ button {
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
   max-width: 760px;
   margin: 40px auto 0;
 }
@@ -1191,7 +1191,7 @@ button {
 .pricing-card {
   background: var(--white);
   border-radius: var(--radius);
-  padding: 36px;
+  padding: 28px;
   border: 2px solid var(--border);
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1231,7 +1231,7 @@ button {
 }
 
 .pricing-card__amount {
-  font-size: 2.6rem;
+  font-size: 2.2rem;
   font-weight: 900;
   letter-spacing: -1px;
   color: var(--purple);
@@ -1569,6 +1569,10 @@ button {
   }
 
   .testi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
