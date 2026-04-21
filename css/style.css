@@ -1216,6 +1216,10 @@ button {
   white-space: nowrap;
 }
 
+.pricing-card__badge--soon {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
 .pricing-card__name {
   font-size: 1.15rem;
   font-weight: 800;
