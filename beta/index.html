@@ -31,9 +31,19 @@
 
     /* Urgency bar */
     .urgency-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
       background: linear-gradient(90deg, #1a1230 0%, #2d1b69 50%, #1a1230 100%);
       padding: 10px 0;
       text-align: center;
+    }
+
+    /* Push content down to account for fixed bar */
+    body {
+      padding-top: 40px;
     }
     .urgency-bar__inner {
       display: flex;
