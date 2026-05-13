@@ -184,18 +184,115 @@
     font-weight: 900;
   }
 
-  /* Real app screenshot */
+  /* Real app screenshot + dashboard overlay */
+  .phone-wrap {
+    position: relative;
+    flex-shrink: 0;
+    width: 32mm;
+  }
   .phone-screenshot {
     width: 32mm;
-    flex-shrink: 0;
     border-radius: 5mm;
     overflow: hidden;
     box-shadow: 0 3mm 10mm rgba(26,18,48,0.35);
     border: 0.5mm solid rgba(255,255,255,0.15);
+    display: block;
   }
   .phone-screenshot img {
     width: 100%;
     height: auto;
+    display: block;
+  }
+
+  /* Dashboard parent floating card */
+  .dashboard-card {
+    position: absolute;
+    top: -4mm;
+    right: -12mm;
+    width: 28mm;
+    background: white;
+    border-radius: 3mm;
+    padding: 2.5mm;
+    box-shadow: 0 2mm 8mm rgba(26,18,48,0.22);
+    border: 0.3mm solid rgba(123,111,232,0.12);
+  }
+  .dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2mm;
+  }
+  .dash-title {
+    font-family: 'Nunito', sans-serif;
+    font-size: 2.2mm;
+    font-weight: 900;
+    color: var(--ink);
+  }
+  .dash-badge {
+    font-size: 1.8mm;
+    font-weight: 700;
+    background: var(--purple-light);
+    color: var(--purple-dark);
+    padding: 0.4mm 1.5mm;
+    border-radius: 10mm;
+  }
+  .dash-members {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5mm;
+  }
+  .dash-member {
+    display: flex;
+    align-items: center;
+    gap: 1.5mm;
+  }
+  .dash-avatar {
+    width: 4mm; height: 4mm;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5mm;
+    flex-shrink: 0;
+  }
+  .dash-name {
+    font-size: 2mm;
+    font-weight: 700;
+    color: var(--ink);
+    flex: 1;
+  }
+  .dash-tasks {
+    font-size: 1.8mm;
+    color: var(--text-muted);
+    color: #9ca3af;
+  }
+  .dash-bar {
+    height: 1mm;
+    background: #f0ece6;
+    border-radius: 1mm;
+    margin-top: 0.8mm;
+    overflow: hidden;
+  }
+  .dash-bar-fill {
+    height: 100%;
+    border-radius: 1mm;
+  }
+
+  /* Kidly icon */
+  .kidly-badge {
+    position: absolute;
+    bottom: -3mm;
+    left: -4mm;
+    width: 10mm; height: 10mm;
+    border-radius: 2.5mm;
+    overflow: hidden;
+    box-shadow: 0 1.5mm 5mm rgba(26,18,48,0.25);
+    border: 0.5mm solid white;
+  }
+  .kidly-badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
   }
     padding: 1.2mm 1.8mm;
@@ -434,8 +531,56 @@
         </div>
       </div>
 
-      <div class="phone-screenshot">
-        <img src="/images/app-screenshot.png" alt="App FamilyApp — vue enfant">
+      <div class="phone-wrap">
+        <!-- Screenshot enfant -->
+        <div class="phone-screenshot">
+          <img src="/images/app-screenshot.png" alt="App Kidly — vue enfant">
+        </div>
+
+        <!-- Dashboard parent flottant -->
+        <div class="dashboard-card">
+          <div class="dash-header">
+            <span class="dash-title">Dashboard famille</span>
+            <span class="dash-badge">Parent</span>
+          </div>
+          <div class="dash-members">
+            <div class="dash-member">
+              <div class="dash-avatar" style="background:#fef3c7;">👧</div>
+              <div style="flex:1">
+                <div style="display:flex;justify-content:space-between;">
+                  <span class="dash-name">Emma</span>
+                  <span class="dash-tasks">4/5</span>
+                </div>
+                <div class="dash-bar"><div class="dash-bar-fill" style="width:80%;background:#7B6FE8;"></div></div>
+              </div>
+            </div>
+            <div class="dash-member">
+              <div class="dash-avatar" style="background:#d1fae5;">👦</div>
+              <div style="flex:1">
+                <div style="display:flex;justify-content:space-between;">
+                  <span class="dash-name">Lucas</span>
+                  <span class="dash-tasks">2/4</span>
+                </div>
+                <div class="dash-bar"><div class="dash-bar-fill" style="width:50%;background:#1DBF73;"></div></div>
+              </div>
+            </div>
+            <div class="dash-member">
+              <div class="dash-avatar" style="background:#ede9fe;">🧒</div>
+              <div style="flex:1">
+                <div style="display:flex;justify-content:space-between;">
+                  <span class="dash-name">Léa</span>
+                  <span class="dash-tasks">3/3</span>
+                </div>
+                <div class="dash-bar"><div class="dash-bar-fill" style="width:100%;background:#f59e0b;"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Icône Kidly -->
+        <div class="kidly-badge">
+          <img src="/images/kidly-icon.png" alt="Kidly">
+        </div>
       </div>
     </div>
   </div>
@@ -500,7 +645,7 @@
     </div>
 
     <div class="cta-col">
-      <p class="cta-copy">Rejoignez les <strong>50 familles fondatrices</strong> et accédez au plan <strong>Family Plus complet</strong> gratuitement. Votre retour construit le produit.</p>
+      <p class="cta-copy">Rejoignez les <strong>50 familles fondatrices</strong> et accédez au plan <strong>Family Plus complet</strong> gratuitement.<br>Votre retour construit le produit. 🫶</p>
       <div class="founder-perk">
         💎 Tarif fondateur à vie après la bêta
       </div>
