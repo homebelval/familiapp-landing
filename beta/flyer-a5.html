@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FamilyApp — Flyer A5 Bêta</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lavender-bg: #EEF0FF;
+    --purple: #7B6FE8;
+    --purple-dark: #5B4FD4;
+    --purple-light: #A89CF5;
+    --green: #1DBF73;
+    --green-dark: #17A863;
+    --ink: #1A1230;
+    --ink-soft: #4A4070;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /* ── Fond écran (retiré à l'impression) ── */
+  body {
+    background: #C8CCFF;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 48px 24px;
+    font-family: 'Nunito Sans', sans-serif;
+  }
+
+  /* ══════════════════════════════
+     FORMAT A5 EXACT : 148mm × 210mm
+     À l'écran : rendu à 96dpi ≈ 559×794px
+  ══════════════════════════════ */
+  .flyer {
+    width: 148mm;
+    height: 210mm;
+    background: var(--lavender-bg);
+    border-radius: 6mm;
+    overflow: hidden;
+    box-shadow:
+      0 40px 100px rgba(91,79,212,0.25),
+      0 10px 32px rgba(91,79,212,0.14);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  /* ══════════════════════════════
+     HERO  (fond blanc)
+  ══════════════════════════════ */
+  .hero {
+    background: var(--white);
+    padding: 8mm 10mm 7mm;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -24mm; right: -18mm;
+    width: 60mm; height: 60mm;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(168,156,245,0.22) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -14mm; left: -8mm;
+    width: 46mm; height: 46mm;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(29,191,115,0.10) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  /* Logo + badge */
+  .hero-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5.5mm;
+    position: relative;
+    z-index: 1;
+  }
+  .logo-row {
+    display: flex;
+    align-items: center;
+    gap: 2.5mm;
+  }
+  .logo-img {
+    width: 10mm; height: 10mm;
+    border-radius: 3mm;
+    object-fit: contain;
+    box-shadow: 0 1mm 4mm rgba(91,79,212,0.38);
+  }
+  .logo-name {
+    font-family: 'Nunito', sans-serif;
+    font-size: 5.5mm;
+    font-weight: 900;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .logo-name span { color: var(--purple); }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5mm;
+    background: rgba(123,111,232,0.1);
+    border: 0.4mm solid rgba(123,111,232,0.22);
+    border-radius: 25mm;
+    padding: 1.2mm 3.5mm;
+    color: var(--purple-dark);
+    font-size: 2.8mm;
+    font-weight: 700;
+  }
+  .badge-dot {
+    width: 1.8mm; height: 1.8mm;
+    border-radius: 50%;
+    background: var(--purple);
+    animation: blink 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.35;} }
+
+  /* Hero corps */
+  .hero-body {
+    display: flex;
+    align-items: flex-start;
+    gap: 6mm;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-copy { flex: 1; }
+
+  .hero-title {
+    font-family: 'Nunito', sans-serif;
+    font-size: 9.5mm;
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1.06;
+    letter-spacing: -0.025em;
+    margin-bottom: 3mm;
+  }
+  .hero-title .fun {
+    background: linear-gradient(135deg, var(--purple) 0%, var(--purple-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-desc {
+    font-size: 3.2mm;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 58mm;
+  }
+
+  /* Plan pill sous le desc */
+  .plan-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 2mm;
+    margin-top: 3mm;
+    background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+    color: #fff;
+    font-size: 2.8mm;
+    font-weight: 800;
+    padding: 1.5mm 3.5mm;
+    border-radius: 25mm;
+  }
+  .plan-pill .price-old {
+    font-size: 2.5mm;
+    opacity: 0.6;
+    text-decoration: line-through;
+    font-weight: 600;
+  }
+  .plan-pill .price-new {
+    font-size: 3.2mm;
+    color: #a8f5c8;
+    font-weight: 900;
+  }
+
+  /* Mini phone mockup */
+  .phone-mock {
+    width: 32mm;
+    flex-shrink: 0;
+    background: var(--ink);
+    border-radius: 5mm;
+    padding: 3mm 2.5mm;
+    box-shadow:
+      0 3mm 9mm rgba(26,18,48,0.3),
+      inset 0 0.3mm 0 rgba(255,255,255,0.07);
+    border: 0.25mm solid rgba(255,255,255,0.06);
+  }
+  .phone-bar {
+    width: 9mm; height: 1mm;
+    background: rgba(255,255,255,0.15);
+    border-radius: 0.5mm;
+    margin: 0 auto 2.5mm;
+  }
+  .phone-greeting {
+    font-size: 2.5mm;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 2mm;
+    font-weight: 600;
+  }
+  .phone-greeting span { color: #F5C842; }
+  .phone-section-title {
+    font-size: 2mm;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 1.5mm;
+  }
+  .phone-tasks { display: flex; flex-direction: column; gap: 1.2mm; margin-bottom: 2.5mm; }
+  .phone-task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2mm;
+  }
+  .pt-check {
+    width: 3.5mm; height: 3.5mm;
+    border-radius: 1mm;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2mm;
+    flex-shrink: 0;
+  }
+  .pt-check.done { background: rgba(29,191,115,0.2); color: var(--green); }
+  .pt-check.todo { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.3); }
+  .pt-name {
+    font-size: 2.2mm;
+    flex: 1;
+    color: rgba(255,255,255,0.75);
+    font-weight: 600;
+  }
+  .pt-name.striked { text-decoration: line-through; color: rgba(255,255,255,0.3); font-weight: 400; }
+  .pt-pts {
+    font-size: 2.1mm;
+    font-weight: 700;
+    border-radius: 1mm;
+    padding: 0.3mm 1.2mm;
+  }
+  .pt-pts.green { background: rgba(29,191,115,0.2); color: var(--green); }
+  .pt-pts.purple { background: rgba(168,156,245,0.18); color: var(--purple-light); }
+
+  .phone-cagnotte {
+    background: rgba(255,255,255,0.05);
+    border-radius: 2mm;
+    padding: 1.5mm 2mm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cagnotte-label { font-size: 2mm; color: rgba(255,255,255,0.4); font-weight: 600; }
+  .cagnotte-val {
+    font-family: 'Nunito', sans-serif;
+    font-size: 3.2mm;
+    font-weight: 900;
+    color: #F5C842;
+  }
+  .cagnotte-goal { font-size: 1.9mm; color: rgba(255,255,255,0.3); }
+
+  /* ══════════════════════════════
+     STATS BAR
+  ══════════════════════════════ */
+  .stats-bar {
+    background: linear-gradient(90deg, var(--purple-dark) 0%, var(--purple) 100%);
+    padding: 3.2mm 10mm;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .stat { text-align: center; }
+  .stat-val {
+    font-family: 'Nunito', sans-serif;
+    font-size: 4.2mm;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+  }
+  .stat-val .free { color: #a8f5c8; }
+  .stat-label {
+    font-size: 2.2mm;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-top: 0.7mm;
+    font-weight: 700;
+  }
+  .stat-sep {
+    width: 0.25mm; height: 6.5mm;
+    background: rgba(255,255,255,0.18);
+  }
+
+  /* ══════════════════════════════
+     BENEFITS  (2-col grid)
+  ══════════════════════════════ */
+  .benefits-section {
+    padding: 5mm 10mm 4mm;
+  }
+  .section-label {
+    font-size: 2.5mm;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 3.5mm;
+  }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5mm;
+  }
+  .benefit-card {
+    background: var(--white);
+    border-radius: 3.5mm;
+    padding: 3.5mm 3.5mm 3mm;
+    box-shadow: 0 0.5mm 3mm rgba(91,79,212,0.07);
+    border: 0.25mm solid rgba(123,111,232,0.08);
+  }
+  .benefit-emoji {
+    font-size: 5.5mm;
+    display: block;
+    margin-bottom: 2mm;
+    line-height: 1;
+  }
+  .benefit-card strong {
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-size: 3.2mm;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 1mm;
+  }
+  .benefit-card span {
+    font-size: 2.8mm;
+    color: var(--ink-soft);
+    line-height: 1.4;
+  }
+
+  /* ══════════════════════════════
+     QR + CTA  (2-col)
+  ══════════════════════════════ */
+  .bottom-block {
+    padding: 4mm 10mm 5mm;
+    display: flex;
+    gap: 5mm;
+    align-items: stretch;
+    flex: 1;
+  }
+
+  /* LEFT: QR */
+  .qr-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2mm;
+    flex-shrink: 0;
+  }
+  .qr-frame {
+    width: 27mm; height: 27mm;
+    background: var(--ink);
+    border-radius: 5mm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 2mm 7mm rgba(26,18,48,0.22);
+  }
+  .qr-frame::before {
+    content: '';
+    position: absolute;
+    inset: -0.7mm;
+    border-radius: 5.5mm;
+    background: linear-gradient(135deg, var(--purple), var(--purple-light));
+    z-index: -1;
+  }
+  .qr-svg { width: 21mm; height: 21mm; }
+  .qr-label {
+    font-size: 2.4mm;
+    text-align: center;
+    color: var(--ink-soft);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+  }
+  .scarcity-pill {
+    display: flex;
+    align-items: center;
+    gap: 1.2mm;
+    background: rgba(29,191,115,0.1);
+    border: 0.25mm solid rgba(29,191,115,0.28);
+    border-radius: 25mm;
+    padding: 1.2mm 2.8mm;
+    font-size: 2.6mm;
+    font-weight: 700;
+    color: var(--green-dark);
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  /* RIGHT: CTA copy + button */
+  .cta-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .cta-copy {
+    font-size: 3.1mm;
+    color: var(--ink);
+    line-height: 1.55;
+    margin-bottom: 3mm;
+  }
+  .cta-copy strong { color: var(--purple-dark); font-weight: 700; }
+
+  /* Avantage fondateur */
+  .founder-perk {
+    display: flex;
+    align-items: center;
+    gap: 1.5mm;
+    background: rgba(168,245,200,0.18);
+    border: 0.3mm solid rgba(29,191,115,0.25);
+    border-radius: 2mm;
+    padding: 2mm 3mm;
+    margin-bottom: 3mm;
+    font-size: 2.8mm;
+    color: var(--green-dark);
+    font-weight: 700;
+  }
+
+  .cta-btn {
+    display: block;
+    width: 100%;
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+    color: #fff;
+    text-align: center;
+    border-radius: 3.5mm;
+    padding: 3.8mm 4.5mm;
+    font-family: 'Nunito', sans-serif;
+    font-size: 3.6mm;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 1.8mm 5.5mm rgba(29,191,115,0.38);
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-btn::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 48%;
+    background: rgba(255,255,255,0.09);
+    border-radius: 3.5mm 3.5mm 0 0;
+  }
+  .cta-btn span { position: relative; z-index: 1; }
+
+  .reassurance-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2.2mm;
+    gap: 1.5mm 3mm;
+  }
+  .r-item {
+    font-size: 2.6mm;
+    color: var(--ink-soft);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.8mm;
+  }
+  .r-item::before {
+    content: '✓';
+    color: var(--green);
+    font-weight: 800;
+  }
+
+  /* ══════════════════════════════
+     FOOTER
+  ══════════════════════════════ */
+  .flyer-footer {
+    background: linear-gradient(90deg, var(--purple-dark) 0%, var(--purple) 100%);
+    padding: 2.8mm 10mm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+  .footer-left {
+    display: flex;
+    align-items: center;
+    gap: 2.3mm;
+  }
+  .footer-logo-img {
+    width: 5mm; height: 5mm;
+    border-radius: 1.3mm;
+    object-fit: contain;
+    opacity: 0.95;
+  }
+  .footer-logo {
+    font-family: 'Nunito', sans-serif;
+    font-size: 3.5mm;
+    font-weight: 900;
+    color: #fff;
+  }
+  .footer-meta {
+    display: flex;
+    align-items: center;
+    gap: 4mm;
+  }
+  .footer-url {
+    font-size: 3mm;
+    color: rgba(255,255,255,0.85);
+    font-weight: 800;
+  }
+  .footer-tag {
+    font-size: 2.5mm;
+    color: rgba(255,255,255,0.45);
+    font-weight: 600;
+  }
+
+  /* ══════════════════════════════
+     IMPRESSION A5
+  ══════════════════════════════ */
+  @page {
+    size: A5 portrait;
+    margin: 0;
+  }
+  @media print {
+    body {
+      background: white;
+      padding: 0;
+      display: block;
+    }
+    .flyer {
+      width: 148mm;
+      height: 210mm;
+      border-radius: 0;
+      box-shadow: none;
+      page-break-inside: avoid;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="flyer">
+
+  <!-- ── HERO ── -->
+  <div class="hero">
+    <div class="hero-top">
+      <div class="logo-row">
+        <img src="/images/logo-family-app.png" class="logo-img" alt="FamilyApp">
+        <span class="logo-name">Family<span>App</span></span>
+      </div>
+      <div class="badge">
+        <div class="badge-dot"></div>
+        Bêta privée — 50 familles seulement
+      </div>
+    </div>
+
+    <div class="hero-body">
+      <div class="hero-copy">
+        <h1 class="hero-title">L'organisation<br>familiale<br><span class="fun">enfin fun</span><br>pour tous 🎉</h1>
+        <p class="hero-desc">Tâches gamifiées, calendrier partagé, temps d'écran — tout pour une famille sereine et des enfants motivés.</p>
+        <!-- Plan mis en avant -->
+        <div class="plan-pill">
+          ⭐ Family Plus
+          <span class="price-old">5,99€/mois</span>
+          →
+          <span class="price-new">0€ bêta</span>
+        </div>
+      </div>
+
+      <!-- Mini phone mock -->
+      <div class="phone-mock">
+        <div class="phone-bar"></div>
+        <p class="phone-greeting">Salut <span>Emma</span> 🌟</p>
+        <p class="phone-section-title">Mes tâches</p>
+        <div class="phone-tasks">
+          <div class="phone-task">
+            <div class="pt-check done">✓</div>
+            <span class="pt-name striked">Ranger chambre</span>
+            <span class="pt-pts green">+10</span>
+          </div>
+          <div class="phone-task">
+            <div class="pt-check done">✓</div>
+            <span class="pt-name striked">Mettre la table</span>
+            <span class="pt-pts green">+5</span>
+          </div>
+          <div class="phone-task">
+            <div class="pt-check todo">○</div>
+            <span class="pt-name">Devoirs maths</span>
+            <span class="pt-pts purple">+10</span>
+          </div>
+          <div class="phone-task">
+            <div class="pt-check todo">○</div>
+            <span class="pt-name">Lecture 20 min</span>
+            <span class="pt-pts purple">+10</span>
+          </div>
+        </div>
+        <div class="phone-cagnotte">
+          <div>
+            <div class="cagnotte-label">Ma cagnotte</div>
+            <div class="cagnotte-val">12,50 €</div>
+          </div>
+          <div style="text-align:right">
+            <div class="cagnotte-goal">Objectif</div>
+            <div style="font-size:1.9mm;color:#F5C842;font-weight:700;">25 €</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STATS BAR ── -->
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-val">50 familles</div>
+      <div class="stat-label">Accès bêta</div>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat">
+      <div class="stat-val">5 min</div>
+      <div class="stat-label">Pour démarrer</div>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat">
+      <div class="stat-val"><span class="free">0 €</span></div>
+      <div class="stat-label">Family Plus offert</div>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat">
+      <div class="stat-val">100% 🇫🇷</div>
+      <div class="stat-label">Fait en France</div>
+    </div>
+  </div>
+
+  <!-- ── BENEFITS 2-col ── -->
+  <div class="benefits-section">
+    <p class="section-label">🎯 Ce que ça change vraiment</p>
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <span class="benefit-emoji">🕊️</span>
+        <strong>Moins de conflits</strong>
+        <span>Les règles sont posées, claires, acceptées par tous.</span>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-emoji">⭐</span>
+        <strong>Enfants motivés</strong>
+        <span>Tâches gamifiées, cagnotte, récompenses — ils adorent.</span>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-emoji">📱</span>
+        <strong>Numérique apaisé</strong>
+        <span>Temps d'écran géré intelligemment, pas autoritairement.</span>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-emoji">📅</span>
+        <strong>Tout au même endroit</strong>
+        <span>Pronote, planning, routines — synchronisés en famille.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── BOTTOM: QR + CTA ── -->
+  <div class="bottom-block">
+
+    <div class="qr-col">
+      <div class="qr-frame">
+        <svg class="qr-svg" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="20" height="20" rx="3" fill="none" stroke="white" stroke-width="2"/>
+          <rect x="9" y="9" width="10" height="10" rx="1.5" fill="white"/>
+          <rect x="48" y="4" width="20" height="20" rx="3" fill="none" stroke="white" stroke-width="2"/>
+          <rect x="53" y="9" width="10" height="10" rx="1.5" fill="white"/>
+          <rect x="4" y="48" width="20" height="20" rx="3" fill="none" stroke="white" stroke-width="2"/>
+          <rect x="9" y="53" width="10" height="10" rx="1.5" fill="white"/>
+          <rect x="28" y="4" width="5" height="5" rx="1" fill="white"/>
+          <rect x="35" y="4" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
+          <rect x="28" y="11" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
+          <rect x="35" y="11" width="5" height="5" rx="1" fill="white"/>
+          <rect x="42" y="11" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
+          <rect x="28" y="18" width="5" height="5" rx="1" fill="white"/>
+          <rect x="4" y="28" width="5" height="5" rx="1" fill="white"/>
+          <rect x="11" y="28" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
+          <rect x="18" y="28" width="5" height="5" rx="1" fill="white"/>
+          <rect x="28" y="28" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
+          <rect x="35" y="28" width="5" height="5" rx="1" fill="white"/>
+          <rect x="42" y="28" width="5" height="5" rx="1" fill="white"/>
+          <rect x="49" y="28" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
+          <rect x="56" y="28" width="5" height="5" rx="1" fill="white"/>
+          <rect x="63" y="28" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
+          <rect x="4" y="35" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
+          <rect x="18" y="35" width="5" height="5" rx="1" fill="white"/>
+          <rect x="35" y="35" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
+          <rect x="56" y="35" width="5" height="5" rx="1" fill="white"/>
+          <rect x="4" y="42" width="5" height="5" rx="1" fill="white"/>
+          <rect x="11" y="42" width="5" height="5" rx="1" fill="white"/>
+          <rect x="28" y="42" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
+          <rect x="35" y="42" width="5" height="5" rx="1" fill="white"/>
+          <rect x="49" y="42" width="5" height="5" rx="1" fill="white"/>
+          <rect x="63" y="42" width="5" height="5" rx="1" fill="white"/>
+          <rect x="28" y="49" width="5" height="5" rx="1" fill="white"/>
+          <rect x="42" y="49" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
+          <rect x="56" y="49" width="5" height="5" rx="1" fill="white"/>
+          <rect x="35" y="56" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
+          <rect x="49" y="56" width="5" height="5" rx="1" fill="white"/>
+          <rect x="28" y="63" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
+          <rect x="42" y="63" width="5" height="5" rx="1" fill="white"/>
+          <circle cx="36" cy="36" r="4.5" fill="#A89CF5"/>
+        </svg>
+      </div>
+      <p class="qr-label">Scanner pour rejoindre</p>
+      <div class="scarcity-pill">🎯 50 places seulement</div>
+    </div>
+
+    <div class="cta-col">
+      <div>
+        <p class="cta-copy">Rejoignez les <strong>50 familles fondatrices</strong> et accédez au plan <strong>Family Plus complet</strong> gratuitement. Votre retour construit le produit.</p>
+        <!-- Avantage fondateur mis en avant -->
+        <div class="founder-perk">
+          💎 Tarif fondateur à vie après la bêta
+        </div>
+      </div>
+      <div>
+        <button class="cta-btn">
+          <span>🎉 Rejoindre les familles fondatrices →</span>
+        </button>
+        <div class="reassurance-row">
+          <span class="r-item">100% gratuit</span>
+          <span class="r-item">Sans CB</span>
+          <span class="r-item">Made in France</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <div class="flyer-footer">
+    <div class="footer-left">
+      <img src="/images/logo-family-app.png" class="footer-logo-img" alt="">
+      <span class="footer-logo">FamilyApp</span>
+      <span style="font-size:3mm">🇫🇷</span>
+    </div>
+    <div class="footer-meta">
+      <span class="footer-tag">Lancement 2026 · RGPD compliant</span>
+      <span class="footer-url">family-app.fr/beta</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
