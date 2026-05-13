@@ -336,7 +336,7 @@
     background: linear-gradient(135deg, var(--purple), var(--green));
     z-index: -1;
   }
-  .qr-svg { width: 19mm; height: 19mm; }
+  #qr-canvas { width: 19mm !important; height: 19mm !important; display: block; }
   .qr-label { font-size: 2.2mm; text-align: center; color: var(--ink-soft); font-weight: 700; }
   .scarcity-pill {
     display: flex;
@@ -563,47 +563,7 @@
   <div class="bottom-block">
     <div class="qr-col">
       <div class="qr-frame">
-        <svg class="qr-svg" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="4" width="20" height="20" rx="3" fill="none" stroke="white" stroke-width="2"/>
-          <rect x="9" y="9" width="10" height="10" rx="1.5" fill="white"/>
-          <rect x="48" y="4" width="20" height="20" rx="3" fill="none" stroke="white" stroke-width="2"/>
-          <rect x="53" y="9" width="10" height="10" rx="1.5" fill="white"/>
-          <rect x="4" y="48" width="20" height="20" rx="3" fill="none" stroke="white" stroke-width="2"/>
-          <rect x="9" y="53" width="10" height="10" rx="1.5" fill="white"/>
-          <rect x="28" y="4" width="5" height="5" rx="1" fill="white"/>
-          <rect x="35" y="4" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
-          <rect x="28" y="11" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
-          <rect x="35" y="11" width="5" height="5" rx="1" fill="white"/>
-          <rect x="42" y="11" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
-          <rect x="28" y="18" width="5" height="5" rx="1" fill="white"/>
-          <rect x="4" y="28" width="5" height="5" rx="1" fill="white"/>
-          <rect x="11" y="28" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
-          <rect x="18" y="28" width="5" height="5" rx="1" fill="white"/>
-          <rect x="28" y="28" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
-          <rect x="35" y="28" width="5" height="5" rx="1" fill="white"/>
-          <rect x="42" y="28" width="5" height="5" rx="1" fill="white"/>
-          <rect x="49" y="28" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
-          <rect x="56" y="28" width="5" height="5" rx="1" fill="white"/>
-          <rect x="63" y="28" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
-          <rect x="4" y="35" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
-          <rect x="18" y="35" width="5" height="5" rx="1" fill="white"/>
-          <rect x="35" y="35" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
-          <rect x="56" y="35" width="5" height="5" rx="1" fill="white"/>
-          <rect x="4" y="42" width="5" height="5" rx="1" fill="white"/>
-          <rect x="11" y="42" width="5" height="5" rx="1" fill="white"/>
-          <rect x="28" y="42" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
-          <rect x="35" y="42" width="5" height="5" rx="1" fill="white"/>
-          <rect x="49" y="42" width="5" height="5" rx="1" fill="white"/>
-          <rect x="63" y="42" width="5" height="5" rx="1" fill="white"/>
-          <rect x="28" y="49" width="5" height="5" rx="1" fill="white"/>
-          <rect x="42" y="49" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
-          <rect x="56" y="49" width="5" height="5" rx="1" fill="white"/>
-          <rect x="35" y="56" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
-          <rect x="49" y="56" width="5" height="5" rx="1" fill="white"/>
-          <rect x="28" y="63" width="5" height="5" rx="1" fill="rgba(255,255,255,0.4)"/>
-          <rect x="42" y="63" width="5" height="5" rx="1" fill="white"/>
-          <circle cx="36" cy="36" r="4.5" fill="#1DBF73"/>
-        </svg>
+        <div id="qr-target"></div>
       </div>
       <p class="qr-label">Scanner pour rejoindre</p>
       <div class="scarcity-pill">🎯 50 places seulement</div>
@@ -642,5 +602,18 @@
   </div>
 
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  new QRCode(document.getElementById('qr-target'), {
+    text: 'https://family-app.fr/beta',
+    width: 72,
+    height: 72,
+    colorDark: '#1A1230',
+    colorLight: '#FFFFFF',
+    correctLevel: QRCode.CorrectLevel.M
+  });
+  // Make the generated canvas match the CSS size
+  document.getElementById('qr-target').querySelector('canvas').id = 'qr-canvas';
+</script>
 </body>
 </html>
