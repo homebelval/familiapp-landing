@@ -362,17 +362,21 @@
     border: 0.25mm solid rgba(123,111,232,0.08);
     border-left: 0.8mm solid var(--green);
   }
-  .benefit-emoji { font-size: 4mm; display: block; margin-bottom: 1mm; line-height: 1; }
+  .benefit-title {
+    display: flex;
+    align-items: center;
+    gap: 1.5mm;
+    margin-bottom: 1mm;
+  }
+  .benefit-emoji { font-size: 3.8mm; line-height: 1; flex-shrink: 0; }
   .benefit-card strong {
-    display: block;
     font-family: 'Nunito', sans-serif;
-    font-size: 3mm;
+    font-size: 3.3mm;
     font-weight: 800;
     color: var(--ink);
     line-height: 1.2;
-    margin-bottom: 0.8mm;
   }
-  .benefit-card span { font-size: 2.6mm; color: var(--ink-soft); line-height: 1.4; }
+  .benefit-card span { font-size: 2.9mm; color: var(--ink-soft); line-height: 1.4; display: block; }
 
   /* ══════════════════════════════
      QR + CTA
@@ -616,23 +620,19 @@
     <p class="section-label">🎯 Ce que ça change vraiment</p>
     <div class="benefit-grid">
       <div class="benefit-card">
-        <span class="benefit-emoji">🕊️</span>
-        <strong>Moins de conflits</strong>
+        <div class="benefit-title"><span class="benefit-emoji">🕊️</span><strong>Moins de conflits</strong></div>
         <span>Les règles sont posées, claires, acceptées par tous.</span>
       </div>
       <div class="benefit-card">
-        <span class="benefit-emoji">⭐</span>
-        <strong>Enfants motivés</strong>
+        <div class="benefit-title"><span class="benefit-emoji">⭐</span><strong>Enfants motivés</strong></div>
         <span>Tâches gamifiées, cagnotte, récompenses — ils adorent.</span>
       </div>
       <div class="benefit-card">
-        <span class="benefit-emoji">📱</span>
-        <strong>Numérique apaisé</strong>
+        <div class="benefit-title"><span class="benefit-emoji">📱</span><strong>Numérique apaisé</strong></div>
         <span>Temps d'écran géré intelligemment, pas autoritairement.</span>
       </div>
       <div class="benefit-card">
-        <span class="benefit-emoji">📅</span>
-        <strong>Tout au même endroit</strong>
+        <div class="benefit-title"><span class="benefit-emoji">📅</span><strong>Tout au même endroit</strong></div>
         <span>Calendrier, planning, routines — synchronisés en famille.</span>
       </div>
     </div>
