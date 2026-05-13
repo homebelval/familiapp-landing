@@ -109,13 +109,9 @@
     display: inline-flex;
     align-items: center;
     gap: 1.5mm;
-    background: rgba(123,111,232,0.1);
-    border: 0.35mm solid rgba(123,111,232,0.22);
-    border-radius: 25mm;
-    padding: 1mm 3mm;
-    color: var(--purple-dark);
-    font-size: 2.6mm;
-    font-weight: 700;
+    color: var(--ink-soft);
+    font-size: 2.5mm;
+    font-weight: 600;
   }
   .badge-dot {
     width: 1.6mm; height: 1.6mm;
@@ -160,27 +156,38 @@
     margin-bottom: 2mm;
   }
 
-  /* Plan pill */
+  /* Plan pill — style bouton vert */
   .plan-pill {
     display: inline-flex;
     align-items: center;
     gap: 1.5mm;
-    background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+    background: linear-gradient(135deg, #34d399, var(--green), var(--green-dark));
     color: #fff;
-    font-size: 2.6mm;
-    font-weight: 800;
-    padding: 1.3mm 3mm;
+    font-size: 2.8mm;
+    font-weight: 900;
+    padding: 2mm 4mm;
     border-radius: 25mm;
+    box-shadow: 0 1.5mm 6mm rgba(29,191,115,0.45);
+    position: relative;
+    overflow: hidden;
+  }
+  .plan-pill::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 45%;
+    background: rgba(255,255,255,0.1);
+    border-radius: 25mm 25mm 0 0;
   }
   .plan-pill .price-old {
     font-size: 2.3mm;
-    opacity: 0.55;
+    opacity: 0.65;
     text-decoration: line-through;
     font-weight: 600;
   }
   .plan-pill .price-new {
-    font-size: 3mm;
-    color: #a8f5c8;
+    font-size: 2.8mm;
+    color: #fff;
     font-weight: 900;
   }
 
