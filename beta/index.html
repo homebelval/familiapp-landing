@@ -41,9 +41,17 @@
       text-align: center;
     }
 
-    /* Push content down to account for fixed bar */
+    /* Push content down: urgency bar (~40px) + header (~68px) */
     body {
-      padding-top: 40px;
+      padding-top: 108px;
+    }
+
+    /* Header sticks just below the urgency bar */
+    .header {
+      position: fixed;
+      top: 40px;
+      left: 0;
+      right: 0;
     }
     .urgency-bar__inner {
       display: flex;
