@@ -1083,6 +1083,8 @@ button {
 .split-card__icon {
   font-size: 2.5rem;
   margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .split-card__name {
