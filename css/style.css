@@ -1751,6 +1751,54 @@ button {
   text-decoration: underline;
 }
 
+/* Article teaser CTA */
+.section-article-cta {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+.article-teaser-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 24px;
+  background: var(--white);
+  border: 2px solid var(--purple-light);
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.article-teaser-link:hover {
+  border-color: var(--purple);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+.article-teaser-link__badge {
+  background: var(--purple-light);
+  color: var(--purple);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+.article-teaser-link__text {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+.article-teaser-link__arrow {
+  color: var(--purple);
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+.article-teaser-link:hover .article-teaser-link__arrow {
+  transform: translateX(5px);
+}
+
 /* Mockup avatar color variants */
 .mockup-avatar--amber  { background: var(--amber-light); }
 .mockup-avatar--purple { background: var(--purple-light); }
