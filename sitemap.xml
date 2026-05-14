@@ -14,13 +14,19 @@
   </url>
   <url>
     <loc>https://family-app.fr/blog/</loc>
-    <lastmod>2026-04-05</lastmod>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://family-app.fr/blog/charge-mentale-parents/</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://family-app.fr/blog/organiser-taches-enfants/</loc>
-    <lastmod>2026-04-05</lastmod>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
