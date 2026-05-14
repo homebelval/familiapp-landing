@@ -3,14 +3,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // ─── 0C. 3D tilt on feature cards ────────────────────────────────────────
   const tiltCards = document.querySelectorAll('.feat-card');
   tiltCards.forEach(card => {
+    let tiltFrame = null;
     card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width  - 0.5;
-      const y = (e.clientY - rect.top)  / rect.height - 0.5;
-      const rotY =  x * 12;
-      const rotX = -y * 10;
-      card.style.transition = 'box-shadow 0.3s ease, border-color 0.3s ease';
-      card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-6px)`;
+      if (tiltFrame) return;
+      tiltFrame = requestAnimationFrame(() => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width  - 0.5;
+        const y = (e.clientY - rect.top)  / rect.height - 0.5;
+        const rotY =  x * 12;
+        const rotX = -y * 10;
+        card.style.transition = 'box-shadow 0.3s ease, border-color 0.3s ease';
+        card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-6px)`;
+        tiltFrame = null;
+      });
     });
     card.addEventListener('mouseleave', () => {
       card.style.transition = 'transform 0.5s ease, box-shadow 0.3s ease, border-color 0.3s ease';

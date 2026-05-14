@@ -35,14 +35,16 @@
   }
   </script>
 
+  <link rel="dns-prefetch" href="//app.family-app.fr">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/blog/css/blog.css">
-  <script src="/js/cookie-consent.js"></script>
+  <script src="/js/cookie-consent.js" defer></script>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
   <header class="header" id="header">
     <div class="container">
       <div class="header__inner">
@@ -65,7 +67,7 @@
     </div>
   </header>
 
-  <section class="article-hero">
+  <section class="article-hero" id="main-content">
     <div class="container">
       <h1>Charge mentale des parents : comment l'alléger grâce au partage des tâches</h1>
       <p class="meta">✍️ FamilyApp · 8 min de lecture · Mai 2026</p>
@@ -153,6 +155,14 @@
 
       <p>Commencez petit : choisissez une routine à instaurer cette semaine. Confiez une nouvelle responsabilité à votre enfant. Partagez un calendrier avec votre partenaire. Chaque petit pas allège la tête un peu plus.</p>
 
+      <div class="related-articles">
+        <h3>Lire aussi</h3>
+        <ul>
+          <li><a href="/blog/organiser-taches-enfants/">Comment organiser les tâches de vos enfants avec une application</a></li>
+          <li><a href="/blog/suivi-scolaire-pronote-parents/">Suivi scolaire Pronote : comment rester impliqué sans envahir</a></li>
+        </ul>
+      </div>
+
       <p style="margin-top:32px;">← <a href="/blog/">Retour au blog</a></p>
     </div>
   </div>
@@ -179,9 +189,8 @@
         <div class="footer__col">
           <h3 class="footer__heading">Entreprise</h3>
           <ul>
-            <li><a href="#">À propos</a></li>
             <li><a href="mailto:contact@family-app.fr">Contact</a></li>
-            <li><a href="#">Support</a></li>
+            <li><a href="mailto:contact@family-app.fr">Support</a></li>
           </ul>
         </div>
         <div class="footer__col">
