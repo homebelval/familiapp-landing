@@ -538,6 +538,15 @@
       font-weight: 900;
     }
 
+    /* Bêta complète */
+    .beta-cta--full {
+      background: #6b7280 !important;
+      box-shadow: none !important;
+      cursor: not-allowed;
+      opacity: 0.75;
+      pointer-events: none;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .beta-plan__inner { grid-template-columns: 1fr; gap: 32px; }
@@ -577,7 +586,7 @@
           <a href="/#tarifs" class="header__link">Tarifs</a>
           <a href="/#faq" class="header__link">FAQ</a>
           <a href="https://app.family-app.fr/login" class="btn btn--outline" rel="noopener">Connexion</a>
-          <a href="https://app.family-app.fr/signup?plan=beta" class="btn btn--green">🎉 Rejoindre la bêta</a>
+          <a href="https://app.family-app.fr/signup?plan=beta" class="btn btn--green beta-cta">🎉 Rejoindre la bêta</a>
         </nav>
         <button
           class="header__hamburger"
@@ -627,7 +636,7 @@
 
           <!-- CTAs -->
           <div class="beta-hero__cta">
-            <a href="https://app.family-app.fr/signup?plan=beta" class="btn btn--green btn--lg">
+            <a href="https://app.family-app.fr/signup?plan=beta" class="btn btn--green btn--lg beta-cta">
               🎉 Rejoindre les familles fondatrices
             </a>
             <ul class="beta-hero__trust">
@@ -676,7 +685,7 @@
                 <span class="beta-plan__price-period">pendant la bêta</span>
               </div>
               <p class="beta-plan__price-note">Accès complet jusqu'à la fin de la période bêta — sans engagement, sans CB.</p>
-              <a href="https://app.family-app.fr/signup?plan=beta" class="btn btn--green btn--lg" style="margin-top:8px;">
+              <a href="https://app.family-app.fr/signup?plan=beta" class="btn btn--green btn--lg beta-cta" style="margin-top:8px;">
                 🎉 Réclamer mon accès gratuit
               </a>
             </div>
@@ -960,7 +969,7 @@
             </div>
           </div>
 
-          <a href="https://app.family-app.fr/signup?plan=beta" class="btn btn--green btn--lg">
+          <a href="https://app.family-app.fr/signup?plan=beta" class="btn btn--green btn--lg beta-cta">
             🎉 Rejoindre les familles fondatrices
           </a>
 
@@ -1023,48 +1032,67 @@
   <!-- JS -->
   <script src="/js/main.js" defer></script>
   <script>
-    // ── Beta counter logic ──────────────────────────────────────────────────
-    // TOTAL_SPOTS: total beta spots available
-    // TAKEN: how many are already taken — update this number as families sign up
+    // ── Beta counter — Firestore live read ─────────────────────────────────
     const TOTAL_SPOTS = 50;
-    const TAKEN = 0; // ← Update this number as families join
+    const FIRESTORE_URL =
+      'https://firestore.googleapis.com/v1/projects/family-app-fr/databases/(default)/documents/beta/stats';
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const remaining = Math.max(0, TOTAL_SPOTS - TAKEN);
-      const taken = TAKEN;
-      const pct = (taken / TOTAL_SPOTS) * 100;
+    function applyCount(taken) {
+      const remaining = Math.max(0, TOTAL_SPOTS - taken);
+      const pct = Math.min(100, (taken / TOTAL_SPOTS) * 100);
+      const isFull = remaining === 0;
 
-      // Update all counters
-      const ids = ['main-counter', 'urgency-num', 'final-counter', 'band-remaining'];
-      ids.forEach(id => {
+      // Counters (remaining)
+      ['main-counter', 'urgency-num', 'final-counter', 'band-remaining'].forEach(id => {
         const el = document.getElementById(id);
-        if (el) el.textContent = remaining;
+        if (el) el.textContent = isFull ? '0' : remaining;
       });
 
-      const takenEls = document.querySelectorAll('#taken-label, #band-taken');
-      takenEls.forEach(el => {
-        if (el.id === 'taken-label') {
-          el.textContent = taken === 0
-            ? 'Soyez parmi les premiers !'
-            : `${taken} famille${taken > 1 ? 's ont' : ' a'} déjà rejoint`;
-        } else {
-          el.textContent = taken;
-        }
-      });
-
-      // Animate progress bar
-      const fill = document.getElementById('progress-fill');
-      if (fill) {
-        setTimeout(() => { fill.style.width = pct + '%'; }, 300);
+      // Taken labels
+      const takenLabel = document.getElementById('taken-label');
+      if (takenLabel) {
+        takenLabel.textContent = taken === 0
+          ? 'Soyez parmi les premiers !'
+          : `${taken} famille${taken > 1 ? 's ont' : ' a'} déjà rejoint`;
       }
 
-      // Urgency: if < 10 places, add red pulse
-      if (remaining <= 10) {
+      // Progress bar
+      const fill = document.getElementById('progress-fill');
+      if (fill) setTimeout(() => { fill.style.width = pct + '%'; }, 300);
+
+      // Urgency pill: rouge si ≤ 10 places
+      if (remaining <= 10 && !isFull) {
+        const pill = document.getElementById('urgency-spots');
+        if (pill) pill.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+      }
+
+      // Bêta complète : griser tous les CTAs et rediriger vers /waitlist/
+      if (isFull) {
+        document.querySelectorAll('.beta-cta').forEach(btn => {
+          btn.href = '/waitlist/';
+          btn.textContent = '📋 Rejoindre la liste d\'attente';
+          btn.classList.remove('btn--green');
+          btn.classList.add('beta-cta--full');
+        });
+        // Urgency pill
         const pill = document.getElementById('urgency-spots');
         if (pill) {
-          pill.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+          pill.textContent = '🔒 Bêta complète — liste d\'attente ouverte';
+          pill.style.background = 'rgba(255,255,255,0.15)';
         }
       }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch(FIRESTORE_URL)
+        .then(r => r.ok ? r.json() : Promise.reject(r.status))
+        .then(data => {
+          const count = parseInt(
+            data?.fields?.signupCount?.integerValue ?? '0', 10
+          );
+          applyCount(count);
+        })
+        .catch(() => applyCount(0)); // fallback silencieux
     });
   </script>
 </body>
