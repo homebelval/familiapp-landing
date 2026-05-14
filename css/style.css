@@ -1729,3 +1729,9 @@ button {
     align-items: center;
   }
 }
+
+.link-featured {
+  color: var(--purple);
+  font-weight: 600;
+  text-decoration: underline;
+}
