@@ -699,6 +699,14 @@ button {
   padding: 14px 12px;
 }
 
+.mockup-phone__screen--screenshot {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border-radius: 22px;
+  object-fit: cover;
+}
+
 .mockup-phone__header {
   display: flex;
   justify-content: space-between;
