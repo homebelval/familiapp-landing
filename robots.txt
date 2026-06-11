@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Disallow: /docs/
 Sitemap: https://family-app.fr/sitemap.xml

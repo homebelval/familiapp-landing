@@ -126,7 +126,7 @@
     }
     .contact-highlight a { font-weight: 700; font-size: 1.3rem; }
   </style>
-  <script src="/js/cookie-consent.js"></script>
+  <script src="/js/cookie-consent.js" defer></script>
 </head>
 <body>
 
@@ -174,7 +174,7 @@
       <li>Organiser des tâches pour les enfants avec système de récompenses</li>
       <li>Suivre l'argent de poche et les dépenses</li>
       <li>Monitorer le temps d'écran des enfants (si activé)</li>
-      <li>Synchroniser des événements avec Google Calendar (optionnel)</li>
+      <li>Synchroniser des événements avec Google Calendar ou Microsoft Calendar / Outlook (optionnel)</li>
     </ul>
 
     <h2>2. Acceptation des conditions</h2>
@@ -238,6 +238,32 @@
 
     <h4>4.1.5. Conformité Google API Services</h4>
     <p>L'utilisation de Google Calendar via FamilyApp est soumise aux <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>.</p>
+
+    <h3>4.2. Microsoft Calendar / Outlook (optionnel)</h3>
+    <p>FamilyApp propose une intégration optionnelle avec Microsoft Calendar (Outlook, Microsoft 365) pour synchroniser vos événements familiaux.</p>
+
+    <h4>4.2.1. Autorisation requise</h4>
+    <p>Cette intégration nécessite votre <strong>consentement explicite</strong> via le processus OAuth sécurisé de Microsoft.</p>
+
+    <h4>4.2.2. Portée de l'accès (Scope)</h4>
+    <p><strong>Scope utilisé :</strong> <code>Calendars.Read</code> (Microsoft Graph)</p>
+    <p>FamilyApp peut <strong>uniquement lire</strong> vos événements. Nous ne pouvons <strong>ni modifier, ni supprimer, ni créer</strong> d'événements dans votre calendrier Microsoft.</p>
+
+    <h4>4.2.3. Utilisation des données Microsoft Calendar</h4>
+    <p><strong>FamilyApp s'engage à :</strong></p>
+    <ul>
+      <li>✅ Utiliser vos données uniquement pour afficher vos événements dans l'application</li>
+      <li>✅ Ne jamais stocker de manière permanente vos événements Microsoft Calendar</li>
+      <li>✅ Ne jamais partager, vendre ou monétiser vos données calendrier</li>
+      <li>✅ Ne jamais utiliser vos données à des fins publicitaires</li>
+    </ul>
+
+    <h4>4.2.4. Révocation de l'accès</h4>
+    <p>Vous pouvez <strong>révoquer l'accès à tout moment</strong> :</p>
+    <ul>
+      <li><strong>Dans FamilyApp :</strong> Paramètres → Intégrations → Microsoft Calendar → "Déconnecter"</li>
+      <li><strong>Dans votre compte Microsoft :</strong> <a href="https://account.microsoft.com/privacy/app-access" target="_blank" rel="noopener">account.microsoft.com/privacy/app-access</a></li>
+    </ul>
 
     <h2>5. Données personnelles et confidentialité</h2>
     <p>Le traitement de vos données personnelles est détaillé dans notre <a href="/privacy/">Politique de Confidentialité</a>.</p>
@@ -357,10 +383,9 @@
         <div class="footer__col">
           <h3 class="footer__heading">Entreprise</h3>
           <ul>
-            <li><a href="#">À propos</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="/blog/">Blog</a></li>
             <li><a href="mailto:contact@family-app.fr">Contact</a></li>
-            <li><a href="#">Support</a></li>
+            <li><a href="mailto:contact@family-app.fr">Support</a></li>
           </ul>
         </div>
         <div class="footer__col">
@@ -369,7 +394,7 @@
             <li><a href="/terms/">Conditions d'utilisation</a></li>
             <li><a href="/privacy/">Politique de confidentialité</a></li>
             <li><a href="/legal/">Mentions légales</a></li>
-            <li><a href="#">Cookies</a></li>
+            <li><a href="#" onclick="window.faResetCookieConsent();return false;">Gérer les cookies</a></li>
           </ul>
         </div>
       </div>

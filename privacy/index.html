@@ -148,7 +148,7 @@
       .legal-content table { display: block; overflow-x: auto; }
     }
   </style>
-  <script src="/js/cookie-consent.js"></script>
+  <script src="/js/cookie-consent.js" defer></script>
 </head>
 <body>
 
@@ -266,25 +266,63 @@
       <p>Un processus automatique quotidien vérifie la validité des tokens OAuth et supprime ceux qui ont été révoqués par l'utilisateur.</p>
     </div>
 
-    <h2>4. Finalités du traitement</h2>
+    <h2>4. Intégration Microsoft Calendar / Outlook (Lecture seule)</h2>
+
+    <div class="info-box">
+      <h3>🔐 Engagement de transparence</h3>
+
+      <h4>4.1. Autorisation explicite</h4>
+      <p>L'accès à votre calendrier Microsoft (Outlook, Microsoft 365) nécessite votre <strong>consentement explicite</strong> via le processus OAuth sécurisé de Microsoft.</p>
+
+      <h4>4.2. Scope utilisé (portée limitée)</h4>
+      <p><strong>Scope demandé :</strong> <code>Calendars.Read</code> (Microsoft Graph)</p>
+      <p>Cela signifie que FamilyApp peut <strong>uniquement lire</strong> vos événements calendrier. Nous ne pouvons <strong>ni modifier, ni supprimer, ni créer</strong> d'événements.</p>
+
+      <h4>4.3. Utilisation des données</h4>
+      <p><strong>Ce que nous faisons :</strong></p>
+      <ul>
+        <li>✅ Afficher vos événements familiaux dans l'application</li>
+        <li>✅ Synchroniser votre planning familial en temps réel</li>
+      </ul>
+      <p><strong>Ce que nous ne faisons PAS :</strong></p>
+      <ul>
+        <li>❌ Stocker vos événements de manière permanente dans notre base de données</li>
+        <li>❌ Partager vos événements avec des tiers</li>
+        <li>❌ Utiliser vos données à des fins publicitaires</li>
+        <li>❌ Modifier ou supprimer vos événements</li>
+      </ul>
+
+      <h4>4.4. Stockage et conservation</h4>
+      <p><strong>Tokens d'accès OAuth :</strong> stockés de manière chiffrée dans Firebase (Europe) uniquement pour permettre la synchronisation.</p>
+      <p><strong>Événements calendrier :</strong> récupérés en temps réel à chaque affichage. Aucune copie permanente n'est conservée dans notre base de données.</p>
+
+      <h4>4.5. Révocation de l'accès</h4>
+      <p>Vous pouvez <strong>révoquer l'accès à tout moment</strong> :</p>
+      <ul>
+        <li><strong>Dans FamilyApp :</strong> Paramètres → Intégrations → Microsoft Calendar → "Déconnecter"</li>
+        <li><strong>Dans votre compte Microsoft :</strong> <a href="https://account.microsoft.com/privacy/app-access" target="_blank" rel="noopener">account.microsoft.com/privacy/app-access</a></li>
+      </ul>
+    </div>
+
+    <h2>5. Finalités du traitement</h2>
     <p>Vos données sont utilisées uniquement pour :</p>
     <ul>
       <li><strong>Fourniture du service :</strong> gestion de votre compte et fonctionnalités de l'application</li>
-      <li><strong>Synchronisation :</strong> intégration avec Google Calendar (si activée)</li>
+      <li><strong>Synchronisation :</strong> intégration avec Google Calendar et/ou Microsoft Calendar (si activée)</li>
       <li><strong>Sécurité :</strong> prévention des abus et fraudes</li>
       <li><strong>Amélioration du service :</strong> statistiques anonymisées d'usage</li>
       <li><strong>Communication :</strong> notifications importantes et mises à jour</li>
     </ul>
 
-    <h2>5. Base légale du traitement</h2>
+    <h2>6. Base légale du traitement</h2>
     <ul>
       <li><strong>Exécution du contrat :</strong> fourniture du service FamilyApp</li>
-      <li><strong>Consentement :</strong> pour l'intégration Google Calendar et certaines fonctionnalités optionnelles</li>
+      <li><strong>Consentement :</strong> pour l'intégration Google Calendar, Microsoft Calendar et certaines fonctionnalités optionnelles</li>
       <li><strong>Intérêt légitime :</strong> sécurité et prévention des fraudes</li>
       <li><strong>Obligation légale :</strong> conservation des données fiscales (si applicable)</li>
     </ul>
 
-    <h2>6. Durée de conservation</h2>
+    <h2>7. Durée de conservation</h2>
     <ul>
       <li><strong>Données de compte actif :</strong> tant que votre compte existe</li>
       <li><strong>Après suppression du compte :</strong> 30 jours maximum (puis effacement définitif)</li>
@@ -293,13 +331,15 @@
       <li><strong>Données de facturation :</strong> 10 ans (obligation légale)</li>
     </ul>
 
-    <h2>7. Partage et transfert des données</h2>
+    <h2>8. Partage et transfert des données</h2>
 
     <h3>7.1. Services techniques essentiels</h3>
     <p>Vos données sont hébergées et traitées par les services suivants :</p>
     <ul>
-      <li><strong>Firebase (Google Cloud Platform)</strong> : hébergement en Europe (Belgique) — <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Politique de confidentialité Firebase</a></li>
+      <li><strong>Firebase (Google Cloud Platform)</strong> : hébergement en Europe (Belgique) — <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Politique de confidentialité Firebase</a>. Google LLC est soumis au droit américain (Cloud Act) ; les données sont néanmoins stockées sur des serveurs européens.</li>
       <li><strong>Google OAuth</strong> : authentification sécurisée — conformité RGPD</li>
+      <li><strong>Cloudflare, Inc.</strong> (USA) : résolution DNS et protection réseau — <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Politique de confidentialité Cloudflare</a>. Transferts vers les USA encadrés par les clauses contractuelles types (CCT) de la Commission européenne.</li>
+      <li><strong>Stripe, Inc.</strong> (USA) : traitement sécurisé des paiements — <a href="https://stripe.com/fr/privacy" target="_blank" rel="noopener">Politique de confidentialité Stripe</a>. Seules les données nécessaires à la transaction sont transmises. Transferts vers les USA encadrés par les CCT.</li>
     </ul>
 
     <h3>7.2. Aucun partage commercial</h3>
@@ -309,7 +349,7 @@
       <li>❌ Aucun service de profilage ou ciblage publicitaire</li>
     </ul>
 
-    <h2>8. Sécurité des données</h2>
+    <h2>9. Sécurité des données</h2>
 
     <h3>8.1. Mesures techniques</h3>
     <ul>
@@ -326,7 +366,7 @@
       <li>🔜 Authentification à deux facteurs (2FA) — en développement</li>
     </ul>
 
-    <h2>9. Vos droits (RGPD)</h2>
+    <h2>10. Vos droits (RGPD)</h2>
     <p>Conformément au RGPD, vous disposez des droits suivants :</p>
 
     <table>
@@ -350,16 +390,15 @@
     <p><strong>Délai de réponse :</strong> sous 30 jours maximum</p>
     <p><strong>Réclamation :</strong> Si vous estimez que vos droits ne sont pas respectés, vous pouvez déposer une plainte auprès de la CNIL : <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a></p>
 
-    <h2>10. Cookies et technologies similaires</h2>
-    <p>FamilyApp utilise des cookies strictement nécessaires au fonctionnement de l'application :</p>
+    <h2>11. Cookies et technologies similaires</h2>
+    <p>FamilyApp utilise deux catégories de cookies :</p>
     <ul>
-      <li><strong>Cookies de session :</strong> pour maintenir votre connexion</li>
-      <li><strong>Cookies de sécurité :</strong> pour prévenir les attaques CSRF</li>
-      <li><strong>Cookies de préférence :</strong> pour mémoriser vos paramètres (thème sombre, etc.)</li>
+      <li><strong>Cookies strictement nécessaires</strong> (sans consentement) : cookies de session (maintien de connexion), cookies de sécurité (prévention CSRF), cookies de préférence (thème sombre, etc.)</li>
+      <li><strong>Cookies analytiques</strong> (après consentement uniquement) : Google Analytics via Google Tag Manager (<code>GTM-MDLG8DBD</code>) pour mesurer l'audience du site vitrine family-app.fr. Ces cookies ne sont activés que si vous cliquez sur « Tout accepter » dans la bannière de consentement.</li>
     </ul>
-    <p><strong>Nous n'utilisons aucun cookie publicitaire ou de tracking.</strong></p>
+    <p>Vous pouvez retirer votre consentement à tout moment via le lien « Gérer les cookies » en bas de page.</p>
 
-    <h2>11. Modifications de cette politique</h2>
+    <h2>12. Modifications de cette politique</h2>
     <p>Nous nous réservons le droit de modifier cette politique de confidentialité. En cas de changement substantiel, nous vous en informerons par :</p>
     <ul>
       <li>📧 Email à l'adresse associée à votre compte</li>
@@ -367,12 +406,12 @@
       <li>🌐 Mise à jour de la date en haut de cette page</li>
     </ul>
 
-    <h2>12. Contact</h2>
+    <h2>13. Contact</h2>
     <p>Pour toute question concernant la protection de vos données personnelles :</p>
     <p class="contact-highlight">📧 <a href="mailto:app.familiale@gmail.com">app.familiale@gmail.com</a></p>
     <p><strong>Délai de réponse garanti :</strong> sous 30 jours maximum</p>
 
-    <h2>13. Conformité Google OAuth API Services</h2>
+    <h2>14. Conformité Google OAuth API Services</h2>
     <p>L'utilisation de FamilyApp avec Google Calendar est soumise aux <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, incluant les exigences de Limited Use.</p>
     <p><strong>Engagement FamilyApp :</strong></p>
     <ul>
@@ -406,10 +445,9 @@
         <div class="footer__col">
           <h3 class="footer__heading">Entreprise</h3>
           <ul>
-            <li><a href="#">À propos</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="/blog/">Blog</a></li>
             <li><a href="mailto:contact@family-app.fr">Contact</a></li>
-            <li><a href="#">Support</a></li>
+            <li><a href="mailto:contact@family-app.fr">Support</a></li>
           </ul>
         </div>
         <div class="footer__col">
@@ -418,7 +456,7 @@
             <li><a href="/terms/">Conditions d'utilisation</a></li>
             <li><a href="/privacy/">Politique de confidentialité</a></li>
             <li><a href="/legal/">Mentions légales</a></li>
-            <li><a href="#">Cookies</a></li>
+            <li><a href="#" onclick="window.faResetCookieConsent();return false;">Gérer les cookies</a></li>
           </ul>
         </div>
       </div>

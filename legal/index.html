@@ -126,7 +126,7 @@
     }
     .contact-highlight a { font-weight: 700; font-size: 1.3rem; }
   </style>
-  <script src="/js/cookie-consent.js"></script>
+  <script src="/js/cookie-consent.js" defer></script>
 </head>
 <body>
 
@@ -171,8 +171,10 @@
     <p>Le site <strong>family-app.fr</strong> est édité par :</p>
     <ul>
       <li><strong>Nom :</strong> HUXA</li>
-      <li><strong>Adresse :</strong> France (Union Européenne)</li>
-      <li><strong>Email :</strong> <a href="mailto:app.familiale@gmail.com">app.familiale@gmail.com</a></li>
+      <li><strong>Forme juridique :</strong> Auto-entrepreneur</li>
+      <li><strong>SIREN :</strong> 829 009 349</li>
+      <li><strong>Adresse :</strong> 170 Chemin de la Marquette, 84360 Lauris, France</li>
+      <li><strong>Email :</strong> <a href="mailto:contact@family-app.fr">contact@family-app.fr</a></li>
       <li><strong>Directeur de publication :</strong> HUXA</li>
     </ul>
 
@@ -207,8 +209,11 @@
 
     <h2>5. Cookies</h2>
     <p>
-      Le site family-app.fr utilise uniquement des cookies strictement nécessaires au
-      fonctionnement du service. Aucun cookie publicitaire ou de tracking n'est utilisé.
+      Le site family-app.fr n'utilise aucun cookie publicitaire ou de tracking sans votre
+      consentement préalable. Si vous l'acceptez via la bannière de consentement, des cookies
+      analytiques (Google Analytics via Google Tag Manager) sont activés pour mesurer l'audience
+      du site. Vous pouvez retirer votre consentement à tout moment via le lien « Gérer les
+      cookies » en bas de page.
     </p>
 
     <h2>6. Liens hypertextes</h2>
@@ -244,10 +249,9 @@
         <div class="footer__col">
           <h3 class="footer__heading">Entreprise</h3>
           <ul>
-            <li><a href="#">À propos</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="/blog/">Blog</a></li>
             <li><a href="mailto:contact@family-app.fr">Contact</a></li>
-            <li><a href="#">Support</a></li>
+            <li><a href="mailto:contact@family-app.fr">Support</a></li>
           </ul>
         </div>
         <div class="footer__col">
@@ -256,7 +260,7 @@
             <li><a href="/terms/">Conditions d'utilisation</a></li>
             <li><a href="/privacy/">Politique de confidentialité</a></li>
             <li><a href="/legal/">Mentions légales</a></li>
-            <li><a href="#">Cookies</a></li>
+            <li><a href="#" onclick="window.faResetCookieConsent();return false;">Gérer les cookies</a></li>
           </ul>
         </div>
       </div>
