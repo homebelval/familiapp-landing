@@ -1090,7 +1090,7 @@
           );
           applyCount(count);
         })
-        .catch(() => applyCount(0)); // fallback silencieux
+        .catch(err => { console.error('[Beta counter] Firestore fetch failed:', err); applyCount(0); });
     });
   </script>
 </body>
