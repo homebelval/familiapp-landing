@@ -1086,7 +1086,7 @@
         .then(r => r.ok ? r.json() : Promise.reject(r.status))
         .then(data => {
           const count = parseInt(
-            data?.fields?.signupCount?.integerValue ?? '0', 10
+            data?.fields?.signupcount?.integerValue ?? '0', 10
           );
           applyCount(count);
         })
