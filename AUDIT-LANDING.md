@@ -45,7 +45,7 @@ Plusieurs bloquants juridiques et commerciaux doivent être corrigés avant tout
 
 | ID | Dim. | Sév. | Fichier:ligne | Description | Recommandation |
 |----|------|------|---------------|-------------|----------------|
-| F01 | Conformité | 🔴 | `privacy/index.html:299-303` | **Sous-traitants manquants.** La section 7.1 ne liste que Firebase et Google OAuth. Cloudflare (USA, DNS réel selon contexte produit), Stripe (USA, paiement réel) et Google Analytics/GTM ne figurent pas. Art. 13 & 28 RGPD imposent la liste exhaustive des sous-traitants. | Ajouter Cloudflare, Stripe et Google Analytics (GTM-MDLG8DBD) dans la section 7 avec leur rôle, leur pays et un lien vers leurs propres garanties RGPD. |
+| F01 | Conformité | 🔴 | `privacy/index.html:299-303` | **Sous-traitants manquants.** La section 7.1 ne liste que Firebase et Google OAuth. Cloudflare (USA, DNS réel selon contexte produit) et Stripe (USA, paiement réel) ne figurent pas. Art. 13 & 28 RGPD imposent la liste exhaustive des sous-traitants de l'application. *Note : GTM est un traceur de la landing page (pas de l'app) — il doit figurer dans la politique cookies de la landing, non dans la section 7 de l'app.* | Ajouter Cloudflare et Stripe dans la section 7 avec leur rôle, leur pays et un lien vers leurs propres garanties RGPD. Documenter GTM dans la politique cookies du site vitrine (section 10 ou page cookies dédiée). |
 | F02 | Conformité | 🔴 | `legal/index.html:210-211` `privacy/index.html:360` | **Déclaration cookies mensongère.** Les deux documents affirment catégoriquement « Aucun cookie publicitaire ou de tracking n'est utilisé. » GTM-MDLG8DBD est pourtant chargé (conditionnel, mais bien tracking analytics). L'affirmation absolue est factuellement fausse. | Remplacer par : « Nous n'utilisons aucun cookie publicitaire ou de tracking *sans votre consentement préalable*. Si vous acceptez, Google Analytics (via GTM) est activé. » |
 | F03 | Promesses/Réalité | 🔴 | `index.html:522-526` | **Témoignage impossible.** Julien Dubois (Lyon) décrit l'intégration Pronote comme fonctionnelle (« L'intégration Pronote est un game-changer »). Or Pronote est marqué **« 🕐 Bientôt disponible »** dans les plans (`index.html:477,491`). Le produit n'étant pas disponible, ce témoignage ne peut pas être authentique. Pratique commerciale trompeuse (Art. L. 121-2 Code de la consommation). | Supprimer ou remplacer ce témoignage. Ne publier que des témoignages vérifiables d'utilisateurs réels de features disponibles. |
 | F04 | Promesses/Réalité | 🔴 | `index.html:248` | **Microsoft Outlook annoncé sans base.** La carte Calendrier indique « Synchronisé Google & Outlook ». Ni la politique de confidentialité ni les CGU ne mentionnent Microsoft/Outlook ni de scope OAuth Microsoft. Si l'intégration n'existe pas, c'est une allégation fausse. À vérifier. | Si non implémenté : retirer « & Outlook » de la carte feature. Si implémenté : documenter le scope Microsoft OAuth dans privacy/terms et ajouter Microsoft parmi les sous-traitants. |
@@ -81,7 +81,7 @@ Ces points doivent être résolus **avant** de débuter toute acquisition payant
 
 | Priorité | ID | Description courte |
 |----------|----|--------------------|
-| 1 | F01 | Sous-traitants Cloudflare, Stripe, Google Analytics absents de la politique de conf. |
+| 1 | F01 | Sous-traitants Cloudflare et Stripe absents de la politique de conf. de l'app ; GTM absent de la politique cookies de la landing. |
 | 2 | F02 | Affirmation « aucun cookie de tracking » factuellement fausse dans deux documents légaux |
 | 3 | F03 | Témoignage Pronote impossible (feature non disponible) = pratique commerciale trompeuse |
 | 4 | F04 | Microsoft Outlook annoncé comme feature : vérifier existence et documenter ou retirer |
@@ -120,7 +120,7 @@ Ces points doivent être résolus **avant** de débuter toute acquisition payant
 | Suivi scolaire Pronote | ✅ Hero + features + FAQ | Family Premium / Premium+ | 🕐 « Bientôt disponible » | **Non dispo, contradictions FAQ vs tarifs — F07, F09** |
 | **École Direct** | ✅ `index.html:275` | Family Premium | ❓ Non documenté | **À vérifier — F13** |
 | Capsule/Capsule+ (hardware Pi) | ✅ Tarifs | Premium / Premium+ | 🕐 Plans non disponibles | Mentionné mais plans bloqués |
-| **Google Analytics** | Cookie consent JS | — | ✅ Implémenté (GTM-MDLG8DBD) | **Non déclaré dans politique cookies — F01, F02, F11** |
+| **Google Analytics (GTM landing)** | Cookie consent JS | — | ✅ Implémenté sur la landing (GTM-MDLG8DBD), conditionnel au consentement | **Non déclaré dans politique cookies de la landing (section 10) — F02, F11** |
 | **Stripe (paiement)** | Non visible en landing | — | ✅ Sous-traitant réel | **Absent politique de conf. — F01** |
 | **Cloudflare (DNS)** | Non visible en landing | — | ✅ Sous-traitant réel | **Absent politique de conf. — F01** |
 | Hébergement Europe | ✅ FAQ, proof band | — | ✅ Firebase Belgique + Infomaniak CH | Vrai mais Cloud Act non mentionné — F14 |
