@@ -1274,6 +1274,15 @@ button {
   margin-bottom: 24px;
 }
 
+.pricing-card__options {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  background: var(--bg-alt);
+  border-radius: var(--radius-sm);
+}
+
 .pricing-card__list {
   margin-bottom: 24px;
 }
