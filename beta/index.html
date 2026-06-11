@@ -1033,7 +1033,7 @@
     // ── Beta counter — Firestore live read ─────────────────────────────────
     const TOTAL_SPOTS = 50;
     const FIRESTORE_URL =
-      'https://firestore.googleapis.com/v1/projects/family-app-fr/databases/(default)/documents/beta/stats';
+      'https://firestore.googleapis.com/v1/projects/family-app-fr/databases/(default)/documents/beta/stats?key=AIzaSyDKxnkRcsEqrXHjQNiDYuj7cAAmKKEp2Eo';
 
     function applyCount(taken) {
       const remaining = Math.max(0, TOTAL_SPOTS - taken);
@@ -1090,7 +1090,7 @@
           );
           applyCount(count);
         })
-        .catch(() => applyCount(0)); // fallback silencieux
+        .catch(err => { console.error('[Beta counter] Firestore fetch failed:', err); applyCount(0); });
     });
   </script>
 </body>
