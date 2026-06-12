@@ -676,7 +676,7 @@ button {
 /* ── iPhone (mockup-phone positionné) ───────── */
 .three-screens__phone {
   position: absolute;
-  left: 215px;
+  left: 235px;
   bottom: 0;
   z-index: 5;
 }
