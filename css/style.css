@@ -549,8 +549,8 @@ button {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  gap: 16px;
-  transform: scale(0.82);
+  gap: 14px;
+  transform: scale(0.68);
   transform-origin: center bottom;
 }
 
@@ -564,10 +564,10 @@ button {
 }
 
 .mockup-laptop__lid {
-  width: 310px;
+  width: 420px;
   background: #1c1c2e;
   border-radius: 14px 14px 3px 3px;
-  padding: 9px 9px 6px;
+  padding: 10px 10px 7px;
 }
 
 .mockup-laptop__camera {
@@ -575,12 +575,12 @@ button {
   height: 5px;
   background: #3a3a4a;
   border-radius: 50%;
-  margin: 0 auto 4px;
+  margin: 0 auto 5px;
 }
 
 .mockup-laptop__screen {
   width: 100%;
-  height: 190px;
+  height: 250px;
   border-radius: 6px;
   overflow: hidden;
   background: #f1f5f9;
@@ -595,17 +595,17 @@ button {
 }
 
 .mockup-laptop__hinge {
-  width: 310px;
+  width: 420px;
   height: 5px;
   background: #14142a;
   border-radius: 0 0 2px 2px;
 }
 
 .mockup-laptop__body {
-  width: 310px;
+  width: 420px;
   background: linear-gradient(180deg, #252535 0%, #1c1c2e 100%);
   border-radius: 0 0 12px 12px;
-  padding: 8px 18px 12px;
+  padding: 9px 20px 14px;
 }
 
 .mockup-laptop__keys {
@@ -629,8 +629,8 @@ button {
 }
 
 .mockup-laptop__trackpad {
-  width: 68px;
-  height: 12px;
+  width: 88px;
+  height: 14px;
   background: #252540;
   border-radius: 4px;
   margin: 0 auto;
@@ -869,8 +869,8 @@ button {
 
 .split__inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 48px;
   align-items: center;
 }
 
