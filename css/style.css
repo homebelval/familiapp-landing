@@ -673,48 +673,53 @@ button {
   border: 1px solid #333348;
 }
 
-/* ── iPhone ──────────────────────────────────── */
-.device--iphone {
-  left: 236px;
+/* ── iPhone (mockup-phone positionné) ───────── */
+.three-screens__phone {
+  position: absolute;
+  left: 215px;
   bottom: 0;
   z-index: 5;
-  width: 82px;
-  background: linear-gradient(160deg, #2c2c3e 0%, #111118 60%, #0a0a0f 100%);
-  border-radius: 24px;
-  padding: 3px;
+}
+
+.mockup-phone {
+  width: 200px;
+  background: var(--text);
+  border-radius: 32px;
+  padding: 10px;
   box-shadow:
-    0 28px 60px rgba(0,0,0,0.65),
-    0 6px 18px rgba(0,0,0,0.35),
-    inset 0 1px 0 rgba(255,255,255,0.10),
-    inset 0 -1px 0 rgba(0,0,0,0.4);
+    0 30px 80px rgba(0,0,0,0.22),
+    0 0 0 1px rgba(255,255,255,0.05);
+  flex-shrink: 0;
 }
 
-.device__island {
-  width: 24px; height: 7px;
-  background: #060608;
-  border-radius: 5px;
-  margin: 3px auto 3px;
-}
-
-.device--iphone .device__screen {
-  border-radius: 20px;
-  overflow: hidden;
-  height: 180px;
-  background: linear-gradient(160deg, #f9a8d4 0%, #c084fc 50%, #818cf8 100%);
-}
-
-.device--iphone .device__screen img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: top;
-  display: block;
-}
-
-.device__bar {
-  width: 30px; height: 4px;
-  background: rgba(255,255,255,0.22);
+.mockup-phone__notch {
+  width: 50px;
+  height: 5px;
+  background: var(--dark-bg);
   border-radius: 3px;
-  margin: 4px auto 2px;
+  margin: 0 auto 8px;
+}
+
+.mockup-phone__screen {
+  background: linear-gradient(160deg, #fff8f0 0%, #f0f4ff 100%);
+  border-radius: 22px;
+  padding: 14px 12px;
+}
+
+.mockup-phone__screen--screenshot {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border-radius: 22px;
+  object-fit: cover;
+}
+
+.mockup-phone__bar {
+  width: 50px;
+  height: 4px;
+  background: #333;
+  border-radius: 2px;
+  margin: 8px auto 0;
 }
 
 /* ── iPad paysage ────────────────────────────── */
