@@ -674,27 +674,31 @@ button {
 
 /* ── iPhone ──────────────────────────────────── */
 .device--iphone {
-  left: 240px;
-  bottom: -55px;
+  left: 236px;
+  bottom: -75px;
   z-index: 4;
-  width: 72px;
-  background: #0d0d12;
-  border-radius: 20px;
-  padding: 2px;
-  box-shadow: 0 22px 52px rgba(0,0,0,0.55), 0 4px 14px rgba(0,0,0,0.3);
+  width: 82px;
+  background: linear-gradient(160deg, #2c2c3e 0%, #111118 60%, #0a0a0f 100%);
+  border-radius: 24px;
+  padding: 3px;
+  box-shadow:
+    0 28px 60px rgba(0,0,0,0.65),
+    0 6px 18px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.10),
+    inset 0 -1px 0 rgba(0,0,0,0.4);
 }
 
 .device__island {
-  width: 20px; height: 6px;
-  background: #000;
-  border-radius: 4px;
-  margin: 2px auto 2px;
+  width: 24px; height: 7px;
+  background: #060608;
+  border-radius: 5px;
+  margin: 3px auto 3px;
 }
 
 .device--iphone .device__screen {
-  border-radius: 18px;
+  border-radius: 20px;
   overflow: hidden;
-  height: 128px;
+  height: 155px;
   background: linear-gradient(160deg, #f9a8d4 0%, #c084fc 50%, #818cf8 100%);
 }
 
@@ -706,10 +710,10 @@ button {
 }
 
 .device__bar {
-  width: 24px; height: 3px;
-  background: rgba(255,255,255,0.15);
-  border-radius: 2px;
-  margin: 2px auto 0;
+  width: 30px; height: 4px;
+  background: rgba(255,255,255,0.22);
+  border-radius: 3px;
+  margin: 4px auto 2px;
 }
 
 /* ── iPad paysage ────────────────────────────── */
