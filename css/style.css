@@ -724,7 +724,7 @@ button {
 
 /* ── iPad paysage ────────────────────────────── */
 .device--ipad {
-  right: -65px;
+  right: -85px;
   bottom: 252px;
   z-index: 3;
   width: 257px;
