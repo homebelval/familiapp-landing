@@ -134,39 +134,54 @@
 
     <!-- Côté visuel -->
     <div class="hero__visual" aria-hidden="true">
-      <!-- Tablette — Hub parent -->
-      <div class="mockup-tablet">
-        <div class="mockup-tablet__screen">
-          <div class="mockup-tablet__header">
-            <span class="mockup-tablet__title">Hub famille</span>
-            <span class="mockup-badge mockup-badge--purple">Vue parent</span>
-          </div>
-          <div class="mockup-family-grid">
-            <div class="mockup-family-card">
-              <div class="mockup-avatar mockup-avatar--amber">👧</div>
-              <div class="mockup-family-name">Emma</div>
-              <div class="mockup-family-tasks">4/5 tâches</div>
-              <div class="mockup-progress"><div class="mockup-progress__fill" style="width:80%;background:var(--green);"></div></div>
+
+      <!-- PC — Hub parent -->
+      <div class="mockup-pc">
+        <div class="mockup-pc__monitor">
+          <div class="mockup-pc__screen">
+            <div class="mockup-pc__sidebar">
+              <div class="mockup-pc__logo">Hub</div>
+              <div class="mockup-pc__nav-item mockup-pc__nav-item--active">🏠 Famille</div>
+              <div class="mockup-pc__nav-item">✅ Tâches</div>
+              <div class="mockup-pc__nav-item">📅 Agenda</div>
+              <div class="mockup-pc__nav-item">🛡️ Contrôle</div>
+              <div class="mockup-pc__nav-item">💰 Cagnotte</div>
             </div>
-            <div class="mockup-family-card">
-              <div class="mockup-avatar mockup-avatar--purple">👦</div>
-              <div class="mockup-family-name">Lucas</div>
-              <div class="mockup-family-tasks">2/4 tâches</div>
-              <div class="mockup-progress"><div class="mockup-progress__fill" style="width:50%;background:var(--amber);"></div></div>
-            </div>
-            <div class="mockup-family-card">
-              <div class="mockup-avatar mockup-avatar--green">🧒</div>
-              <div class="mockup-family-name">Léa</div>
-              <div class="mockup-family-tasks">3/3 tâches</div>
-              <div class="mockup-progress"><div class="mockup-progress__fill" style="width:100%;background:var(--purple);"></div></div>
-            </div>
-            <div class="mockup-family-card mockup-family-card--event">
-              <div class="mockup-event-label">📅 Prochain</div>
-              <div class="mockup-event-name">Foot Lucas</div>
-              <div class="mockup-event-time">Demain 18h</div>
+            <div class="mockup-pc__content">
+              <div class="mockup-pc__topbar">
+                <span class="mockup-pc__greeting">Bonjour Sophie 👋</span>
+                <span class="mockup-badge mockup-badge--purple">Vue parent</span>
+              </div>
+              <div class="mockup-family-grid">
+                <div class="mockup-family-card">
+                  <div class="mockup-avatar mockup-avatar--amber">👧</div>
+                  <div class="mockup-family-name">Emma</div>
+                  <div class="mockup-family-tasks">4/5 tâches</div>
+                  <div class="mockup-progress"><div class="mockup-progress__fill" style="width:80%;background:var(--green);"></div></div>
+                </div>
+                <div class="mockup-family-card">
+                  <div class="mockup-avatar mockup-avatar--purple">👦</div>
+                  <div class="mockup-family-name">Lucas</div>
+                  <div class="mockup-family-tasks">2/4 tâches</div>
+                  <div class="mockup-progress"><div class="mockup-progress__fill" style="width:50%;background:var(--amber);"></div></div>
+                </div>
+                <div class="mockup-family-card">
+                  <div class="mockup-avatar mockup-avatar--green">🧒</div>
+                  <div class="mockup-family-name">Léa</div>
+                  <div class="mockup-family-tasks">3/3 tâches</div>
+                  <div class="mockup-progress"><div class="mockup-progress__fill" style="width:100%;background:var(--purple);"></div></div>
+                </div>
+                <div class="mockup-family-card mockup-family-card--event">
+                  <div class="mockup-event-label">📅 Prochain</div>
+                  <div class="mockup-event-name">Foot Lucas</div>
+                  <div class="mockup-event-time">Demain 18h</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <div class="mockup-pc__stand"></div>
+        <div class="mockup-pc__base"></div>
       </div>
 
       <!-- Téléphone — app Kidly enfant -->
@@ -175,6 +190,36 @@
         <img src="/images/app-screenshot.png" class="mockup-phone__screen mockup-phone__screen--screenshot" alt="App Kidly — interface enfant" loading="lazy">
         <div class="mockup-phone__bar" aria-hidden="true"></div>
       </div>
+
+      <!-- Tablette — Kiosk famille -->
+      <div class="mockup-tablet mockup-tablet--kiosk">
+        <div class="mockup-tablet__screen">
+          <div class="mockup-tablet__header">
+            <span class="mockup-tablet__title">Kiosk 🏠</span>
+            <span class="mockup-badge mockup-badge--teal">Cuisine</span>
+          </div>
+          <div class="mockup-kiosk-date">Vendredi 13 juin</div>
+          <div class="mockup-kiosk-list">
+            <div class="mockup-kiosk-item">
+              <span class="mockup-kiosk-dot mockup-kiosk-dot--green"></span>
+              <span class="mockup-kiosk-label">Emma — Devoirs ✅</span>
+            </div>
+            <div class="mockup-kiosk-item">
+              <span class="mockup-kiosk-dot mockup-kiosk-dot--amber"></span>
+              <span class="mockup-kiosk-label">Lucas — Foot 18h 🏃</span>
+            </div>
+            <div class="mockup-kiosk-item">
+              <span class="mockup-kiosk-dot mockup-kiosk-dot--purple"></span>
+              <span class="mockup-kiosk-label">Léa — Lecture 📚</span>
+            </div>
+          </div>
+          <div class="mockup-kiosk-footer">
+            <span>🌡️ 22°</span>
+            <span>🍽️ Soir : lasagnes</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -319,14 +364,14 @@
       <div class="container">
   <div class="split__inner">
     <div class="split__text">
-      <span class="section__label">Deux apps, une famille</span>
+      <span class="section__label">Trois apps, une famille</span>
       <h2 class="section__title">Parents sereins.<br>Enfants motivés.</h2>
-      <p class="section__sub">FamilyApp, c'est le Hub parent puissant ET une app enfant qui donne vraiment envie de participer.</p>
+      <p class="section__sub">FamilyApp, c'est le Hub parent, l'app enfant Kidly ET le Kiosk — l'écran interactif pour toute la famille.</p>
       <ul class="split__features">
         <li>Hub parent avec vue globale sur toute la famille</li>
+        <li>Kidly avec interface gamifiée adaptée à chaque âge</li>
+        <li>Kiosk — écran interactif à installer sur vos tablettes, ou disponible sur notre boutique</li>
         <li>Validation des tâches en un clic depuis le mobile</li>
-        <li>Kidly avec interface adaptée à chaque âge</li>
-        <li>Mode kiosque pour l'écran de la cuisine</li>
         <li>Notifications intelligentes, pas de spam</li>
       </ul>
     </div>
@@ -341,6 +386,12 @@
         <div class="split-card__icon"><img src="/images/icon-384x384.png" alt="Kidly" width="48" height="48" loading="lazy"></div>
         <div class="split-card__name">Kidly</div>
         <div class="split-card__desc">Fun · Motivant · Autonomisant</div>
+      </div>
+      <div class="split-arrow">⟷</div>
+      <div class="split-card">
+        <div class="split-card__icon">🏠</div>
+        <div class="split-card__name">Kiosk</div>
+        <div class="split-card__desc">Écran familial · Cuisine · Salon</div>
       </div>
     </div>
   </div>
