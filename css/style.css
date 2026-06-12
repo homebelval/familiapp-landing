@@ -677,7 +677,7 @@ button {
 .three-screens__phone {
   position: absolute;
   left: 235px;
-  bottom: 50px;
+  bottom: -70px;
   z-index: 5;
 }
 
