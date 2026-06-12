@@ -679,7 +679,7 @@ button {
   width: 78px;
   background: #0a0a0f;
   border-radius: 22px;
-  padding: 8px 6px;
+  padding: 4px 5px;
   box-shadow: 0 24px 48px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.07);
 }
 
@@ -687,7 +687,7 @@ button {
   width: 26px; height: 8px;
   background: #000;
   border-radius: 5px;
-  margin: 0 auto 6px;
+  margin: 0 auto 3px;
 }
 
 .device--iphone .device__screen {
@@ -708,7 +708,7 @@ button {
   width: 30px; height: 4px;
   background: #2a2a2a;
   border-radius: 2px;
-  margin: 6px auto 0;
+  margin: 3px auto 0;
 }
 
 /* ── iPad paysage ────────────────────────────── */
