@@ -549,6 +549,7 @@ button {
   position: relative;
   width: 100%;
   height: 295px;
+  overflow: visible;
 }
 
 .three-screens__lines {
@@ -600,7 +601,9 @@ button {
   z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  transform: perspective(1100px) rotateY(-10deg);
+  transform-origin: left bottom;
 }
 
 .device--macbook .device__lid {
@@ -636,14 +639,16 @@ button {
   width: 285px;
   height: 4px;
   background: #14142a;
+  transform: translateX(-14px);
 }
 
 .device--macbook .device__base {
-  width: 285px;
+  width: 310px;
   background: linear-gradient(180deg, #252535 0%, #1c1c2e 100%);
   border-radius: 0 0 10px 10px;
-  padding: 7px 16px 10px;
+  padding: 7px 20px 10px;
   box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+  transform: translateX(-20px);
 }
 
 .device__keys {
@@ -673,7 +678,7 @@ button {
 /* ── iPhone ──────────────────────────────────── */
 .device--iphone {
   left: 242px;
-  bottom: 28px;
+  bottom: -72px;
   z-index: 4;
   width: 78px;
   background: #0a0a0f;
@@ -692,7 +697,7 @@ button {
 .device--iphone .device__screen {
   border-radius: 14px;
   overflow: hidden;
-  height: 158px;
+  height: 115px;
   background: linear-gradient(160deg, #f9a8d4 0%, #c084fc 50%, #818cf8 100%);
 }
 
@@ -718,15 +723,15 @@ button {
   width: 195px;
   background: linear-gradient(145deg, #252538 0%, #1c1c2e 100%);
   border-radius: 12px;
-  padding: 8px;
+  padding: 5px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.28), 0 0 0 1px rgba(255,255,255,0.05);
 }
 
 .device--ipad .device__screen {
-  width: 100%; height: 142px;
-  border-radius: 6px;
+  width: 100%; height: 108px;
+  border-radius: 8px;
   overflow: hidden;
-  background: #e8fdf5;
+  background: #1c1c2e;
 }
 
 .device--ipad .device__screen img {
