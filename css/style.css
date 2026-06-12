@@ -1502,7 +1502,8 @@ button {
 
 .pricing-card__options-list {
   list-style: none;
-  margin-bottom: 16px;
+  margin: 0 0 16px;
+  border-top: 1px solid #f5f5f5;
 }
 .pricing-card__options-list li {
   display: flex;
@@ -1532,7 +1533,7 @@ button {
 }
 
 .pricing-card__list {
-  margin-bottom: 24px;
+  margin-bottom: 0;
 }
 
 .pricing-card__list li {
