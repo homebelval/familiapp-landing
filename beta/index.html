@@ -1030,8 +1030,9 @@
   <!-- JS -->
   <script src="/js/main.js" defer></script>
   <script type="module">
-    // ── Beta counter — Firebase SDK ─────────────────────────────────────────
+    // ── Beta counter — Firebase SDK + App Check ─────────────────────────────
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.9.0/firebase-app.js';
+    import { initializeAppCheck, ReCaptchaV3Provider } from 'https://www.gstatic.com/firebasejs/11.9.0/firebase-app-check.js';
     import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/11.9.0/firebase-firestore.js';
 
     const TOTAL_SPOTS = 50;
@@ -1040,6 +1041,12 @@
       apiKey: 'AIzaSyDKxnkRcsEqrXHjQNiDYuj7cAAmKKEp2Eo',
       projectId: 'family-app-fr'
     });
+
+    initializeAppCheck(app, {
+      provider: new ReCaptchaV3Provider('6LdO2RstAAAAAAMty8QqLdGXCsX2SSNI3RcS-e8r'),
+      isTokenAutoRefreshEnabled: true
+    });
+
     const db = getFirestore(app);
 
     function applyCount(taken) {
