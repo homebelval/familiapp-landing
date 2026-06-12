@@ -159,7 +159,7 @@ button {
   border-radius: var(--radius-pill);
   font-weight: 700;
   font-size: 0.88rem;
-  border: none;
+  border: 2px solid transparent;
   transition: all 0.25s ease;
   white-space: nowrap;
 }
@@ -931,6 +931,7 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  align-self: flex-end;
 }
 
 .split__visual-row {
