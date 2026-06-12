@@ -155,7 +155,7 @@ button {
   align-items: center;
   justify-content: center;
   gap: 6px;
-  padding: 10px 22px;
+  padding: 8px 22px;
   border-radius: var(--radius-pill);
   font-weight: 700;
   font-size: 0.88rem;
