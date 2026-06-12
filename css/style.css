@@ -544,187 +544,195 @@ button {
 /* 3b. DEVICE MOCKUPS — Trois apps section
    ============================================================ */
 
-/* ── Wrapper ─────────────────────────────────── */
-.split__mockups {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 14px;
-  transform: scale(0.68);
-  transform-origin: center bottom;
+/* ── Three-screens container ─────────────────── */
+.three-screens {
+  position: relative;
+  width: 100%;
+  height: 295px;
 }
 
-/* ── Laptop ─────────────────────────────────── */
-.mockup-laptop {
-  flex-shrink: 0;
+.three-screens__lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible;
+}
+
+/* ── Floating icon bubbles ───────────────────── */
+.float-icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(139,92,246,0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  box-shadow: 0 4px 16px rgba(139,92,246,0.13), 0 1px 3px rgba(0,0,0,0.07);
+  z-index: 10;
+}
+.float-icon img { width: 22px; height: 22px; object-fit: contain; }
+
+.float-icon--1 { top: 6px;    right: 52px;  animation: floatBob 3.2s ease-in-out infinite; }
+.float-icon--2 { top: -8px;   left: 38%;    animation: floatBob 3.8s ease-in-out infinite 0.6s; }
+.float-icon--3 { bottom: 16px;left: 8px;    animation: floatBob 3.5s ease-in-out infinite 1.2s; }
+.float-icon--4 { right: 2px;  top: 60px;    animation: floatBob 4s   ease-in-out infinite 0.3s; }
+.float-icon--5 { left: 2px;   top: 48px;    animation: floatBob 3.6s ease-in-out infinite 0.9s; }
+
+@keyframes floatBob {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+/* ── Shared device base ──────────────────────── */
+.device { position: absolute; bottom: 0; }
+
+/* ── MacBook ─────────────────────────────────── */
+.device--macbook {
+  left: 0;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  filter: drop-shadow(0 28px 40px rgba(0,0,0,0.35));
 }
 
-.mockup-laptop__lid {
-  width: 420px;
+.device--macbook .device__lid {
+  width: 285px;
   background: #1c1c2e;
-  border-radius: 14px 14px 3px 3px;
-  padding: 10px 10px 7px;
+  border-radius: 13px 13px 3px 3px;
+  padding: 8px 8px 5px;
+  box-shadow: 0 24px 48px rgba(0,0,0,0.32), 0 0 0 1px rgba(255,255,255,0.05);
 }
 
-.mockup-laptop__camera {
-  width: 5px;
-  height: 5px;
+.device__camera {
+  width: 5px; height: 5px;
   background: #3a3a4a;
   border-radius: 50%;
-  margin: 0 auto 5px;
+  margin: 0 auto 4px;
 }
 
-.mockup-laptop__screen {
+.device--macbook .device__screen {
   width: 100%;
-  height: 250px;
-  border-radius: 6px;
+  height: 175px;
+  border-radius: 5px;
   overflow: hidden;
-  background: #f1f5f9;
-  display: block;
+  background: #1e2a3a;
 }
 
-.mockup-laptop__screen img {
-  width: 100%;
-  height: 100%;
+.device--macbook .device__screen img {
+  width: 100%; height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.mockup-laptop__hinge {
-  width: 420px;
-  height: 5px;
+.device--macbook .device__hinge {
+  width: 285px;
+  height: 4px;
   background: #14142a;
-  border-radius: 0 0 2px 2px;
 }
 
-.mockup-laptop__body {
-  width: 420px;
+.device--macbook .device__base {
+  width: 285px;
   background: linear-gradient(180deg, #252535 0%, #1c1c2e 100%);
-  border-radius: 0 0 12px 12px;
-  padding: 9px 20px 14px;
+  border-radius: 0 0 10px 10px;
+  padding: 7px 16px 10px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.28);
 }
 
-.mockup-laptop__keys {
+.device__keys {
   display: flex;
   flex-direction: column;
   gap: 3px;
-  margin-bottom: 7px;
+  margin-bottom: 6px;
 }
 
-.mockup-laptop__key-row {
-  display: flex;
-  gap: 2px;
-}
+.device__key-row { display: flex; gap: 2px; }
 
-.mockup-laptop__key {
-  height: 5px;
-  flex: 1;
+.device__key {
+  height: 5px; flex: 1;
   background: #2e2e48;
   border-radius: 2px;
   box-shadow: 0 1px 0 rgba(0,0,0,0.5);
 }
 
-.mockup-laptop__trackpad {
-  width: 88px;
-  height: 14px;
-  background: #252540;
+.device__trackpad {
+  width: 60px; height: 10px;
+  background: #222238;
   border-radius: 4px;
   margin: 0 auto;
   border: 1px solid #333348;
 }
 
-/* ── Phone ─────────────────────────────────── */
-.mockup-phone {
-  flex-shrink: 0;
-  width: 90px;
-  background: #0f0f14;
-  border-radius: 26px;
-  padding: 9px 6px;
-  filter: drop-shadow(0 28px 40px rgba(0,0,0,0.4));
+/* ── iPhone ──────────────────────────────────── */
+.device--iphone {
+  left: 242px;
+  bottom: 28px;
+  z-index: 4;
+  width: 78px;
+  background: #0a0a0f;
+  border-radius: 22px;
+  padding: 8px 6px;
+  box-shadow: 0 24px 48px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.07);
 }
 
-.mockup-phone__island {
-  width: 28px;
-  height: 8px;
+.device__island {
+  width: 26px; height: 8px;
   background: #000;
-  border-radius: 6px;
-  margin: 0 auto 7px;
+  border-radius: 5px;
+  margin: 0 auto 6px;
 }
 
-.mockup-phone__screen {
-  border-radius: 17px;
+.device--iphone .device__screen {
+  border-radius: 14px;
   overflow: hidden;
   height: 158px;
   background: linear-gradient(160deg, #f9a8d4 0%, #c084fc 50%, #818cf8 100%);
 }
 
-.mockup-phone__screen img,
-.mockup-phone__screen--screenshot {
-  display: block;
-  width: 100%;
-  height: 158px;
-  border-radius: 17px;
+.device--iphone .device__screen img {
+  width: 100%; height: 100%;
   object-fit: cover;
-  padding: 0;
+  object-position: top;
+  display: block;
 }
 
-.mockup-phone__bar {
-  width: 36px;
-  height: 4px;
+.device__bar {
+  width: 30px; height: 4px;
   background: #2a2a2a;
   border-radius: 2px;
-  margin: 7px auto 0;
+  margin: 6px auto 0;
 }
 
-/* ── iPad landscape ─────────────────────────── */
-.mockup-ipad {
-  flex-shrink: 0;
-  width: 220px;
-  background: #1c1c2e;
-  border-radius: 14px;
-  padding: 9px 9px 9px 6px;
-  filter: drop-shadow(0 28px 40px rgba(0,0,0,0.3));
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 0;
+/* ── iPad paysage ────────────────────────────── */
+.device--ipad {
+  right: 0;
+  bottom: 22px;
+  z-index: 3;
+  width: 195px;
+  background: linear-gradient(145deg, #252538 0%, #1c1c2e 100%);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.28), 0 0 0 1px rgba(255,255,255,0.05);
 }
 
-.mockup-ipad__camera {
-  width: 5px;
-  height: 5px;
-  background: #3a3a4a;
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-right: 5px;
-}
-
-.mockup-ipad__screen {
-  flex: 1;
-  border-radius: 8px;
+.device--ipad .device__screen {
+  width: 100%; height: 142px;
+  border-radius: 6px;
   overflow: hidden;
-  height: 155px;
   background: #e8fdf5;
 }
 
-.mockup-ipad__screen img {
-  width: 100%;
-  height: 100%;
+.device--ipad .device__screen img {
+  width: 100%; height: 100%;
   object-fit: cover;
   display: block;
-}
-
-.mockup-ipad__bar {
-  width: 4px;
-  height: 36px;
-  background: #2a2a3a;
-  border-radius: 2px;
-  flex-shrink: 0;
-  margin-left: 5px;
 }
 
 /* 4. PROOF BAND
@@ -869,7 +877,7 @@ button {
 
 .split__inner {
   display: grid;
-  grid-template-columns: 1.3fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: center;
 }

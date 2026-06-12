@@ -288,43 +288,61 @@
       </ul>
     </div>
     <div class="split__visual" aria-hidden="true">
-      <div class="split__mockups">
+      <div class="three-screens">
 
-        <!-- Laptop — Hub parent -->
-        <div class="mockup-laptop">
-          <div class="mockup-laptop__lid">
-            <div class="mockup-laptop__camera"></div>
-            <div class="mockup-laptop__screen">
-              <img src="/images/hub-screenshot.png" alt="Hub — interface parents" loading="lazy">
+        <!-- Lignes courbes de connexion -->
+        <svg class="three-screens__lines" viewBox="0 0 530 295" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#c084fc" stop-opacity="0.2"/>
+            </linearGradient>
+          </defs>
+          <path d="M 55 200 C 100 160, 160 140, 242 210" stroke="url(#lineGrad)" stroke-width="1.5" stroke-dasharray="5 4" fill="none"/>
+          <path d="M 322 210 C 360 170, 410 155, 460 190" stroke="url(#lineGrad)" stroke-width="1.5" stroke-dasharray="5 4" fill="none"/>
+          <path d="M 140 50 C 200 30, 270 25, 330 48" stroke="url(#lineGrad)" stroke-width="1.2" stroke-dasharray="4 5" fill="none" opacity="0.6"/>
+        </svg>
+
+        <!-- Icônes flottantes -->
+        <div class="float-icon float-icon--1" title="Sécurité">🛡️</div>
+        <div class="float-icon float-icon--2" title="Famille">👨‍👩‍👧‍👦</div>
+        <div class="float-icon float-icon--3" title="Tâches">✅</div>
+        <div class="float-icon float-icon--4" title="Cagnotte">💰</div>
+        <div class="float-icon float-icon--5" title="Kidly"><img src="/images/kidly-icon.png" alt="Kidly"></div>
+
+        <!-- MacBook — Hub parent -->
+        <div class="device device--macbook">
+          <div class="device__lid">
+            <div class="device__camera"></div>
+            <div class="device__screen">
+              <img src="/images/app-parent-screenshot.png" alt="Hub — interface parents" loading="lazy">
             </div>
           </div>
-          <div class="mockup-laptop__hinge"></div>
-          <div class="mockup-laptop__body">
-            <div class="mockup-laptop__keys">
-              <div class="mockup-laptop__key-row"><div class="mockup-laptop__key" style="flex:0.7"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key" style="flex:0.7"></div></div>
-              <div class="mockup-laptop__key-row"><div class="mockup-laptop__key" style="flex:1.2"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key" style="flex:1.2"></div></div>
-              <div class="mockup-laptop__key-row"><div class="mockup-laptop__key" style="flex:1.8"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key" style="flex:1.8"></div></div>
+          <div class="device__hinge"></div>
+          <div class="device__base">
+            <div class="device__keys">
+              <div class="device__key-row"><div class="device__key" style="flex:0.6"></div><div class="device__key"></div><div class="device__key"></div><div class="device__key"></div><div class="device__key"></div><div class="device__key"></div><div class="device__key"></div><div class="device__key"></div><div class="device__key"></div><div class="device__key"></div><div class="device__key" style="flex:0.6"></div></div>
+              <div class="device__key-row"><div class="device__key" style="flex:1.2"></div><div class="device__key"></div><div class="device__key"></div><div class="device__key"></div><div class="device__key"></div><div class="device__key"></div><div class="device__key"></div><div class="device__key"></div><div class="device__key"></div><div class="device__key" style="flex:1.2"></div></div>
+              <div class="device__key-row"><div class="device__key" style="flex:1.8"></div><div class="device__key"></div><div class="device__key"></div><div class="device__key"></div><div class="device__key"></div><div class="device__key"></div><div class="device__key" style="flex:1.8"></div></div>
             </div>
-            <div class="mockup-laptop__trackpad"></div>
+            <div class="device__trackpad"></div>
           </div>
         </div>
 
-        <!-- Téléphone — app Kidly enfant -->
-        <div class="mockup-phone">
-          <div class="mockup-phone__island" aria-hidden="true"></div>
-          <div class="mockup-phone__screen">
-            <img src="/images/kidly-screenshot.png" class="mockup-phone__screen--screenshot" alt="Kidly — interface enfant" loading="lazy">
+        <!-- iPhone — app Kidly enfant -->
+        <div class="device device--iphone">
+          <div class="device__island"></div>
+          <div class="device__screen">
+            <img src="/images/app-enfant-screenshot.png" alt="Kidly — interface enfant" loading="lazy">
           </div>
-          <div class="mockup-phone__bar" aria-hidden="true"></div>
+          <div class="device__bar"></div>
         </div>
 
         <!-- iPad paysage — Kiosk famille -->
-        <div class="mockup-ipad">
-          <div class="mockup-ipad__camera"></div>
-          <div class="mockup-ipad__screen">
-            <img src="/images/kiosk-screenshot.png" alt="Kiosk — écran famille" loading="lazy">
+        <div class="device device--ipad">
+          <div class="device__screen">
+            <img src="/images/app-famille-screenshot.png" alt="Kiosk — écran famille" loading="lazy">
           </div>
-          <div class="mockup-ipad__bar"></div>
         </div>
 
       </div>
