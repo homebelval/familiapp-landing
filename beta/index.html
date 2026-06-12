@@ -1029,24 +1029,29 @@
 
   <!-- JS -->
   <script src="/js/main.js" defer></script>
-  <script>
-    // ── Beta counter — Firestore live read ─────────────────────────────────
+  <script type="module">
+    // ── Beta counter — Firebase SDK ─────────────────────────────────────────
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.9.0/firebase-app.js';
+    import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/11.9.0/firebase-firestore.js';
+
     const TOTAL_SPOTS = 50;
-    const FIRESTORE_URL =
-      'https://firestore.googleapis.com/v1/projects/family-app-fr/databases/(default)/documents/beta/stats?key=AIzaSyDKxnkRcsEqrXHjQNiDYuj7cAAmKKEp2Eo';
+
+    const app = initializeApp({
+      apiKey: 'AIzaSyDKxnkRcsEqrXHjQNiDYuj7cAAmKKEp2Eo',
+      projectId: 'family-app-fr'
+    });
+    const db = getFirestore(app);
 
     function applyCount(taken) {
       const remaining = Math.max(0, TOTAL_SPOTS - taken);
       const pct = Math.min(100, (taken / TOTAL_SPOTS) * 100);
       const isFull = remaining === 0;
 
-      // Counters (remaining)
       ['main-counter', 'urgency-num', 'final-counter', 'band-remaining'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.textContent = isFull ? '0' : remaining;
       });
 
-      // Taken labels
       const takenLabel = document.getElementById('taken-label');
       if (takenLabel) {
         takenLabel.textContent = taken === 0
@@ -1054,17 +1059,14 @@
           : `${taken} famille${taken > 1 ? 's ont' : ' a'} déjà rejoint`;
       }
 
-      // Progress bar
       const fill = document.getElementById('progress-fill');
       if (fill) setTimeout(() => { fill.style.width = pct + '%'; }, 300);
 
-      // Urgency pill: rouge si ≤ 10 places
       if (remaining <= 10 && !isFull) {
         const pill = document.getElementById('urgency-spots');
         if (pill) pill.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
       }
 
-      // Bêta complète : griser tous les CTAs et rediriger vers /waitlist/
       if (isFull) {
         document.querySelectorAll('.beta-cta').forEach(btn => {
           btn.href = '/waitlist/';
@@ -1072,7 +1074,6 @@
           btn.classList.remove('btn--green');
           btn.classList.add('beta-cta--full');
         });
-        // Urgency pill
         const pill = document.getElementById('urgency-spots');
         if (pill) {
           pill.textContent = '🔒 Bêta complète — liste d\'attente ouverte';
@@ -1081,17 +1082,14 @@
       }
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      fetch(FIRESTORE_URL)
-        .then(r => r.ok ? r.json() : Promise.reject(r.status))
-        .then(data => {
-          const count = parseInt(
-            data?.fields?.signupCount?.integerValue ?? '0', 10
-          );
-          applyCount(count);
-        })
-        .catch(err => { console.error('[Beta counter] Firestore fetch failed:', err); applyCount(0); });
-    });
+    try {
+      const snap = await getDoc(doc(db, 'beta', 'stats'));
+      const count = snap.exists() ? (snap.data().signupCount ?? 0) : 0;
+      applyCount(count);
+    } catch (e) {
+      console.error('[Beta counter] Firestore error:', e);
+      applyCount(0);
+    }
   </script>
 </body>
 </html>
