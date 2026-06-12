@@ -1260,6 +1260,18 @@ button {
   font-weight: 900;
   letter-spacing: -1px;
   color: var(--purple);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.pricing-card__from {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--text-muted);
+  line-height: 1.2;
 }
 
 .pricing-card__period {
@@ -1275,13 +1287,33 @@ button {
   margin-bottom: 24px;
 }
 
-.pricing-card__options {
+.pricing-card__options-list {
+  list-style: none;
   font-size: 0.78rem;
   color: var(--text-muted);
   margin-bottom: 16px;
   padding: 8px 12px;
   background: var(--bg-alt);
   border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.pricing-card__options-list li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pricing-card__options-list li::before {
+  content: '○';
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+.pricing-card__options-list li span {
+  margin-left: auto;
+  font-weight: 600;
+  color: var(--purple);
 }
 
 .pricing-card__list {
