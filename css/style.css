@@ -359,8 +359,6 @@ button {
   position: relative;
   overflow: hidden;
   min-height: 560px;
-  display: flex;
-  align-items: center;
 }
 
 .hero__photo {
