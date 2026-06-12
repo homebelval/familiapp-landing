@@ -358,7 +358,7 @@ button {
   padding: 80px 0 60px;
   position: relative;
   overflow: hidden;
-  min-height: 560px;
+  min-height: 660px;
 }
 
 .hero__photo {
@@ -541,64 +541,78 @@ button {
 }
 
 
-/* 3b. HERO MOCKUPS
+/* 3b. DEVICE MOCKUPS — Trois apps section
    ============================================================ */
 
-/* -- Laptop -- */
+/* ── Wrapper ─────────────────────────────────── */
+.split__mockups {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 16px;
+  transform: scale(0.82);
+  transform-origin: center bottom;
+}
+
+/* ── Laptop ─────────────────────────────────── */
 .mockup-laptop {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  z-index: 1;
-  margin-right: -22px;
+  filter: drop-shadow(0 28px 40px rgba(0,0,0,0.35));
 }
 
 .mockup-laptop__lid {
   width: 310px;
-  background: #2a2a3e;
-  border-radius: 12px 12px 2px 2px;
-  padding: 7px 7px 4px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  background: #1c1c2e;
+  border-radius: 14px 14px 3px 3px;
+  padding: 9px 9px 6px;
 }
 
 .mockup-laptop__camera {
   width: 5px;
   height: 5px;
-  background: #444;
+  background: #3a3a4a;
   border-radius: 50%;
-  margin: 0 auto 3px;
+  margin: 0 auto 4px;
 }
 
 .mockup-laptop__screen {
-  background: linear-gradient(160deg, #fff8f0 0%, #f0f4ff 100%);
-  border-radius: 5px;
-  display: flex;
+  width: 100%;
+  height: 190px;
+  border-radius: 6px;
   overflow: hidden;
-  height: 185px;
+  background: #f1f5f9;
+  display: block;
+}
+
+.mockup-laptop__screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .mockup-laptop__hinge {
   width: 310px;
-  height: 4px;
-  background: #3a3a5e;
+  height: 5px;
+  background: #14142a;
   border-radius: 0 0 2px 2px;
 }
 
 .mockup-laptop__body {
   width: 310px;
-  background: linear-gradient(180deg, #2e2e48 0%, #252535 100%);
-  border-radius: 0 0 10px 10px;
-  padding: 7px 18px 10px;
-  box-shadow: 0 14px 40px rgba(0,0,0,0.35), 0 2px 0 rgba(255,255,255,0.04) inset;
+  background: linear-gradient(180deg, #252535 0%, #1c1c2e 100%);
+  border-radius: 0 0 12px 12px;
+  padding: 8px 18px 12px;
 }
 
 .mockup-laptop__keys {
   display: flex;
   flex-direction: column;
   gap: 3px;
-  margin-bottom: 6px;
+  margin-bottom: 7px;
 }
 
 .mockup-laptop__key-row {
@@ -609,87 +623,73 @@ button {
 .mockup-laptop__key {
   height: 5px;
   flex: 1;
-  background: #3a3a54;
+  background: #2e2e48;
   border-radius: 2px;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.4);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.5);
 }
 
 .mockup-laptop__trackpad {
-  width: 72px;
-  height: 13px;
-  background: #33334d;
+  width: 68px;
+  height: 12px;
+  background: #252540;
   border-radius: 4px;
   margin: 0 auto;
-  border: 1px solid #444460;
+  border: 1px solid #333348;
 }
 
-/* -- Hub sidebar (shared by laptop) -- */
-.mockup-pc__sidebar {
-  width: 60px;
-  background: #1a1a2e;
-  padding: 10px 5px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+/* ── Phone ─────────────────────────────────── */
+.mockup-phone {
   flex-shrink: 0;
+  width: 90px;
+  background: #0f0f14;
+  border-radius: 26px;
+  padding: 9px 6px;
+  filter: drop-shadow(0 28px 40px rgba(0,0,0,0.4));
 }
 
-.mockup-pc__logo {
-  font-size: 0.58rem;
-  font-weight: 900;
-  color: var(--purple-light);
-  text-align: center;
-  margin-bottom: 8px;
-  letter-spacing: 1px;
+.mockup-phone__island {
+  width: 28px;
+  height: 8px;
+  background: #000;
+  border-radius: 6px;
+  margin: 0 auto 7px;
 }
 
-.mockup-pc__nav-item {
-  font-size: 0.48rem;
-  color: rgba(255,255,255,0.5);
-  padding: 3px 4px;
-  border-radius: 5px;
-  white-space: nowrap;
+.mockup-phone__screen {
+  border-radius: 17px;
   overflow: hidden;
+  height: 158px;
+  background: linear-gradient(160deg, #f9a8d4 0%, #c084fc 50%, #818cf8 100%);
 }
 
-.mockup-pc__nav-item--active {
-  background: rgba(139,92,246,0.3);
-  color: var(--purple-light);
+.mockup-phone__screen img,
+.mockup-phone__screen--screenshot {
+  display: block;
+  width: 100%;
+  height: 158px;
+  border-radius: 17px;
+  object-fit: cover;
+  padding: 0;
 }
 
-.mockup-pc__content {
-  flex: 1;
-  padding: 9px;
-  min-width: 0;
+.mockup-phone__bar {
+  width: 36px;
+  height: 4px;
+  background: #2a2a2a;
+  border-radius: 2px;
+  margin: 7px auto 0;
 }
 
-.mockup-pc__topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 9px;
-}
-
-.mockup-pc__greeting {
-  font-size: 0.58rem;
-  font-weight: 700;
-  color: var(--text);
-}
-
-/* -- iPad -- */
+/* ── iPad landscape ─────────────────────────── */
 .mockup-ipad {
-  width: 222px;
-  background: #2a2a3e;
-  border-radius: 18px;
-  padding: 10px 8px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.22), 0 0 0 1px rgba(255,255,255,0.04);
   flex-shrink: 0;
-  position: relative;
-  z-index: 2;
-  margin-left: -14px;
-  margin-bottom: 10px;
+  width: 220px;
+  background: #1c1c2e;
+  border-radius: 14px;
+  padding: 9px 9px 9px 6px;
+  filter: drop-shadow(0 28px 40px rgba(0,0,0,0.3));
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   gap: 0;
 }
@@ -697,379 +697,34 @@ button {
 .mockup-ipad__camera {
   width: 5px;
   height: 5px;
-  background: #444;
+  background: #3a3a4a;
   border-radius: 50%;
-  margin-bottom: 4px;
+  flex-shrink: 0;
+  margin-right: 5px;
 }
 
 .mockup-ipad__screen {
-  background: linear-gradient(160deg, #f0fff4 0%, #e0f2fe 100%);
-  border-radius: 10px;
-  padding: 10px;
+  flex: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 155px;
+  background: #e8fdf5;
+}
+
+.mockup-ipad__screen img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .mockup-ipad__bar {
-  width: 44px;
-  height: 4px;
-  background: #444;
-  border-radius: 4px;
-  margin-top: 6px;
-}
-
-/* -- Téléphone -- */
-.mockup-phone {
-  width: 104px;
-  background: var(--text);
-  border-radius: 24px;
-  padding: 7px;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.28), 0 0 0 1px rgba(255,255,255,0.05);
-  flex-shrink: 0;
-  position: relative;
-  z-index: 3;
-  transform: translateY(-22px);
-  margin: 0 -8px;
-}
-
-.mockup-phone__island {
-  width: 28px;
-  height: 7px;
-  background: #111;
-  border-radius: 6px;
-  margin: 0 auto 5px;
-}
-
-.mockup-phone__screen {
-  background: linear-gradient(160deg, #fff8f0 0%, #f0f4ff 100%);
-  border-radius: 20px;
-  padding: 12px 10px;
-}
-
-.mockup-phone__screen--screenshot {
-  display: block;
-  width: 100%;
-  padding: 0;
-  border-radius: 20px;
-  object-fit: cover;
-}
-
-.mockup-phone__bar {
-  width: 40px;
-  height: 4px;
-  background: #333;
+  width: 4px;
+  height: 36px;
+  background: #2a2a3a;
   border-radius: 2px;
-  margin: 7px auto 0;
-}
-
-/* -- Shared mockup content -- */
-.mockup-badge {
-  font-size: 0.58rem;
-  font-weight: 700;
-  padding: 2px 7px;
-  border-radius: 6px;
-}
-
-.mockup-badge--purple {
-  background: var(--purple-light);
-  color: var(--purple-dark);
-}
-
-.mockup-badge--teal {
-  background: #ccfbf1;
-  color: #0d9488;
-}
-
-.mockup-tablet__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.mockup-tablet__title {
-  font-size: 0.68rem;
-  font-weight: 800;
-  color: var(--text);
-}
-
-.mockup-kiosk-date {
-  font-size: 0.58rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  margin-bottom: 7px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.mockup-kiosk-list {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  margin-bottom: 8px;
-}
-
-.mockup-kiosk-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.mockup-kiosk-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
   flex-shrink: 0;
-}
-
-.mockup-kiosk-dot--green  { background: var(--green); }
-.mockup-kiosk-dot--amber  { background: var(--amber); }
-.mockup-kiosk-dot--purple { background: var(--purple); }
-
-.mockup-kiosk-label {
-  font-size: 0.56rem;
-  color: var(--text);
-}
-
-.mockup-kiosk-footer {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.52rem;
-  color: var(--text-muted);
-  border-top: 1px solid rgba(0,0,0,0.07);
-  padding-top: 5px;
-}
-
-.mockup-family-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5px;
-}
-
-.mockup-family-card {
-  background: var(--white);
-  border-radius: 8px;
-  padding: 7px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-}
-
-.mockup-family-card--event {
-  background: linear-gradient(135deg, var(--purple), var(--purple-dark));
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 2px;
-}
-
-.mockup-avatar {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  margin-bottom: 3px;
-}
-
-.mockup-family-name {
-  font-size: 0.62rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 2px;
-}
-
-.mockup-family-tasks {
-  font-size: 0.55rem;
-  color: var(--text-muted);
-}
-
-.mockup-event-label {
-  font-size: 0.54rem;
-  color: rgba(255,255,255,0.8);
-}
-
-.mockup-event-name {
-  font-size: 0.62rem;
-  font-weight: 800;
-  color: var(--white);
-}
-
-.mockup-event-time {
-  font-size: 0.54rem;
-  color: rgba(255,255,255,0.75);
-}
-
-.mockup-progress {
-  background: var(--border);
-  height: 4px;
-  border-radius: 2px;
-  margin-top: 5px;
-  overflow: hidden;
-}
-
-.mockup-progress__fill {
-  background: linear-gradient(90deg, var(--purple), var(--purple-dark));
-  height: 100%;
-  border-radius: 2px;
-  animation: progressFill 1.8s cubic-bezier(.4,0,.2,1) both;
-}
-
-@keyframes progressFill {
-  from { transform: scaleX(0); transform-origin: left; }
-  to   { transform: scaleX(1); transform-origin: left; }
-}
-
-.mockup-streak {
-  background: linear-gradient(135deg, #f97316, #ef4444);
-  color: var(--white);
-  font-size: 0.58rem;
-  font-weight: 800;
-  padding: 3px 7px;
-  border-radius: 8px;
-}
-
-
-/* Mockup cards */
-.mockup-card {
-  background: var(--white);
-  border-radius: 12px;
-  padding: 10px;
-  margin-bottom: 7px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
-.mockup-card:last-child {
-  margin-bottom: 0;
-}
-
-.mockup-card__title {
-  font-size: 0.6rem;
-  color: var(--text-muted);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
-  margin-bottom: 7px;
-}
-
-/* Tasks */
-.mockup-task {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 3px 0;
-}
-
-.mockup-task__check {
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  border: 2px solid #e5e7eb;
-  flex-shrink: 0;
-}
-
-.mockup-task__check--done {
-  background: var(--green);
-  border-color: var(--green);
-  position: relative;
-}
-
-.mockup-task__check--done::after {
-  content: '✓';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: var(--white);
-  font-size: 7px;
-  font-weight: 900;
-}
-
-.mockup-task__label {
-  font-size: 0.65rem;
-  color: var(--text);
-  font-weight: 500;
-  flex: 1;
-}
-
-.mockup-task__label--done {
-  text-decoration: line-through;
-  color: var(--text-muted);
-}
-
-.mockup-pts {
-  background: var(--amber-light);
-  color: var(--amber);
-  font-size: 0.55rem;
-  font-weight: 800;
-  padding: 2px 4px;
-  border-radius: 5px;
-  flex-shrink: 0;
-}
-
-/* Cagnotte */
-.mockup-cagnotte {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.mockup-cagnotte__amount {
-  font-size: 1.05rem;
-  font-weight: 900;
-  color: var(--purple);
-}
-
-.mockup-cagnotte__goal {
-  text-align: right;
-}
-
-.mockup-cagnotte__goal-label {
-  font-size: 0.58rem;
-  color: var(--text-muted);
-}
-
-.mockup-cagnotte__goal-amount {
-  font-size: 0.68rem;
-  font-weight: 800;
-  color: var(--green);
-}
-
-.mockup-progress__labels {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 3px;
-}
-
-.mockup-progress__labels span {
-  font-size: 0.58rem;
-  color: var(--text-muted);
-}
-
-/* Pronote grade */
-.mockup-grade {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.mockup-grade__score {
-  font-size: 1.1rem;
-  font-weight: 900;
-  color: var(--green);
-  flex-shrink: 0;
-}
-
-.mockup-grade__subject {
-  font-size: 0.62rem;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.mockup-grade__bonus {
-  font-size: 0.6rem;
-  color: var(--text-muted);
+  margin-left: 5px;
 }
 
 /* 4. PROOF BAND
@@ -1256,15 +911,6 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 8px;
-}
-
-.split__mockups {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 0;
-  transform: scale(0.82);
-  transform-origin: center bottom;
 }
 
 .split__visual-row {
