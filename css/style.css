@@ -677,15 +677,15 @@ button {
 .three-screens__phone {
   position: absolute;
   left: 235px;
-  bottom: 0;
+  bottom: -50px;
   z-index: 5;
 }
 
 .mockup-phone {
-  width: 200px;
+  width: 180px;
   background: var(--text);
-  border-radius: 32px;
-  padding: 10px;
+  border-radius: 29px;
+  padding: 9px;
   box-shadow:
     0 30px 80px rgba(0,0,0,0.22),
     0 0 0 1px rgba(255,255,255,0.05);
@@ -693,29 +693,29 @@ button {
 }
 
 .mockup-phone__notch {
-  width: 50px;
+  width: 45px;
   height: 5px;
   background: var(--dark-bg);
   border-radius: 3px;
-  margin: 0 auto 8px;
+  margin: 0 auto 7px;
 }
 
 .mockup-phone__screen {
   background: linear-gradient(160deg, #fff8f0 0%, #f0f4ff 100%);
-  border-radius: 22px;
-  padding: 14px 12px;
+  border-radius: 20px;
+  padding: 13px 11px;
 }
 
 .mockup-phone__screen--screenshot {
   display: block;
   width: 100%;
   padding: 0;
-  border-radius: 22px;
+  border-radius: 20px;
   object-fit: cover;
 }
 
 .mockup-phone__bar {
-  width: 50px;
+  width: 45px;
   height: 4px;
   background: #333;
   border-radius: 2px;
