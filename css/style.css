@@ -1409,18 +1409,14 @@ button {
   font-weight: 900;
   letter-spacing: -1px;
   color: var(--purple);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0;
 }
 
 .pricing-card__from {
   font-size: 0.72rem;
   font-weight: 500;
-  letter-spacing: 0;
   color: var(--text-muted);
-  line-height: 1.2;
+  line-height: 1;
+  margin-bottom: 2px;
 }
 
 .pricing-card__period {
@@ -1438,30 +1434,30 @@ button {
 
 .pricing-card__options-list {
   list-style: none;
-  font-size: 0.78rem;
-  color: var(--text-muted);
   margin-bottom: 16px;
-  padding: 8px 12px;
-  background: var(--bg-alt);
-  border-radius: var(--radius-sm);
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  padding: 6px 0 6px 4px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 .pricing-card__options-list li {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: var(--text);
+  padding: 5px 0;
 }
 .pricing-card__options-list li::before {
   content: '○';
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
   flex-shrink: 0;
+  line-height: 1;
 }
 .pricing-card__options-list li span {
   margin-left: auto;
   font-weight: 600;
+  font-size: 0.82rem;
   color: var(--purple);
 }
 
