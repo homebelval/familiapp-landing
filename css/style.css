@@ -608,7 +608,7 @@ button {
   width: 285px;
   background: #1c1c2e;
   border-radius: 13px 13px 3px 3px;
-  padding: 8px 8px 5px;
+  padding: 3px 3px 2px;
   box-shadow: 0 24px 48px rgba(0,0,0,0.32), 0 0 0 1px rgba(255,255,255,0.05);
 }
 
@@ -713,7 +713,7 @@ button {
 
 /* ── iPad paysage ────────────────────────────── */
 .device--ipad {
-  right: 0;
+  right: -30px;
   bottom: 22px;
   z-index: 3;
   width: 234px;
