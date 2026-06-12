@@ -135,10 +135,11 @@
     <!-- Côté visuel -->
     <div class="hero__visual" aria-hidden="true">
 
-      <!-- PC — Hub parent -->
-      <div class="mockup-pc">
-        <div class="mockup-pc__monitor">
-          <div class="mockup-pc__screen">
+      <!-- Laptop — Hub parent -->
+      <div class="mockup-laptop">
+        <div class="mockup-laptop__lid">
+          <div class="mockup-laptop__camera"></div>
+          <div class="mockup-laptop__screen">
             <div class="mockup-pc__sidebar">
               <div class="mockup-pc__logo">Hub</div>
               <div class="mockup-pc__nav-item mockup-pc__nav-item--active">🏠 Famille</div>
@@ -180,20 +181,28 @@
             </div>
           </div>
         </div>
-        <div class="mockup-pc__stand"></div>
-        <div class="mockup-pc__base"></div>
+        <div class="mockup-laptop__hinge"></div>
+        <div class="mockup-laptop__body">
+          <div class="mockup-laptop__keys">
+            <div class="mockup-laptop__key-row"><div class="mockup-laptop__key" style="flex:0.7"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key" style="flex:0.7"></div></div>
+            <div class="mockup-laptop__key-row"><div class="mockup-laptop__key" style="flex:1.2"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key" style="flex:1.2"></div></div>
+            <div class="mockup-laptop__key-row"><div class="mockup-laptop__key" style="flex:1.8"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key"></div><div class="mockup-laptop__key" style="flex:1.8"></div></div>
+          </div>
+          <div class="mockup-laptop__trackpad"></div>
+        </div>
       </div>
 
       <!-- Téléphone — app Kidly enfant -->
       <div class="mockup-phone">
-        <div class="mockup-phone__notch" aria-hidden="true"></div>
+        <div class="mockup-phone__island" aria-hidden="true"></div>
         <img src="/images/app-screenshot.png" class="mockup-phone__screen mockup-phone__screen--screenshot" alt="App Kidly — interface enfant" loading="lazy">
         <div class="mockup-phone__bar" aria-hidden="true"></div>
       </div>
 
-      <!-- Tablette — Kiosk famille -->
-      <div class="mockup-tablet mockup-tablet--kiosk">
-        <div class="mockup-tablet__screen">
+      <!-- iPad — Kiosk famille -->
+      <div class="mockup-ipad">
+        <div class="mockup-ipad__camera"></div>
+        <div class="mockup-ipad__screen">
           <div class="mockup-tablet__header">
             <span class="mockup-tablet__title">Kiosk 🏠</span>
             <span class="mockup-badge mockup-badge--teal">Cuisine</span>
@@ -218,6 +227,7 @@
             <span>🍽️ Soir : lasagnes</span>
           </div>
         </div>
+        <div class="mockup-ipad__bar"></div>
       </div>
 
     </div>
@@ -376,22 +386,25 @@
       </ul>
     </div>
     <div class="split__visual" aria-hidden="true">
-      <div class="split-card">
-        <div class="split-card__icon">👨‍👩‍👧‍👦</div>
-        <div class="split-card__name">Hub — app parents</div>
-        <div class="split-card__desc">Vue complète · Contrôle total</div>
+      <div class="split__visual-row">
+        <div class="split-card">
+          <div class="split-card__icon">👨‍👩‍👧‍👦</div>
+          <div class="split-card__name">Hub — app parents</div>
+          <div class="split-card__desc">Vue complète · Contrôle total</div>
+        </div>
+        <div class="split-arrow">⟷</div>
+        <div class="split-card">
+          <div class="split-card__icon"><img src="/images/icon-384x384.png" alt="Kidly" width="48" height="48" loading="lazy"></div>
+          <div class="split-card__name">Kidly</div>
+          <div class="split-card__desc">Fun · Motivant · Autonomisant</div>
+        </div>
       </div>
-      <div class="split-arrow">⟷</div>
-      <div class="split-card">
-        <div class="split-card__icon"><img src="/images/icon-384x384.png" alt="Kidly" width="48" height="48" loading="lazy"></div>
-        <div class="split-card__name">Kidly</div>
-        <div class="split-card__desc">Fun · Motivant · Autonomisant</div>
-      </div>
-      <div class="split-arrow">⟷</div>
-      <div class="split-card">
+      <div class="split-arrow split-arrow--down">↕</div>
+      <div class="split-card split-card--kiosk">
         <div class="split-card__icon">🏠</div>
         <div class="split-card__name">Kiosk</div>
         <div class="split-card__desc">Écran familial · Cuisine · Salon</div>
+        <span class="split-card__plan-badge">Family Plus</span>
       </div>
     </div>
   </div>
