@@ -1050,15 +1050,33 @@
 
     const db = getFirestore(app);
 
+    function animateCount(el, from, to, duration = 1200) {
+      const start = performance.now();
+      const update = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(from + (to - from) * eased);
+        if (progress < 1) requestAnimationFrame(update);
+      };
+      requestAnimationFrame(update);
+    }
+
     function applyCount(taken) {
       const remaining = Math.max(0, TOTAL_SPOTS - taken);
       const pct = Math.min(100, (taken / TOTAL_SPOTS) * 100);
       const isFull = remaining === 0;
+      const displayValue = isFull ? 0 : remaining;
 
-      ['main-counter', 'urgency-num', 'final-counter', 'band-remaining'].forEach(id => {
+      ['urgency-num', 'final-counter', 'band-remaining'].forEach(id => {
         const el = document.getElementById(id);
-        if (el) el.textContent = isFull ? '0' : remaining;
+        if (el) el.textContent = displayValue;
       });
+
+      const mainCounter = document.getElementById('main-counter');
+      if (mainCounter) {
+        if (taken > 0) animateCount(mainCounter, TOTAL_SPOTS, displayValue);
+        else mainCounter.textContent = displayValue;
+      }
 
       const takenLabel = document.getElementById('taken-label');
       if (takenLabel) {
