@@ -123,6 +123,27 @@
       text-align: center;
     }
     .contact-highlight a { font-weight: 700; font-size: 1.3rem; }
+
+    /* Info box */
+    .info-box {
+      background: #f0f9ff;
+      border-left: 4px solid #0284c7;
+      padding: 24px;
+      margin: 28px 0;
+      border-radius: var(--radius-sm);
+    }
+    .info-box h3:first-child { margin-top: 0; }
+
+    /* Table */
+    .legal-content table { width: 100%; border-collapse: collapse; margin: 28px 0; box-shadow: 0 2px 8px rgba(0,0,0,.08); border-radius: var(--radius-sm); overflow: hidden; }
+    .legal-content table thead { background: linear-gradient(135deg, var(--purple), var(--purple-dark)); color: #fff; }
+    .legal-content table th { padding: 14px 16px; text-align: left; font-weight: 700; }
+    .legal-content table td { padding: 14px 16px; border-bottom: 1px solid #e9ecef; }
+    .legal-content table tbody tr:hover { background: #f8f9fa; }
+
+    @media (max-width: 768px) {
+      .legal-content table { display: block; overflow-x: auto; }
+    }
   </style>
   <script src="/js/cookie-consent.js" defer></script>
 </head>
@@ -152,222 +173,135 @@
 
   <section class="legal-hero">
     <div class="container">
-      <h1>Conditions générales d'utilisation</h1>
-      <p class="subtitle">Dernière mise à jour : 11 février 2026</p>
+      <h1>Conditions Générales d'Utilisation et de Vente</h1>
+      <p class="subtitle">Mise à jour : juin 2026</p>
     </div>
   </section>
 
   <div class="legal-content">
     <p>
-      Les présentes Conditions Générales d'Utilisation (CGU) régissent l'utilisation
-      de l'application FamilyApp, service d'organisation familiale accessible via
-      <strong>family-app.fr</strong> et ses sous-domaines.
+      Les présentes Conditions Générales d'Utilisation et de Vente (ci-après « CGU/CGV ») régissent l'accès et l'utilisation du service <strong>FamilyApp</strong>, exploité par <strong>HUXA</strong>, auto-entrepreneur, SIREN 829 009 349, 170D chemin de la marquette, 84360 Lauris (ci-après « FamilyApp », « nous »).
     </p>
+    <p>En créant un compte, vous acceptez pleinement et sans réserve les présentes conditions.</p>
 
-    <h2>1. Objet et description du service</h2>
+    <h2>1. Description du service</h2>
     <p>FamilyApp est une application web progressive (PWA) permettant aux familles de :</p>
     <ul>
-      <li>Gérer un calendrier familial partagé</li>
-      <li>Organiser des tâches pour les enfants avec système de récompenses et cagnotte</li>
-      <li>Suivre l'argent de poche et les dépenses</li>
-      <li>Monitorer le temps d'écran et filtrer les contenus via protection DNS (si activé — plans Family Plus et supérieurs)</li>
-      <li>Synchroniser des événements avec Google Calendar ou Microsoft Calendar / Outlook (optionnel)</li>
-      <li>Utiliser un mode kiosque (écran dédié en version web, ou via Capsule hardware — selon le plan)</li>
-      <li>Suivre le parcours scolaire via l'intégration Pronote (plan Family Premium+)</li>
+      <li>Gérer les tâches, routines et calendrier familial</li>
+      <li>Animer la motivation des enfants via un système de gamification (XP, missions, récompenses)</li>
+      <li>Gérer une cagnotte virtuelle</li>
+      <li>Contrôler le temps d'écran des appareils connectés (plans Family Plus et supérieurs)</li>
+      <li>Synchroniser des calendriers externes (Google Calendar, Outlook)</li>
+      <li>Suivre la scolarité (plan Family Premium+, option Suivi scolaire)</li>
+      <li>Utiliser un écran kiosque familial (tablette)</li>
     </ul>
-    <p>Certains plans (Family Premium, Family Premium+) sont en cours de déploiement. Les fonctionnalités disponibles varient selon le plan souscrit, tel que décrit sur la page tarifaire.</p>
+    <p>Les fonctionnalités disponibles dépendent du plan souscrit.</p>
 
-    <h2>2. Acceptation des conditions</h2>
-    <p>L'utilisation de FamilyApp implique l'acceptation pleine et entière des présentes CGU. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser le service.</p>
+    <h2>2. Accès au service</h2>
 
-    <h2>3. Accès au service</h2>
+    <h3>2.1 Création de compte</h3>
+    <p>L'inscription est réservée aux personnes physiques majeures (18 ans et plus). Elle s'effectue via Google, Microsoft ou email/mot de passe. Chaque compte correspond à une famille. L'utilisateur est responsable de la confidentialité de ses identifiants et de toute activité effectuée depuis son compte.</p>
 
-    <h3>3.1. Création de compte</h3>
-    <p>L'utilisation de FamilyApp nécessite la création d'un compte utilisateur. Vous pouvez vous inscrire via :</p>
-    <ul>
-      <li>Authentification Google (recommandée)</li>
-      <li>Email et mot de passe</li>
-    </ul>
+    <h3>2.2 Essai gratuit</h3>
+    <p>Tous les plans bénéficient d'une <strong>période d'essai gratuite de 30 jours</strong>, sans carte bancaire requise, sans prélèvement automatique. À l'issue de l'essai, le compte passe automatiquement en accès limité (plan gratuit). Aucun abonnement n'est activé sans action volontaire de l'utilisateur.</p>
 
-    <h3>3.2. Responsabilité du compte</h3>
-    <p>Vous êtes responsable de :</p>
-    <ul>
-      <li>La confidentialité de vos identifiants de connexion</li>
-      <li>Toutes les activités effectuées sous votre compte</li>
-      <li>La véracité des informations fournies</li>
-      <li>Informer immédiatement FamilyApp en cas d'utilisation non autorisée de votre compte</li>
-    </ul>
+    <h3>2.3 Utilisation</h3>
+    <p>L'utilisation est strictement personnelle et familiale. Le plan Family Start est limité à 1 parent et 2 enfants. Les plans Family Plus et supérieurs permettent un nombre illimité de membres.</p>
 
-    <h3>3.3. Conditions d'utilisation</h3>
-    <ul>
-      <li>Vous devez avoir au moins 18 ans pour créer un compte</li>
-      <li>Un compte = une famille</li>
-      <li>Le plan Family Start est limité à 1 parent et 2 enfants ; les autres plans proposent des profils illimités</li>
-      <li>L'utilisation est strictement personnelle et familiale</li>
-      <li>Toute utilisation commerciale est interdite sans autorisation préalable</li>
-    </ul>
+    <h2>3. Plans et tarification</h2>
+    <p>Tous les prix sont indiqués <strong>en euros, toutes taxes comprises (TTC), TVA 20 % incluse</strong>.</p>
+    <table>
+      <thead>
+        <tr><th>Plan</th><th>Mensuel</th><th>Annuel</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Family Start</td><td>2,99 € / mois</td><td>29,90 € / an</td></tr>
+        <tr><td>Family Plus</td><td>5,99 € / mois</td><td>59,90 € / an</td></tr>
+        <tr><td>Family Premium</td><td>9,99 € / mois</td><td>99,90 € / an</td></tr>
+      </tbody>
+    </table>
+    <p>Options additionnelles : Suivi scolaire (+5 € / mois), Écran Kiosk (+10 € / mois).</p>
+    <p>Les prix peuvent évoluer. Toute modification de tarif vous sera notifiée par email au moins 30 jours avant son application.</p>
 
-    <h3>3.4. Période d'essai gratuite</h3>
-    <p>Tous les plans bénéficient d'une période d'essai gratuite de <strong>30 jours</strong> à compter de la création du compte.</p>
-    <ul>
-      <li>Aucune carte bancaire n'est requise pour démarrer l'essai</li>
-      <li>Aucun prélèvement automatique à l'issue de la période d'essai</li>
-      <li>À l'expiration des 30 jours sans souscription, le compte passe en <strong>accès limité</strong> : les données sont conservées mais certaines fonctionnalités sont restreintes</li>
-      <li>L'accès limité n'entraîne pas la suppression des données, qui restent accessibles si vous souscrivez ultérieurement</li>
-    </ul>
+    <h2>4. Abonnement et paiement</h2>
 
-    <h2>4. Intégrations avec des services tiers</h2>
+    <h3>4.1 Souscription</h3>
+    <p>L'abonnement est souscrit via notre prestataire de paiement <strong>Stripe</strong> (Stripe Technology Europe Ltd, Irlande). Aucune donnée bancaire ne transite par nos serveurs. Le paiement est sécurisé par le protocole TLS.</p>
 
-    <h3>4.1. Google Calendar (optionnel)</h3>
-    <p>FamilyApp propose une intégration optionnelle avec Google Calendar pour synchroniser vos événements familiaux.</p>
+    <h3>4.2 Reconduction tacite</h3>
+    <p>Les abonnements se <strong>renouvellent automatiquement</strong> à l'échéance, sauf résiliation préalable.</p>
+    <p>Conformément à l'article L215-1 du Code de la consommation, pour les abonnements annuels, vous serez informé par email du prochain renouvellement <strong>au plus tard 15 jours avant la date d'échéance</strong>.</p>
 
-    <h4>4.1.1. Autorisation requise</h4>
-    <p>Cette intégration nécessite votre <strong>consentement explicite</strong> via le processus OAuth sécurisé de Google.</p>
+    <h3>4.3 Résiliation</h3>
+    <p>Vous pouvez résilier à tout moment depuis l'application : <strong>Paramètres › Abonnement › Gérer mon abonnement</strong> (portail Stripe). La résiliation prend effet à la fin de la période en cours, déjà payée.</p>
 
-    <h4>4.1.2. Portée de l'accès (Scope)</h4>
-    <p><strong>Scope utilisé :</strong> <code>https://www.googleapis.com/auth/calendar.events.readonly</code></p>
-    <p>Cela signifie que FamilyApp peut <strong>uniquement lire</strong> vos événements. Nous ne pouvons <strong>ni modifier, ni supprimer, ni créer</strong> d'événements dans votre calendrier Google.</p>
+    <h2>5. Droit de rétractation</h2>
 
-    <h4>4.1.3. Utilisation des données Google Calendar</h4>
-    <p><strong>FamilyApp s'engage à :</strong></p>
-    <ul>
-      <li>✅ Utiliser vos données uniquement pour afficher vos événements dans l'application</li>
-      <li>✅ Ne jamais stocker de manière permanente vos événements Google Calendar</li>
-      <li>✅ Ne jamais partager, vendre ou monétiser vos données calendrier</li>
-      <li>✅ Ne jamais utiliser vos données à des fins publicitaires</li>
-      <li>✅ Respecter la politique "Limited Use" de Google</li>
-    </ul>
+    <h3>5.1 Principe</h3>
+    <p>Conformément à l'article L221-18 du Code de la consommation, vous disposez d'un <strong>droit de rétractation de 14 jours</strong> à compter de la date de souscription de votre abonnement payant, sans avoir à justifier de motif.</p>
 
-    <h4>4.1.4. Révocation de l'accès</h4>
-    <p>Vous pouvez <strong>révoquer l'accès à tout moment</strong> :</p>
-    <ul>
-      <li><strong>Dans FamilyApp :</strong> Paramètres → Intégrations → Google Calendar → "Déconnecter"</li>
-      <li><strong>Dans votre compte Google :</strong> <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">myaccount.google.com/permissions</a></li>
-    </ul>
-    <p>La révocation entraîne la suppression immédiate de tous les tokens d'accès et l'arrêt de la synchronisation.</p>
+    <h3>5.2 Exception — Exécution immédiate du service</h3>
+    <p>En souscrivant un abonnement payant, vous reconnaissez expressément que vous souhaitez que l'exécution du service commence <strong>immédiatement</strong>, avant l'expiration du délai de rétractation de 14 jours. En application de l'article L221-28 12° du Code de la consommation, vous perdez ainsi votre droit de rétractation dès lors que le service a commencé à être fourni.</p>
 
-    <h4>4.1.5. Conformité Google API Services</h4>
-    <p>L'utilisation de Google Calendar via FamilyApp est soumise aux <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>.</p>
+    <h3>5.3 Exercice du droit de rétractation</h3>
+    <p>Pour exercer votre droit de rétractation, envoyez avant l'expiration du délai de 14 jours le formulaire suivant à <a href="mailto:contact@family-app.fr"><strong>contact@family-app.fr</strong></a> :</p>
+    <div class="info-box">
+      <p><em>Formulaire de rétractation (art. R221-1 Code de la consommation)</em></p>
+      <p>À l'attention de HUXA, contact@family-app.fr :</p>
+      <p>Je vous notifie par la présente ma rétractation du contrat portant sur la souscription au service FamilyApp.</p>
+      <p>Souscrit le : ___________<br>
+      Nom : ___________<br>
+      Email du compte : ___________<br>
+      Date : ___________</p>
+    </div>
+    <p>En cas de rétractation valide, nous vous rembourserons le montant payé dans les <strong>14 jours</strong> suivant la réception de votre demande.</p>
 
-    <h3>4.2. Microsoft Calendar / Outlook (optionnel)</h3>
-    <p>FamilyApp propose une intégration optionnelle avec Microsoft Calendar (Outlook, Microsoft 365) pour synchroniser vos événements familiaux.</p>
-
-    <h4>4.2.1. Autorisation requise</h4>
-    <p>Cette intégration nécessite votre <strong>consentement explicite</strong> via le processus OAuth sécurisé de Microsoft.</p>
-
-    <h4>4.2.2. Portée de l'accès (Scope)</h4>
-    <p><strong>Scope utilisé :</strong> <code>Calendars.Read</code> (Microsoft Graph)</p>
-    <p>FamilyApp peut <strong>uniquement lire</strong> vos événements. Nous ne pouvons <strong>ni modifier, ni supprimer, ni créer</strong> d'événements dans votre calendrier Microsoft.</p>
-
-    <h4>4.2.3. Utilisation des données Microsoft Calendar</h4>
-    <p><strong>FamilyApp s'engage à :</strong></p>
-    <ul>
-      <li>✅ Utiliser vos données uniquement pour afficher vos événements dans l'application</li>
-      <li>✅ Ne jamais stocker de manière permanente vos événements Microsoft Calendar</li>
-      <li>✅ Ne jamais partager, vendre ou monétiser vos données calendrier</li>
-      <li>✅ Ne jamais utiliser vos données à des fins publicitaires</li>
-    </ul>
-
-    <h4>4.2.4. Révocation de l'accès</h4>
-    <p>Vous pouvez <strong>révoquer l'accès à tout moment</strong> :</p>
-    <ul>
-      <li><strong>Dans FamilyApp :</strong> Paramètres → Intégrations → Microsoft Calendar → "Déconnecter"</li>
-      <li><strong>Dans votre compte Microsoft :</strong> <a href="https://account.microsoft.com/privacy/app-access" target="_blank" rel="noopener">account.microsoft.com/privacy/app-access</a></li>
-    </ul>
-
-    <h2>5. Données personnelles et confidentialité</h2>
-    <p>Le traitement de vos données personnelles est détaillé dans notre <a href="/privacy/">Politique de Confidentialité</a>.</p>
-    <p><strong>Points clés :</strong></p>
-    <ul>
-      <li>Hébergement sécurisé en Europe (Firebase - Belgique)</li>
-      <li>Chiffrement des données en transit et au repos</li>
-      <li>Conformité RGPD (Règlement Général sur la Protection des Données)</li>
-      <li>Droit d'accès, de rectification et de suppression de vos données</li>
-      <li>Aucune vente de données à des tiers</li>
-    </ul>
-
-    <h2>6. Données des enfants mineurs</h2>
-    <p>FamilyApp permet aux <strong>parents</strong> de créer des profils pour leurs enfants.</p>
-    <ul>
-      <li>Seuls les parents (18+ ans) peuvent créer des comptes</li>
-      <li>Les parents sont responsables des données de leurs enfants</li>
-      <li>Aucune collecte directe auprès des enfants</li>
-      <li>Utilisation strictement limitée au cadre familial</li>
-      <li>Les parents peuvent supprimer les profils enfants à tout moment</li>
-    </ul>
+    <h2>6. Données personnelles et profils enfants</h2>
+    <p>Le traitement des données personnelles est décrit dans notre <a href="/privacy/">Politique de confidentialité</a>.</p>
+    <p>Les profils enfants sont créés et gérés exclusivement par les parents, sous leur responsabilité parentale. Les parents peuvent supprimer un profil enfant à tout moment depuis l'application.</p>
 
     <h2>7. Obligations de l'utilisateur</h2>
-    <p>En utilisant FamilyApp, vous vous engagez à :</p>
+    <p>L'utilisateur s'engage à :</p>
     <ul>
-      <li>Fournir des informations exactes et à jour</li>
-      <li>Ne pas utiliser le service à des fins illégales ou non autorisées</li>
+      <li>Fournir des informations exactes lors de l'inscription</li>
       <li>Ne pas tenter d'accéder aux données d'autres familles</li>
       <li>Ne pas perturber le fonctionnement du service</li>
-      <li>Ne pas collecter ou extraire des données de manière automatisée</li>
-      <li>Respecter les droits de propriété intellectuelle de FamilyApp</li>
+      <li>Ne pas collecter de données de manière automatisée</li>
+      <li>Respecter la propriété intellectuelle de FamilyApp</li>
+      <li>Utiliser le service à des fins légales uniquement</li>
     </ul>
 
-    <h2>8. Propriété intellectuelle</h2>
-    <p>Tous les éléments de FamilyApp (code, design, logo, textes, etc.) sont la propriété exclusive de FamilyApp et sont protégés par le droit d'auteur.</p>
-    <p>Vous ne pouvez pas :</p>
-    <ul>
-      <li>Copier, modifier, ou distribuer le code de l'application</li>
-      <li>Utiliser le logo ou la marque FamilyApp sans autorisation</li>
-      <li>Créer des services dérivés basés sur FamilyApp</li>
-    </ul>
+    <h2>8. Intégrations tierces</h2>
 
-    <h2>9. Disponibilité et maintenance</h2>
-    <p>FamilyApp s'efforce de garantir la disponibilité du service 24h/24, 7j/7. Toutefois, nous ne pouvons garantir une disponibilité absolue en raison de :</p>
-    <ul>
-      <li>Maintenances programmées (avec notification préalable si possible)</li>
-      <li>Problèmes techniques imprévus</li>
-      <li>Défaillances des services tiers (Firebase, Google OAuth, Microsoft, Cloudflare, Stripe)</li>
-    </ul>
+    <h3>8.1 Google Calendar</h3>
+    <p>FamilyApp accède uniquement en lecture seule (<code>calendar.events.readonly</code>). Aucun stockage permanent, aucun partage. Révocation : Paramètres › Intégrations ou <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">myaccount.google.com/permissions</a>.</p>
 
-    <h2>10. Limitation de responsabilité</h2>
-    <p>FamilyApp est fourni "tel quel" sans garantie d'aucune sorte. Nous ne pouvons être tenus responsables de :</p>
-    <ul>
-      <li>Pertes de données résultant d'un problème technique</li>
-      <li>Dommages indirects liés à l'utilisation du service</li>
-      <li>Interruptions temporaires du service</li>
-      <li>Actions de tiers (piratage, etc.)</li>
-    </ul>
-    <p><strong>Recommandation :</strong> Il est conseillé de conserver des copies de sauvegarde de vos données importantes.</p>
+    <h3>8.2 Microsoft Calendar</h3>
+    <p>Même engagement. Scope : <code>Calendars.Read</code>. Révocation : Paramètres › Intégrations ou <a href="https://account.microsoft.com/privacy/app-access" target="_blank" rel="noopener">account.microsoft.com/privacy/app-access</a>.</p>
 
-    <h2>11. Suspension et résiliation</h2>
+    <h2>9. Propriété intellectuelle</h2>
+    <p>L'ensemble des éléments de FamilyApp (interface, code, logo, contenu) est la propriété exclusive de HUXA. Toute reproduction, modification ou distribution sans autorisation écrite est interdite.</p>
 
-    <h3>11.1. Par l'utilisateur</h3>
-    <p>Vous pouvez supprimer votre compte à tout moment via : <strong>Paramètres → Supprimer mon compte</strong></p>
-    <p>La suppression entraîne l'effacement définitif de toutes vos données sous 30 jours maximum.</p>
+    <h2>10. Disponibilité et limitation de responsabilité</h2>
+    <p>FamilyApp s'efforce de maintenir le service disponible 24h/24, 7j/7, sans pouvoir le garantir absolument. La responsabilité de FamilyApp ne saurait être engagée pour : perte de données, dommages indirects, interruptions de service, actes de tiers.</p>
 
-    <h3>11.2. Par FamilyApp</h3>
-    <p>Nous nous réservons le droit de suspendre ou résilier votre compte en cas de :</p>
-    <ul>
-      <li>Violation des présentes CGU</li>
-      <li>Utilisation frauduleuse du service</li>
-      <li>Non-paiement (pour les offres payantes)</li>
-      <li>Inactivité prolongée (plus de 2 ans)</li>
-    </ul>
+    <h2>11. Suppression du compte</h2>
+    <p>La suppression (Paramètres › Abonnement › Supprimer mon compte) entraîne l'effacement immédiat de toutes vos données applicatives. Les données de facturation sont conservées 10 ans (obligation légale comptable).</p>
 
     <h2>12. Modifications des conditions</h2>
-    <p>FamilyApp se réserve le droit de modifier les présentes CGU à tout moment. En cas de modification substantielle, vous serez informé par :</p>
-    <ul>
-      <li>Email à l'adresse associée à votre compte</li>
-      <li>Notification dans l'application</li>
-      <li>Mise à jour de la date en haut de cette page</li>
-    </ul>
-    <p>La poursuite de l'utilisation du service après modification vaut acceptation des nouvelles conditions.</p>
+    <p>Les modifications substantielles sont notifiées par email au moins 15 jours avant leur entrée en vigueur.</p>
 
-    <h2>13. Loi applicable et juridiction</h2>
-    <p>Les présentes CGU sont régies par le droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
+    <h2>13. Loi applicable et médiation</h2>
+    <p>Les présentes CGU/CGV sont soumises au droit français. En cas de litige, une solution amiable sera recherchée en priorité.</p>
+    <p>Conformément à l'article L612-1 du Code de la consommation, vous pouvez recourir gratuitement à un médiateur de la consommation. Plateforme européenne : <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a></p>
 
     <h2>14. Contact</h2>
-    <p>Pour toute question concernant ces conditions d'utilisation :</p>
-    <p class="contact-highlight">📧 <a href="mailto:contact@family-app.fr">contact@family-app.fr</a></p>
-    <p>📍 Basé en France (Union Européenne)</p>
+    <p>
+      <strong>HUXA</strong><br>
+      <a href="mailto:contact@family-app.fr">contact@family-app.fr</a> — 170D chemin de la marquette, 84360 Lauris, France
+    </p>
+    <p><em>Version 1.1 — Juin 2026 — Document rédigé en français. En cas de traduction, la version française prévaut.</em></p>
 
-    <h2>15. Langue</h2>
-    <p>Les présentes CGU sont rédigées en français. En cas de traduction, seule la version française fait foi.</p>
   </div>
 
   <!-- FOOTER -->
