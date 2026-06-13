@@ -175,248 +175,186 @@
   <section class="legal-hero">
     <div class="container">
       <h1>Politique de confidentialité</h1>
-      <p class="subtitle">Dernière mise à jour : 11 février 2026</p>
+      <p class="subtitle">Mise à jour : juin 2026</p>
     </div>
   </section>
 
   <div class="legal-content">
     <p>
-      La protection de vos données personnelles est une priorité absolue pour FamilyApp.
-      Cette politique explique de manière transparente comment nous collectons, utilisons,
-      stockons et protégeons vos informations conformément au RGPD (Règlement Général sur
-      la Protection des Données) et aux exigences de Google OAuth.
+      La présente politique décrit comment <strong>HUXA</strong> (ci-après « nous »), exploitant le service sous le nom commercial <strong>FamilyApp</strong>, collecte, utilise et protège vos données personnelles. Elle s'applique à l'application FamilyApp ainsi qu'au site vitrine family-app.fr.
     </p>
 
     <h2>1. Responsable du traitement</h2>
-    <p><strong>FamilyApp</strong></p>
-    <p>📍 Basé en France (Union Européenne)</p>
-    <p>📧 Contact : <a href="mailto:contact@family-app.fr">contact@family-app.fr</a></p>
-    <p>⏱️ Délai de réponse : sous 30 jours maximum</p>
+    <p>
+      <strong>HUXA — Michaël Belval</strong><br>
+      Auto-entrepreneur — SIREN : 829 009 349<br>
+      170D chemin de la marquette, 84360 Lauris, France<br>
+      Email : <a href="mailto:contact@family-app.fr">contact@family-app.fr</a>
+    </p>
 
     <h2>2. Données collectées</h2>
 
-    <h3>2.1. Données de compte et d'authentification</h3>
-    <ul>
-      <li><strong>Nom, prénom, adresse email</strong> : collectés lors de l'inscription</li>
-      <li><strong>Mot de passe</strong> : chiffré et stocké de manière sécurisée (Firebase Authentication)</li>
-      <li><strong>Identifiant Google</strong> : si vous choisissez l'authentification Google</li>
-      <li><strong>Adresse IP</strong> : pour des raisons de sécurité et de prévention des abus</li>
-    </ul>
-
-    <h3>2.2. Données familiales</h3>
-    <ul>
-      <li><strong>Informations sur les membres de la famille</strong> : prénoms, âges, relations</li>
-      <li><strong>Tâches et événements</strong> : créés et gérés par les parents</li>
-      <li><strong>Récompenses et argent de poche</strong> : montants et historiques</li>
-      <li><strong>Temps d'écran</strong> : durées d'utilisation des appareils (si activé)</li>
-    </ul>
-
-    <h3>2.3. Données techniques</h3>
-    <ul>
-      <li><strong>Type d'appareil et système d'exploitation</strong></li>
-      <li><strong>Navigateur utilisé</strong></li>
-      <li><strong>Logs de connexion</strong> : horodatages des accès</li>
-    </ul>
-
-    <h2>3. Intégration Google Calendar (Lecture seule)</h2>
-
-    <div class="info-box">
-      <h3>🔐 Engagement de transparence</h3>
-
-      <h4>3.1. Autorisation explicite</h4>
-      <p>L'accès à votre Google Calendar nécessite votre <strong>consentement explicite</strong>. Vous devez autoriser FamilyApp via le processus OAuth sécurisé de Google.</p>
-
-      <h4>3.2. Scope utilisé (portée limitée)</h4>
-      <p><strong>Scope demandé :</strong> <code>https://www.googleapis.com/auth/calendar.events.readonly</code></p>
-      <p>Cela signifie que FamilyApp peut <strong>uniquement lire</strong> vos événements calendrier. Nous ne pouvons <strong>ni modifier, ni supprimer, ni créer</strong> d'événements.</p>
-
-      <h4>3.3. Utilisation des données</h4>
-      <p><strong>Ce que nous faisons :</strong></p>
-      <ul>
-        <li>✅ Afficher vos événements familiaux dans l'application</li>
-        <li>✅ Synchroniser votre planning familial en temps réel</li>
-        <li>✅ Vous permettre de voir les événements à venir dans le widget calendrier</li>
-      </ul>
-      <p><strong>Ce que nous ne faisons PAS :</strong></p>
-      <ul>
-        <li>❌ Stocker vos événements de manière permanente dans notre base de données</li>
-        <li>❌ Partager vos événements avec des tiers</li>
-        <li>❌ Vendre ou monétiser vos données calendrier</li>
-        <li>❌ Utiliser vos données à des fins publicitaires</li>
-        <li>❌ Modifier ou supprimer vos événements</li>
-      </ul>
-
-      <h4>3.4. Stockage et conservation</h4>
-      <p><strong>Tokens d'accès OAuth :</strong> stockés de manière chiffrée dans Firebase (Europe) uniquement pour permettre la synchronisation.</p>
-      <p><strong>Événements calendrier :</strong> récupérés en temps réel à chaque affichage. Aucune copie permanente n'est conservée dans notre base de données.</p>
-      <p><strong>Cache temporaire :</strong> les événements peuvent être mis en cache temporairement dans votre navigateur pendant votre session active uniquement.</p>
-
-      <h4>3.5. Révocation de l'accès</h4>
-      <p>Vous pouvez <strong>révoquer l'accès à tout moment</strong> de deux manières :</p>
-      <ul>
-        <li><strong>Dans FamilyApp :</strong> Paramètres → Intégrations → Google Calendar → "Déconnecter"</li>
-        <li><strong>Dans votre compte Google :</strong> <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">myaccount.google.com/permissions</a></li>
-      </ul>
-      <p>Lors de la déconnexion, nous supprimons immédiatement tous les tokens d'accès et vous ne pourrez plus voir vos événements Google dans l'application.</p>
-
-      <h4>3.6. Nettoyage automatique</h4>
-      <p>Un processus automatique quotidien vérifie la validité des tokens OAuth et supprime ceux qui ont été révoqués par l'utilisateur.</p>
-    </div>
-
-    <h2>4. Intégration Microsoft Calendar / Outlook (Lecture seule)</h2>
-
-    <div class="info-box">
-      <h3>🔐 Engagement de transparence</h3>
-
-      <h4>4.1. Autorisation explicite</h4>
-      <p>L'accès à votre calendrier Microsoft (Outlook, Microsoft 365) nécessite votre <strong>consentement explicite</strong> via le processus OAuth sécurisé de Microsoft.</p>
-
-      <h4>4.2. Scope utilisé (portée limitée)</h4>
-      <p><strong>Scope demandé :</strong> <code>Calendars.Read</code> (Microsoft Graph)</p>
-      <p>Cela signifie que FamilyApp peut <strong>uniquement lire</strong> vos événements calendrier. Nous ne pouvons <strong>ni modifier, ni supprimer, ni créer</strong> d'événements.</p>
-
-      <h4>4.3. Utilisation des données</h4>
-      <p><strong>Ce que nous faisons :</strong></p>
-      <ul>
-        <li>✅ Afficher vos événements familiaux dans l'application</li>
-        <li>✅ Synchroniser votre planning familial en temps réel</li>
-      </ul>
-      <p><strong>Ce que nous ne faisons PAS :</strong></p>
-      <ul>
-        <li>❌ Stocker vos événements de manière permanente dans notre base de données</li>
-        <li>❌ Partager vos événements avec des tiers</li>
-        <li>❌ Utiliser vos données à des fins publicitaires</li>
-        <li>❌ Modifier ou supprimer vos événements</li>
-      </ul>
-
-      <h4>4.4. Stockage et conservation</h4>
-      <p><strong>Tokens d'accès OAuth :</strong> stockés de manière chiffrée dans Firebase (Europe) uniquement pour permettre la synchronisation.</p>
-      <p><strong>Événements calendrier :</strong> récupérés en temps réel à chaque affichage. Aucune copie permanente n'est conservée dans notre base de données.</p>
-
-      <h4>4.5. Révocation de l'accès</h4>
-      <p>Vous pouvez <strong>révoquer l'accès à tout moment</strong> :</p>
-      <ul>
-        <li><strong>Dans FamilyApp :</strong> Paramètres → Intégrations → Microsoft Calendar → "Déconnecter"</li>
-        <li><strong>Dans votre compte Microsoft :</strong> <a href="https://account.microsoft.com/privacy/app-access" target="_blank" rel="noopener">account.microsoft.com/privacy/app-access</a></li>
-      </ul>
-    </div>
-
-    <h2>5. Finalités du traitement</h2>
-    <p>Vos données sont utilisées uniquement pour :</p>
-    <ul>
-      <li><strong>Fourniture du service :</strong> gestion de votre compte et fonctionnalités de l'application</li>
-      <li><strong>Synchronisation :</strong> intégration avec Google Calendar et/ou Microsoft Calendar (si activée)</li>
-      <li><strong>Sécurité :</strong> prévention des abus et fraudes</li>
-      <li><strong>Amélioration du service :</strong> statistiques anonymisées d'usage</li>
-      <li><strong>Communication :</strong> notifications importantes et mises à jour</li>
-    </ul>
-
-    <h2>6. Base légale du traitement</h2>
-    <ul>
-      <li><strong>Exécution du contrat :</strong> fourniture du service FamilyApp</li>
-      <li><strong>Consentement :</strong> pour l'intégration Google Calendar, Microsoft Calendar et certaines fonctionnalités optionnelles</li>
-      <li><strong>Intérêt légitime :</strong> sécurité et prévention des fraudes</li>
-      <li><strong>Obligation légale :</strong> conservation des données fiscales (si applicable)</li>
-    </ul>
-
-    <h2>7. Durée de conservation</h2>
-    <ul>
-      <li><strong>Données de compte actif :</strong> tant que votre compte existe</li>
-      <li><strong>Après suppression du compte :</strong> 30 jours maximum (puis effacement définitif)</li>
-      <li><strong>Logs de sécurité :</strong> 6 mois maximum</li>
-      <li><strong>Tokens OAuth :</strong> révoqués immédiatement lors de la déconnexion</li>
-      <li><strong>Données de facturation :</strong> 10 ans (obligation légale)</li>
-    </ul>
-
-    <h2>8. Partage et transfert des données</h2>
-
-    <h3>7.1. Services techniques essentiels</h3>
-    <p>Vos données sont hébergées et traitées par les services suivants :</p>
-    <ul>
-      <li><strong>Firebase (Google Cloud Platform)</strong> : hébergement en Europe (Belgique) — <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Politique de confidentialité Firebase</a>. Google LLC est soumis au droit américain (Cloud Act) ; les données sont néanmoins stockées sur des serveurs européens.</li>
-      <li><strong>Google OAuth</strong> : authentification sécurisée — conformité RGPD</li>
-      <li><strong>Cloudflare Limited</strong> (Irlande, UE) : résolution DNS et protection réseau — <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Politique de confidentialité Cloudflare</a>. Entité européenne de traitement ; des transferts vers des serveurs hors UE restent possibles selon la localisation des requêtes réseau.</li>
-      <li><strong>Stripe Payments Europe, Limited</strong> (Irlande, UE) : traitement sécurisé des paiements — <a href="https://stripe.com/fr/privacy" target="_blank" rel="noopener">Politique de confidentialité Stripe</a>. Entité européenne de traitement ; des transferts vers des entités Stripe hors UE restent possibles pour certaines opérations. Seules les données nécessaires à la transaction sont transmises.</li>
-    </ul>
-
-    <h3>7.2. Aucun partage commercial</h3>
-    <ul>
-      <li>❌ Aucune vente de données à des tiers</li>
-      <li>❌ Aucune plateforme de marketing ou d'emailing tiers</li>
-      <li>❌ Aucun service de profilage ou ciblage publicitaire</li>
-    </ul>
-
-    <h2>9. Sécurité des données</h2>
-
-    <h3>8.1. Mesures techniques</h3>
-    <ul>
-      <li><strong>Chiffrement :</strong> toutes les données sont chiffrées en transit (HTTPS/TLS) et au repos (Firebase)</li>
-      <li><strong>Authentification sécurisée :</strong> Firebase Authentication avec bcrypt pour les mots de passe</li>
-      <li><strong>Tokens OAuth :</strong> stockés de manière chiffrée et expirés automatiquement</li>
-      <li><strong>Accès restreint :</strong> seules les personnes autorisées ont accès aux serveurs</li>
-    </ul>
-
-    <h3>8.2. Authentification disponible</h3>
-    <ul>
-      <li>✅ Authentification Google (recommandée)</li>
-      <li>✅ Email + mot de passe</li>
-      <li>🔜 Authentification à deux facteurs (2FA) — en développement</li>
-    </ul>
-
-    <h2>10. Vos droits (RGPD)</h2>
-    <p>Conformément au RGPD, vous disposez des droits suivants :</p>
-
+    <h3>2.1 Données du compte parent</h3>
     <table>
       <thead>
-        <tr>
-          <th>Droit</th>
-          <th>Description</th>
-          <th>Comment l'exercer</th>
-        </tr>
+        <tr><th>Donnée</th><th>Finalité</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Accès</strong></td><td>Obtenir une copie de vos données</td><td>Email à app.familiale@gmail.com</td></tr>
-        <tr><td><strong>Rectification</strong></td><td>Corriger des données inexactes</td><td>Directement dans l'app ou par email</td></tr>
-        <tr><td><strong>Suppression</strong></td><td>Effacer vos données</td><td>Paramètres → Supprimer mon compte</td></tr>
-        <tr><td><strong>Portabilité</strong></td><td>Recevoir vos données (format JSON)</td><td>Email à app.familiale@gmail.com</td></tr>
-        <tr><td><strong>Opposition</strong></td><td>Refuser certains traitements</td><td>Email à app.familiale@gmail.com</td></tr>
-        <tr><td><strong>Limitation</strong></td><td>Restreindre l'utilisation de vos données</td><td>Email à app.familiale@gmail.com</td></tr>
+        <tr><td>Email, prénom, nom</td><td>Authentification, communication</td></tr>
+        <tr><td>Mot de passe (haché)</td><td>Sécurité du compte</td></tr>
+        <tr><td>Identifiant Google / Microsoft (optionnel)</td><td>Connexion sociale</td></tr>
+        <tr><td>Adresse IP, logs de connexion</td><td>Sécurité, prévention de la fraude</td></tr>
+        <tr><td>Données de facturation (via Stripe)</td><td>Gestion de l'abonnement</td></tr>
       </tbody>
     </table>
 
-    <p><strong>Délai de réponse :</strong> sous 30 jours maximum</p>
-    <p><strong>Réclamation :</strong> Si vous estimez que vos droits ne sont pas respectés, vous pouvez déposer une plainte auprès de la CNIL : <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a></p>
+    <h3>2.2 Données des profils enfants</h3>
+    <table>
+      <thead>
+        <tr><th>Donnée</th><th>Finalité</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Prénom, emoji/avatar</td><td>Identification dans l'application</td></tr>
+        <tr><td>Âge ou date de naissance</td><td>Personnalisation</td></tr>
+        <tr><td>Code PIN (haché bcrypt — non récupérable)</td><td>Authentification sécurisée</td></tr>
+        <tr><td>XP, statistiques, progression, cagnotte</td><td>Gamification familiale</td></tr>
+        <tr><td>Token FCM / souscription Web Push</td><td>Notifications push</td></tr>
+      </tbody>
+    </table>
 
-    <h2>11. Cookies et technologies similaires</h2>
-    <p>FamilyApp utilise deux catégories de cookies :</p>
+    <h3>2.3 Données de surveillance parentale (fonctionnalités optionnelles)</h3>
+    <p>Ces données sont collectées uniquement si le parent active les fonctionnalités correspondantes :</p>
+    <table>
+      <thead>
+        <tr><th>Donnée</th><th>Fonctionnalité</th><th>Finalité</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Requêtes DNS par appareil, estimées par service (YouTube, TikTok, Instagram, etc.)</td><td>Temps d'écran</td><td>Estimation du temps passé par application</td></tr>
+        <tr><td>Adresses MAC des appareils</td><td>Contrôle parental réseau (Capsule Pi-hole)</td><td>Identification des appareils pour le filtrage réseau</td></tr>
+        <tr><td>Statut de présence du profil iOS</td><td>Détection de retrait de profil</td><td>Alerte parent si le filtrage DNS est désactivé sur l'appareil</td></tr>
+      </tbody>
+    </table>
+    <div class="info-box">
+      <p><strong>Note sur le profilage DNS :</strong> L'estimation du temps d'écran classe les requêtes DNS par service (~60 catégories nommées). Ces données sont utilisées exclusivement dans le cadre familial et ne sont jamais transmises à des tiers à des fins commerciales.</p>
+    </div>
+
+    <h3>2.4 Données du site vitrine (family-app.fr uniquement)</h3>
+    <p>Le site vitrine utilise Google Analytics (tag GTM-MDLG8DBD) pour mesurer l'audience, uniquement après votre consentement via le bandeau cookies. L'application PWA (hub.family-app.fr) n'utilise aucun outil d'analyse.</p>
+
+    <h3>2.5 Intégrations calendrier (optionnelles)</h3>
+    <p><strong>Google Calendar</strong> — Scope : <code>calendar.events.readonly</code> (lecture seule)<br>
+    <strong>Microsoft Calendar</strong> — Scope : <code>Calendars.Read</code> (lecture seule)</p>
+    <p>Dans les deux cas : les événements sont affichés mais jamais stockés de façon permanente sur nos serveurs, jamais partagés, jamais utilisés à des fins commerciales. Les tokens OAuth sont chiffrés (AES-256-GCM) dans Firebase. Révocation possible dans Paramètres › Intégrations ou directement chez Google/Microsoft.</p>
+
+    <h2>3. Base légale des traitements</h2>
+    <table>
+      <thead>
+        <tr><th>Traitement</th><th>Base légale</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Fourniture du service, gestion de l'abonnement</td><td>Exécution du contrat (art. 6.1.b RGPD)</td></tr>
+        <tr><td>Données des enfants, surveillance DNS, temps d'écran</td><td>Consentement parental explicite (art. 6.1.a + art. 8 RGPD)</td></tr>
+        <tr><td>Intégrations Google / Microsoft Calendar</td><td>Consentement explicite (OAuth)</td></tr>
+        <tr><td>Sécurité, prévention de la fraude</td><td>Intérêt légitime (art. 6.1.f RGPD)</td></tr>
+        <tr><td>Données de facturation</td><td>Obligation légale (art. 6.1.c RGPD)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>4. Données des enfants mineurs</h2>
+    <p>Les profils enfants sont créés et gérés exclusivement par les parents sous leur responsabilité parentale. Conformément à l'article 8 du RGPD et à la loi française, le traitement des données des enfants de moins de 15 ans requiert le consentement du titulaire de l'autorité parentale.</p>
     <ul>
-      <li><strong>Cookies strictement nécessaires</strong> (sans consentement) : cookies de session (maintien de connexion), cookies de sécurité (prévention CSRF), cookies de préférence (thème sombre, etc.)</li>
-      <li><strong>Cookies analytiques</strong> (après consentement uniquement) : Google Analytics via Google Tag Manager (<code>GTM-MDLG8DBD</code>) pour mesurer l'audience du site vitrine family-app.fr. Ces cookies ne sont activés que si vous cliquez sur « Tout accepter » dans la bannière de consentement.</li>
+      <li>Les codes PIN des enfants sont hachés avec <strong>bcrypt</strong> (irréversible) — nous ne pouvons pas les lire en clair</li>
+      <li>Les données des enfants ne sont jamais partagées à des fins publicitaires, de profilage commercial ou de cession</li>
+      <li>Les parents peuvent supprimer un profil enfant à tout moment depuis l'application</li>
     </ul>
-    <p>Vous pouvez retirer votre consentement à tout moment via le lien « Gérer les cookies » en bas de page.</p>
 
-    <h2>12. Modifications de cette politique</h2>
-    <p>Nous nous réservons le droit de modifier cette politique de confidentialité. En cas de changement substantiel, nous vous en informerons par :</p>
+    <h2>5. Sous-traitants et transferts de données</h2>
+    <table>
+      <thead>
+        <tr><th>Sous-traitant</th><th>Rôle</th><th>Localisation</th><th>Mécanisme</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Firebase / Google LLC</strong></td><td>Auth, base de données, fonctions cloud, notifications</td><td>europe-west1 (Belgique) + europe-west9 (Allemagne)</td><td>DPF UE-US + SCC</td></tr>
+        <tr><td><strong>Cloudflare, Inc.</strong></td><td>Filtrage DNS mobile, estimation temps d'écran</td><td>États-Unis (plan Gateway)</td><td>DPF UE-US</td></tr>
+        <tr><td><strong>Stripe Technology Europe Ltd</strong></td><td>Paiement, abonnements</td><td>Irlande (UE) + USA</td><td>DPF UE-US</td></tr>
+        <tr><td><strong>Brevo (Sendinblue SAS)</strong></td><td>Emails transactionnels (bienvenue, factures, relances)</td><td>France / UE</td><td>Pas de transfert hors UE</td></tr>
+        <tr><td><strong>Google LLC</strong></td><td>Authentification Google, calendrier</td><td>États-Unis</td><td>DPF UE-US</td></tr>
+        <tr><td><strong>Microsoft Corporation</strong></td><td>Authentification Microsoft, calendrier Outlook</td><td>États-Unis</td><td>DPF UE-US</td></tr>
+      </tbody>
+    </table>
+    <p>Aucune vente de données. Aucun partage à des fins publicitaires ou de profilage commercial.</p>
+
+    <h2>6. Durée de conservation</h2>
+    <table>
+      <thead>
+        <tr><th>Données</th><th>Durée</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Données du compte et des enfants</td><td>Pendant toute la durée d'utilisation active</td></tr>
+        <tr><td>Après suppression du compte</td><td>Suppression immédiate des données applicatives</td></tr>
+        <tr><td>Données de facturation (Stripe)</td><td>10 ans (obligation légale comptable)</td></tr>
+        <tr><td>Logs DNS Cloudflare</td><td>72 heures (politique Cloudflare, hors de notre contrôle)</td></tr>
+        <tr><td>Logs de sécurité</td><td>6 mois</td></tr>
+        <tr><td>Tokens OAuth</td><td>Supprimés immédiatement à la révocation</td></tr>
+      </tbody>
+    </table>
+
+    <h2>7. Vos droits (RGPD)</h2>
+    <p>Vous disposez des droits suivants sur vos données et celles de vos enfants :</p>
     <ul>
-      <li>📧 Email à l'adresse associée à votre compte</li>
-      <li>📱 Notification dans l'application</li>
-      <li>🌐 Mise à jour de la date en haut de cette page</li>
+      <li><strong>Accès</strong> — obtenir une copie de vos données</li>
+      <li><strong>Rectification</strong> — corriger des données inexactes</li>
+      <li><strong>Effacement</strong> — supprimer votre compte et toutes les données associées (accessible depuis Paramètres › Abonnement › Supprimer mon compte)</li>
+      <li><strong>Portabilité</strong> — recevoir vos données dans un format structuré (sur demande par email)</li>
+      <li><strong>Opposition</strong> — vous opposer à certains traitements fondés sur l'intérêt légitime</li>
+      <li><strong>Retrait du consentement</strong> — à tout moment, sans effet rétroactif</li>
     </ul>
+    <p>Pour exercer ces droits : <a href="mailto:contact@family-app.fr"><strong>contact@family-app.fr</strong></a> — réponse sous 30 jours maximum.<br>
+    En cas de réponse insatisfaisante : CNIL — 3 Place de Fontenoy, 75007 Paris — <a href="https://www.cnil.fr" target="_blank" rel="noopener">https://www.cnil.fr</a></p>
 
-    <h2>13. Contact</h2>
-    <p>Pour toute question concernant la protection de vos données personnelles :</p>
-    <p class="contact-highlight">📧 <a href="mailto:app.familiale@gmail.com">app.familiale@gmail.com</a></p>
-    <p><strong>Délai de réponse garanti :</strong> sous 30 jours maximum</p>
-
-    <h2>14. Conformité Google OAuth API Services</h2>
-    <p>L'utilisation de FamilyApp avec Google Calendar est soumise aux <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, incluant les exigences de Limited Use.</p>
-    <p><strong>Engagement FamilyApp :</strong></p>
+    <h2>8. Sécurité</h2>
     <ul>
-      <li>✅ Utilisation limitée aux fonctionnalités décrites ci-dessus</li>
-      <li>✅ Aucun transfert de données à des tiers (sauf services techniques essentiels)</li>
-      <li>✅ Aucune utilisation à des fins publicitaires</li>
-      <li>✅ Lecture seule uniquement (scope readonly)</li>
+      <li>Chiffrement en transit : TLS 1.3</li>
+      <li>Chiffrement au repos : Firebase AES-256</li>
+      <li>Chiffrement applicatif des tokens OAuth : AES-256-GCM</li>
+      <li>PINs enfants : bcrypt (10 rounds, irréversible)</li>
+      <li>Protection anti-bot : Firebase App Check (reCAPTCHA v3)</li>
+      <li>Limitation des tentatives PIN : 5 essais, blocage 5 minutes</li>
+      <li>Contrôle d'accès par règles Firestore</li>
     </ul>
+
+    <h2>9. Cookies</h2>
+
+    <h3>Site vitrine (family-app.fr)</h3>
+    <table>
+      <thead>
+        <tr><th>Cookie</th><th>Type</th><th>Finalité</th><th>Consentement</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Session Firebase</td><td>Nécessaire</td><td>Authentification</td><td>Non requis</td></tr>
+        <tr><td>Préférences interface</td><td>Nécessaire</td><td>Mode sombre, langue</td><td>Non requis</td></tr>
+        <tr><td>Google Analytics (GTM-MDLG8DBD)</td><td>Analytique</td><td>Mesure d'audience</td><td>Requis</td></tr>
+      </tbody>
+    </table>
+    <p>Vous pouvez modifier vos préférences à tout moment via le lien « Gestion des cookies » en bas de page.</p>
+
+    <h3>Application PWA (hub.family-app.fr)</h3>
+    <p>L'application n'utilise aucun cookie de tracking ni d'analyse. Le stockage local (localStorage, IndexedDB) est utilisé uniquement pour la session Firebase, les préférences d'interface et le cache hors-ligne de la PWA.</p>
+
+    <h2>10. Conformité Google API Services</h2>
+    <p>L'utilisation des API Google Calendar respecte la Politique d'utilisation des données des services API Google : utilisation limitée aux fonctionnalités décrites, aucun transfert de données à des tiers, aucun usage publicitaire, lecture seule.</p>
+
+    <h2>11. Modifications</h2>
+    <p>En cas de modification substantielle, nous vous informerons par email et notification in-app au moins 14 jours avant l'entrée en vigueur. La poursuite de l'utilisation vaut acceptation.</p>
+
+    <h2>12. Contact</h2>
+    <p>
+      <strong>HUXA — Michaël Belval</strong><br>
+      <a href="mailto:contact@family-app.fr">contact@family-app.fr</a><br>
+      170D chemin de la marquette, 84360 Lauris, France
+    </p>
+    <p><em>Version 1.1 — Juin 2026 — Document rédigé en français. En cas de traduction, la version française prévaut.</em></p>
+
   </div>
 
   <!-- FOOTER -->
