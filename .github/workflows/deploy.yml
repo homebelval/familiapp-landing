@@ -25,24 +25,26 @@ jobs:
       - name: Minify CSS & JS
         run: npm run build
 
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
-          protocol: ftps
-          port: 21
-          security: loose
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            docs/**
-            .claude/**
-            og-image-TODO.txt
-            package.json
-            package-lock.json
-            postcss.config.js
-            scripts/**
+      - name: Install lftp
+        run: sudo apt-get install -y lftp
+
+      - name: Deploy via SFTP
+        run: |
+          lftp -c "
+          set sftp:auto-confirm yes
+          set net:max-retries 3
+          set net:reconnect-interval-base 5
+          open sftp://${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}@${{ secrets.FTP_SERVER }}:22
+          mirror --reverse --delete --parallel=4 \
+            --exclude-glob .git \
+            --exclude-glob .git/ \
+            --exclude-glob node_modules/ \
+            --exclude-glob docs/ \
+            --exclude-glob .claude/ \
+            --exclude og-image-TODO.txt \
+            --exclude package.json \
+            --exclude package-lock.json \
+            --exclude postcss.config.js \
+            --exclude-glob scripts/ \
+            . ${{ secrets.FTP_SERVER_DIR }}
+          "
