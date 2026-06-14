@@ -230,7 +230,7 @@
       </thead>
       <tbody>
         <tr><td>Requêtes DNS par appareil, estimées par service (YouTube, TikTok, Instagram, etc.)</td><td>Temps d'écran</td><td>Estimation du temps passé par application</td></tr>
-        <tr><td>Adresses MAC des appareils</td><td>Contrôle parental réseau (Capsule Pi-hole)</td><td>Identification des appareils pour le filtrage réseau</td></tr>
+        <tr><td>Adresses MAC des appareils <em>(uniquement utilisateurs Capsule/Pi-hole)</em></td><td>Contrôle parental réseau (Capsule Pi-hole)</td><td>Identification des appareils pour le filtrage réseau — non collectées pour les utilisateurs sans boîtier Capsule</td></tr>
         <tr><td>Statut de présence du profil iOS</td><td>Détection de retrait de profil</td><td>Alerte parent si le filtrage DNS est désactivé sur l'appareil</td></tr>
       </tbody>
     </table>
@@ -293,7 +293,7 @@
         <tr><td>Données du compte et des enfants</td><td>Pendant toute la durée d'utilisation active</td></tr>
         <tr><td>Après suppression du compte</td><td>Suppression immédiate des données applicatives</td></tr>
         <tr><td>Données de facturation (Stripe)</td><td>10 ans (obligation légale comptable)</td></tr>
-        <tr><td>Logs DNS Cloudflare</td><td>72 heures (politique Cloudflare, hors de notre contrôle)</td></tr>
+        <tr><td>Logs DNS Cloudflare</td><td>Jusqu'à 72 heures selon la politique de Cloudflare Gateway (hors de notre contrôle direct — nous ne pouvons pas garantir cette durée)</td></tr>
         <tr><td>Logs de sécurité</td><td>6 mois</td></tr>
         <tr><td>Tokens OAuth</td><td>Supprimés immédiatement à la révocation</td></tr>
       </tbody>
