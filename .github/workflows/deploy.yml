@@ -1,5 +1,9 @@
 name: Deploy to Infomaniak
 
+# NOTE: Le déploiement automatique depuis GitHub Actions est bloqué par
+# Infomaniak (plan Starter — IPs cloud non autorisées au niveau réseau).
+# Déploiement manuel via WebFTP : manager.infomaniak.com → Hébergement → WebFTP
+
 on:
   push:
     branches:
@@ -7,7 +11,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,20 +29,23 @@ jobs:
       - name: Minify CSS & JS
         run: npm run build
 
-      - name: Install sshpass
-        run: sudo apt-get install -y sshpass
-
-      - name: Deploy via rsync over SSH
-        run: |
-          sshpass -p "${{ secrets.FTP_PASSWORD }}" rsync -rltz --delete \
-            -e "ssh -o StrictHostKeyChecking=no -p 22" \
-            --exclude='.git' \
-            --exclude='node_modules/' \
-            --exclude='docs/' \
-            --exclude='.claude/' \
-            --exclude='og-image-TODO.txt' \
-            --exclude='package.json' \
-            --exclude='package-lock.json' \
-            --exclude='postcss.config.js' \
-            --exclude='scripts/' \
-            ./ "${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}:${{ secrets.FTP_SERVER_DIR }}"
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          protocol: ftp
+          port: 21
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            docs/**
+            .claude/**
+            og-image-TODO.txt
+            package.json
+            package-lock.json
+            postcss.config.js
+            scripts/**
