@@ -25,24 +25,20 @@ jobs:
       - name: Minify CSS & JS
         run: npm run build
 
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
-          protocol: ftps
-          port: 21
-          security: loose
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            docs/**
-            .claude/**
-            og-image-TODO.txt
-            package.json
-            package-lock.json
-            postcss.config.js
-            scripts/**
+      - name: Install sshpass
+        run: sudo apt-get install -y sshpass
+
+      - name: Deploy via rsync over SSH
+        run: |
+          sshpass -p "${{ secrets.FTP_PASSWORD }}" rsync -rltz --delete \
+            -e "ssh -o StrictHostKeyChecking=no -p 22" \
+            --exclude='.git' \
+            --exclude='node_modules/' \
+            --exclude='docs/' \
+            --exclude='.claude/' \
+            --exclude='og-image-TODO.txt' \
+            --exclude='package.json' \
+            --exclude='package-lock.json' \
+            --exclude='postcss.config.js' \
+            --exclude='scripts/' \
+            ./ "${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}:${{ secrets.FTP_SERVER_DIR }}"
