@@ -103,95 +103,146 @@
       margin-top: 24px;
     }
 
-    /* ── Image pleine largeur dans l'article ── */
-    .article-img {
-      margin: 40px -24px;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-    }
-    .article-img img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-    }
-    .article-img figcaption {
-      text-align: center;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      padding: 10px 16px;
-      background: var(--border);
-    }
-
-    /* ── Comparaison sans XP / avec XP ── */
-    .xp-compare {
+    /* ── Chapitres immersifs : même logique que le hero, répétée dans l'article ── */
+    .story-chapter {
+      width: 100vw;
+      margin: 72px 0 72px calc(50% - 50vw);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin: 40px 0;
+      min-height: 460px;
     }
-    .xp-compare__panel {
-      border-radius: var(--radius);
+    .story-chapter--reverse { direction: rtl; }
+    .story-chapter--reverse > * { direction: ltr; }
+    .story-chapter__photo {
+      position: relative;
       overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform .3s, box-shadow .3s;
+      align-self: center;
+      background: var(--white);
     }
-    .xp-compare__panel:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-    }
-    .xp-compare__panel img {
+    .story-chapter__photo img {
       width: 100%;
-      aspect-ratio: 4/3;
+      aspect-ratio: 3 / 2;
       object-fit: cover;
       display: block;
     }
-    .xp-compare__label {
+
+    /* ── Variante empilée : 2 scènes (avant / après) dans une seule colonne photo ── */
+    .story-chapter__photo--split {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 3px;
+    }
+    .story-chapter__photo--split .story-chapter__subphoto {
+      position: relative;
+      overflow: hidden;
+    }
+    .story-chapter__photo--split .story-chapter__subphoto img {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      display: block;
+    }
+    .story-chapter__subphoto__tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      background: rgba(255,255,255,.92);
+      color: var(--purple-dark);
+      padding: 4px 12px;
+      border-radius: 50px;
+    }
+    .story-chapter__content {
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 64px calc((100vw - 1072px) / 2 + 56px) 64px 56px;
+    }
+    .story-chapter--reverse .story-chapter__content {
+      padding: 64px 56px 64px calc((100vw - 1072px) / 2 + 56px);
+    }
+    .story-chapter__num {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--purple-light);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .story-chapter__content h2,
+    .story-chapter__content h3 {
+      margin-top: 0;
+    }
+    .story-chapter__lead {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--purple-dark);
+      margin: -8px 0 16px;
+    }
+
+    /* ── Bande "versus" : sans XP / avec XP, immersive ── */
+    .story-versus {
+      position: relative;
+      width: 100vw;
+      margin: 72px 0 72px calc(50% - 50vw);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 420px;
+    }
+    .story-versus__panel { position: relative; overflow: hidden; }
+    .story-versus__panel img {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+    .story-versus__scrim {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 40px 32px 24px;
+      background: linear-gradient(to top, rgba(10,10,20,.82) 0%, rgba(10,10,20,0) 100%);
+      color: #fff;
+    }
+    .story-versus__label {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.85rem;
       font-weight: 700;
-      padding: 10px 14px;
+      font-size: 1.05rem;
     }
-    .xp-compare__label--bad  { background: #fff1f1; color: #c0392b; }
-    .xp-compare__label--good { background: #f0fff4; color: #27ae60; }
-    .xp-compare__label .dot {
-      width: 8px; height: 8px;
+    .story-versus__label .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .story-versus__label--bad .dot { background: #ff6b6b; }
+    .story-versus__label--good .dot { background: #2ecc71; }
+    .story-versus__badge {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      width: 54px; height: 54px;
       border-radius: 50%;
-      flex-shrink: 0;
-    }
-    .xp-compare__label--bad  .dot { background: #e74c3c; }
-    .xp-compare__label--good .dot { background: #2ecc71; }
-
-    /* ── Section image + texte côte à côte ── */
-    .article-split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      background: #fff;
+      display: flex;
       align-items: center;
-      margin: 48px 0;
-    }
-    .article-split--reverse { direction: rtl; }
-    .article-split--reverse > * { direction: ltr; }
-    .article-split__photo {
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform .3s, box-shadow .3s;
-    }
-    .article-split__photo:hover {
-      transform: translateY(-4px);
+      justify-content: center;
+      font-weight: 900;
+      font-size: .85rem;
+      color: var(--purple);
       box-shadow: var(--shadow-lg);
+      z-index: 2;
     }
-    .article-split__photo img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      display: block;
+
+    /* ── Révélation au scroll ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
     }
-    .article-split__text h3 {
-      margin-top: 0;
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
     }
 
     /* ── Mobile ── */
@@ -202,10 +253,18 @@
       }
       .article-hero-split__photo { height: 280px; }
       .article-hero-split__content { padding: 40px 24px; }
-      .xp-compare { grid-template-columns: 1fr; }
-      .article-split { grid-template-columns: 1fr; }
-      .article-split--reverse { direction: ltr; }
-      .article-img { margin: 32px 0; }
+
+      .story-chapter, .story-versus {
+        grid-template-columns: 1fr;
+        margin: 48px 0 48px calc(50% - 50vw);
+      }
+      .story-chapter--reverse { direction: ltr; }
+      .story-versus__panel img { min-height: 260px; }
+      .story-chapter__content,
+      .story-chapter--reverse .story-chapter__content {
+        padding: 40px 24px;
+      }
+      .story-versus__badge { width: 44px; height: 44px; font-size: .75rem; }
     }
   </style>
 </head>
@@ -241,8 +300,8 @@
         alt="Parent qui répète une instruction à son enfant dans une chambre en désordre"
         loading="eager"
         fetchpriority="high"
-        width="720"
-        height="540"
+        width="1200"
+        height="800"
       >
     </div>
     <div class="article-hero-split__content">
@@ -259,137 +318,165 @@
     </div>
   </section>
 
-  <!-- CORPS DE L'ARTICLE -->
+  <!-- CORPS DE L'ARTICLE : une histoire qui se découvre en scrollant -->
   <div class="article-body">
     <div class="container">
 
       <p>Vous lui avez dit une fois. Puis deux. Puis trois. La chambre n'est toujours pas rangée. Pas par opposition, pas par paresse — simplement parce que ranger sa chambre, à 9 ans, n'a aucun sens immédiat. Aucune conséquence visible. Aucune progression perceptible. C'est une tâche qui se répète sans jamais mener nulle part.</p>
 
-      <!-- Image jeux vidéo vs tâches -->
-      <figure class="article-img">
-        <img
-          src="images/jeux-video.jpg"
-          alt="Enfant concentré devant un jeu vidéo affichant Niveau 25, puis même enfant qui met la table avec une notification +250 XP"
-          loading="lazy"
-          width="760"
-          height="420"
-        >
-        <figcaption>Les jeux vidéo renvoient un feedback immédiat. Les tâches du quotidien, non — jusqu'ici.</figcaption>
-      </figure>
+    </div>
 
-      <h2>Ce que les jeux vidéo ont compris avant nous</h2>
+    <!-- Chapitre 01 : jeux vidéo vs tâches -->
+    <section class="story-chapter reveal">
+      <div class="story-chapter__photo story-chapter__photo--split">
+        <div class="story-chapter__subphoto">
+          <img
+            src="images/jeux-video.jpg"
+            alt="Enfant concentré devant un jeu vidéo affichant Niveau 25"
+            loading="lazy"
+            width="1200"
+            height="800"
+          >
+          <span class="story-chapter__subphoto__tag">Avant — le jeu</span>
+        </div>
+        <div class="story-chapter__subphoto">
+          <img
+            src="images/tache-menagere.jpg"
+            alt="Même enfant qui met la table, notification +250 XP Niveau 12 atteint"
+            loading="lazy"
+            width="1200"
+            height="800"
+          >
+          <span class="story-chapter__subphoto__tag">Après — la tâche</span>
+        </div>
+      </div>
+      <div class="story-chapter__content">
+        <span class="story-chapter__num" aria-hidden="true">01</span>
+        <h2>Ce que les jeux vidéo ont compris avant nous</h2>
+        <p class="story-chapter__lead">Les jeux vidéo renvoient un feedback immédiat. Les tâches du quotidien, non — jusqu'ici.</p>
+        <p>Les enfants passent des heures à progresser dans des jeux sans que personne ne les y force. Ils recommencent un niveau raté dix fois de suite. Ils optimisent, planifient, s'investissent. Pas parce qu'on leur demande — parce que le jeu leur renvoie constamment un signal : <strong>tu avances, tu montes en niveau, tu deviens meilleur.</strong></p>
+        <p>Ce n'est pas une question d'écran ou d'addiction. C'est une mécanique psychologique fondamentale : le cerveau humain, et particulièrement celui de l'enfant, est câblé pour répondre au feedback immédiat et à la progression visible.</p>
+      </div>
+    </section>
 
-      <p>Les enfants passent des heures à progresser dans des jeux sans que personne ne les y force. Ils recommencent un niveau raté dix fois de suite. Ils optimisent, planifient, s'investissent. Pas parce qu'on leur demande — parce que le jeu leur renvoie constamment un signal : <strong>tu avances, tu montes en niveau, tu deviens meilleur.</strong></p>
-
-      <p>Ce n'est pas une question d'écran ou d'addiction. C'est une mécanique psychologique fondamentale : le cerveau humain, et particulièrement celui de l'enfant, est câblé pour répondre au feedback immédiat et à la progression visible.</p>
-
+    <div class="container">
       <p>Les tâches ménagères, elles, n'offrent rien de tout ça. On range, on dessert, on prépare son sac — et demain on recommence exactement au même endroit, comme si rien ne s'était passé. Le travail s'efface dès qu'il est accompli.</p>
 
       <h2>La différence entre récompense et progression</h2>
+    </div>
 
-      <!-- Comparaison sans XP / avec XP -->
-      <div class="xp-compare">
-        <div class="xp-compare__panel">
-          <img
-            src="images/sans-xp.jpg"
-            alt="Enfant démotivé assis par terre, chambre en désordre"
-            loading="lazy"
-            width="380"
-            height="285"
-          >
-          <div class="xp-compare__label xp-compare__label--bad">
-            <span class="dot"></span> Sans XP — aucune progression visible
-          </div>
-        </div>
-        <div class="xp-compare__panel">
-          <img
-            src="images/avec-xp.jpg"
-            alt="Même enfant souriant, regardant son téléphone avec satisfaction, chambre ordonnée"
-            loading="lazy"
-            width="380"
-            height="285"
-          >
-          <div class="xp-compare__label xp-compare__label--good">
-            <span class="dot"></span> Avec XP — fierté et élan naturel
-          </div>
+    <!-- Bande versus : sans XP / avec XP -->
+    <div class="story-versus reveal">
+      <div class="story-versus__panel">
+        <img
+          src="images/sans-xp.jpg"
+          alt="Enfant démotivé assis par terre, chambre en désordre"
+          loading="lazy"
+          width="1200"
+          height="800"
+        >
+        <div class="story-versus__scrim">
+          <div class="story-versus__label story-versus__label--bad"><span class="dot"></span> Sans XP — aucune progression visible</div>
         </div>
       </div>
+      <div class="story-versus__badge">VS</div>
+      <div class="story-versus__panel">
+        <img
+          src="images/avec-xp.jpg"
+          alt="Même enfant souriant, regardant son téléphone avec satisfaction, chambre ordonnée"
+          loading="lazy"
+          width="1200"
+          height="800"
+        >
+        <div class="story-versus__scrim">
+          <div class="story-versus__label story-versus__label--good"><span class="dot"></span> Avec XP — fierté et élan naturel</div>
+        </div>
+      </div>
+    </div>
 
+    <div class="container">
       <p>Face à ce problème, beaucoup de familles essaient le système de récompenses : de l'argent de poche contre des tâches, des étoiles collées sur un tableau, des petits cadeaux à la fin de la semaine. L'intention est bonne, mais le résultat est souvent décevant.</p>
 
       <p>Pourquoi ? Parce qu'une récompense externe place la motivation en dehors de l'enfant. Il fait la tâche pour obtenir quelque chose — pas parce qu'il en est fier, pas parce qu'il grandit. Dès que la récompense disparaît ou perd de son attrait, la motivation s'évapore avec elle.</p>
 
       <p><strong>La progression, c'est différent.</strong> Accumuler de l'expérience, monter de niveau, voir une barre avancer — ça crée un sentiment de compétence. L'enfant ne fait plus la tâche pour avoir quelque chose. Il la fait parce qu'elle contribue à quelque chose qui lui appartient : son propre progrès.</p>
+    </div>
 
-      <h2>Des points d'expérience ancrés dans le quotidien</h2>
-
-      <!-- Image progression app -->
-      <div class="article-split">
-        <div class="article-split__photo">
-          <img
-            src="images/progression-app.jpg"
-            alt="Père et fils regardant ensemble l'interface FamilyApp avec barre d'XP et tâches du jour"
-            loading="lazy"
-            width="380"
-            height="285"
-          >
-        </div>
-        <div class="article-split__text">
-          <h3>L'interface Kidly — la progression en temps réel</h3>
-          <p>Dans Family App, chaque tâche accomplie rapporte des points d'expérience — des XP. L'enfant les voit s'accumuler dans son application. Il monte de niveau. Il laisse une trace de ce qu'il a fait, jour après jour.</p>
-          <ul>
-            <li>Barre d'XP qui avance à chaque tâche</li>
-            <li>Niveau qui augmente dans la durée</li>
-            <li>Tâches du jour claires et actionnables</li>
-            <li>Succès débloqués qui récompensent la constance</li>
-          </ul>
-        </div>
+    <!-- Chapitre 02 : interface Kidly / progression app -->
+    <section class="story-chapter reveal">
+      <div class="story-chapter__photo">
+        <img
+          src="images/progression-app.jpg"
+          alt="Père et fils regardant ensemble l'interface FamilyApp avec barre d'XP et tâches du jour"
+          loading="lazy"
+          width="1200"
+          height="800"
+        >
       </div>
+      <div class="story-chapter__content">
+        <span class="story-chapter__num" aria-hidden="true">02</span>
+        <h2>Des points d'expérience ancrés dans le quotidien</h2>
+        <p class="story-chapter__lead">L'interface Kidly — la progression en temps réel</p>
+        <p>Dans Family App, chaque tâche accomplie rapporte des points d'expérience — des XP. L'enfant les voit s'accumuler dans son application. Il monte de niveau. Il laisse une trace de ce qu'il a fait, jour après jour.</p>
+        <ul>
+          <li>Barre d'XP qui avance à chaque tâche</li>
+          <li>Niveau qui augmente dans la durée</li>
+          <li>Tâches du jour claires et actionnables</li>
+          <li>Succès débloqués qui récompensent la constance</li>
+        </ul>
+      </div>
+    </section>
 
+    <div class="container">
       <p>Ce système est actif par défaut, pour toutes les familles. Il ne remplace pas l'autorité parentale ni les valeurs que vous transmettez — il les soutient en rendant l'effort visible là où il était jusqu'ici invisible.</p>
+    </div>
 
-      <h2>Et l'argent de poche dans tout ça ?</h2>
-
-      <!-- Image cagnotte -->
-      <div class="article-split article-split--reverse">
-        <div class="article-split__photo">
-          <img
-            src="images/cagnotte.jpg"
-            alt="Famille autour d'un téléphone montrant une cagnotte et un objectif vélo, tirelire visible"
-            loading="lazy"
-            width="380"
-            height="285"
-          >
-        </div>
-        <div class="article-split__text">
-          <h3>L'argent de poche — en option, en complément</h3>
-          <p>Certaines familles souhaitent associer une dimension financière à l'effort fourni — apprendre à gérer un budget, comprendre que le travail a une valeur. Family App le permet, en mode optionnel, en complément des XP.</p>
-          <ul>
-            <li>Objectif d'épargne personnalisé</li>
-            <li>Suivi des gains accumulés</li>
-            <li>Autonomie financière progressive</li>
-            <li>Apprendre la valeur de l'effort</li>
-          </ul>
-          <p>Mais ce n'est pas le point de départ. Le point de départ, c'est la progression.</p>
-        </div>
+    <!-- Chapitre 03 : argent de poche / cagnotte -->
+    <section class="story-chapter story-chapter--reverse reveal">
+      <div class="story-chapter__photo">
+        <img
+          src="images/cagnotte.jpg"
+          alt="Famille autour d'un téléphone montrant une cagnotte et un objectif vélo, tirelire visible"
+          loading="lazy"
+          width="1200"
+          height="800"
+        >
       </div>
+      <div class="story-chapter__content">
+        <span class="story-chapter__num" aria-hidden="true">03</span>
+        <h2>Et l'argent de poche dans tout ça ?</h2>
+        <p class="story-chapter__lead">L'argent de poche — en option, en complément</p>
+        <p>Certaines familles souhaitent associer une dimension financière à l'effort fourni — apprendre à gérer un budget, comprendre que le travail a une valeur. Family App le permet, en mode optionnel, en complément des XP.</p>
+        <ul>
+          <li>Objectif d'épargne personnalisé</li>
+          <li>Suivi des gains accumulés</li>
+          <li>Autonomie financière progressive</li>
+          <li>Apprendre la valeur de l'effort</li>
+        </ul>
+        <p>Mais ce n'est pas le point de départ. Le point de départ, c'est la progression.</p>
+      </div>
+    </section>
 
-      <h2>Moins de conflits, plus d'élan</h2>
-
-      <!-- Image harmonie famille -->
-      <figure class="article-img">
+    <!-- Chapitre 04 : harmonie familiale -->
+    <section class="story-chapter reveal">
+      <div class="story-chapter__photo">
         <img
           src="images/harmonie.jpg"
           alt="Enfant et parent qui cuisinent ensemble dans une belle cuisine, ambiance sereine et complice"
           loading="lazy"
-          width="760"
-          height="420"
+          width="1200"
+          height="800"
         >
-        <figcaption>Moins de rappels, plus de coopération — une ambiance familiale plus sereine.</figcaption>
-      </figure>
+      </div>
+      <div class="story-chapter__content">
+        <span class="story-chapter__num" aria-hidden="true">04</span>
+        <h2>Moins de conflits, plus d'élan</h2>
+        <p class="story-chapter__lead">Moins de rappels, plus de coopération — une ambiance familiale plus sereine.</p>
+        <p>Ce que les parents qui utilisent ce système remarquent en premier, ce n'est pas une transformation spectaculaire. C'est une légère diminution de la friction. Moins de rappels nécessaires. Un enfant qui vérifie lui-même ses tâches pour ne pas « perdre » sa progression. Une forme d'élan interne qui n'existait pas avant.</p>
+      </div>
+    </section>
 
-      <p>Ce que les parents qui utilisent ce système remarquent en premier, ce n'est pas une transformation spectaculaire. C'est une légère diminution de la friction. Moins de rappels nécessaires. Un enfant qui vérifie lui-même ses tâches pour ne pas « perdre » sa progression. Une forme d'élan interne qui n'existait pas avant.</p>
-
+    <div class="container">
       <p>Ce n'est pas de la magie. C'est de la conception : rendre visible ce qui était invisible, rendre tangible ce qui était abstrait, donner à l'enfant une prise sur sa propre histoire.</p>
 
       <div class="article-cta">
@@ -454,5 +541,23 @@
   </footer>
 
   <script src="/js/main.js" defer></script>
+  <script>
+    (function () {
+      var reveals = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        reveals.forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      reveals.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
 </body>
 </html>
