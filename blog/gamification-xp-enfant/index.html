@@ -217,6 +217,147 @@
     .story-versus__label .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
     .story-versus__label--bad .dot { background: #ff6b6b; }
     .story-versus__label--good .dot { background: #2ecc71; }
+    /* ── Paragraphes de liaison entre chapitres : même largeur pleine page ── */
+    .story-text {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      padding: 0 56px;
+    }
+
+    /* ── Bouton "Lancer le récit" dans le hero ── */
+    .story-play-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      align-self: flex-start;
+      width: fit-content;
+      margin-top: 24px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 50px;
+      background: #fff;
+      color: var(--purple-dark);
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .story-play-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .story-play-btn__icon { font-size: 0.7rem; }
+
+    /* ── Lecteur "story" plein écran ── */
+    .story-viewer {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: #0b0b14;
+      display: none;
+    }
+    .story-viewer.is-open { display: block; }
+    .story-viewer__bars {
+      position: absolute;
+      top: 16px; left: 16px; right: 16px;
+      z-index: 3;
+      display: flex;
+      gap: 6px;
+    }
+    .story-viewer__bar {
+      flex: 1;
+      height: 3px;
+      border-radius: 2px;
+      background: rgba(255,255,255,.3);
+      overflow: hidden;
+    }
+    .story-viewer__bar span {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: #fff;
+      border-radius: 2px;
+    }
+    .story-viewer__bar.is-done span { width: 100%; transition: none; }
+    .story-viewer__bar.is-active span { width: 100%; transition: width linear; }
+    .story-viewer__close,
+    .story-viewer__nav {
+      position: absolute;
+      z-index: 3;
+      background: rgba(255,255,255,.12);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .story-viewer__close { top: 32px; right: 20px; }
+    .story-viewer__nav--prev { left: 20px; top: 50%; transform: translateY(-50%); }
+    .story-viewer__nav--next { right: 20px; top: 50%; transform: translateY(-50%); }
+    .story-viewer__stage {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+    }
+    .story-viewer__photo { position: relative; overflow: hidden; background: #000; }
+    .story-viewer__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .story-viewer__tapzone {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 45%;
+      z-index: 2;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    .story-viewer__tapzone--prev { left: 0; }
+    .story-viewer__tapzone--next { right: 0; }
+    .story-viewer__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 64px 72px;
+      background: linear-gradient(135deg, var(--purple) 0%, var(--purple-dark) 100%);
+    }
+    .story-viewer__num {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.7);
+      margin-bottom: 16px;
+    }
+    .story-viewer__title {
+      font-size: clamp(1.4rem, 2.4vw, 2rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .story-viewer__text {
+      color: rgba(255,255,255,.85);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .story-viewer__stage { grid-template-columns: 1fr; grid-template-rows: 55% 45%; }
+      .story-viewer__content { padding: 32px 28px; }
+      .story-viewer__nav { width: 36px; height: 36px; font-size: 1rem; }
+      .story-viewer__close { width: 36px; height: 36px; top: 20px; right: 14px; font-size: 1rem; }
+    }
+
     .story-versus__badge {
       position: absolute;
       left: 50%; top: 50%;
@@ -265,6 +406,7 @@
         padding: 40px 24px;
       }
       .story-versus__badge { width: 44px; height: 44px; font-size: .75rem; }
+      .story-text { padding: 0 24px; }
     }
   </style>
 </head>
@@ -315,12 +457,15 @@
         C'est l'absence de retour sur ce qu'il fait.
       </p>
       <p class="article-hero-split__meta">✍️ FamilyApp · 6 min de lecture · Juillet 2026</p>
+      <button type="button" class="story-play-btn" id="story-play-btn">
+        <span class="story-play-btn__icon" aria-hidden="true">▶</span> Lancer le récit
+      </button>
     </div>
   </section>
 
   <!-- CORPS DE L'ARTICLE : une histoire qui se découvre en scrollant -->
   <div class="article-body">
-    <div class="container">
+    <div class="story-text">
 
       <p>Vous lui avez dit une fois. Puis deux. Puis trois. La chambre n'est toujours pas rangée. Pas par opposition, pas par paresse — simplement parce que ranger sa chambre, à 9 ans, n'a aucun sens immédiat. Aucune conséquence visible. Aucune progression perceptible. C'est une tâche qui se répète sans jamais mener nulle part.</p>
 
@@ -359,7 +504,7 @@
       </div>
     </section>
 
-    <div class="container">
+    <div class="story-text">
       <p>Les tâches ménagères, elles, n'offrent rien de tout ça. On range, on dessert, on prépare son sac — et demain on recommence exactement au même endroit, comme si rien ne s'était passé. Le travail s'efface dès qu'il est accompli.</p>
 
       <h2>La différence entre récompense et progression</h2>
@@ -394,7 +539,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="story-text">
       <p>Face à ce problème, beaucoup de familles essaient le système de récompenses : de l'argent de poche contre des tâches, des étoiles collées sur un tableau, des petits cadeaux à la fin de la semaine. L'intention est bonne, mais le résultat est souvent décevant.</p>
 
       <p>Pourquoi ? Parce qu'une récompense externe place la motivation en dehors de l'enfant. Il fait la tâche pour obtenir quelque chose — pas parce qu'il en est fier, pas parce qu'il grandit. Dès que la récompense disparaît ou perd de son attrait, la motivation s'évapore avec elle.</p>
@@ -427,7 +572,7 @@
       </div>
     </section>
 
-    <div class="container">
+    <div class="story-text">
       <p>Ce système est actif par défaut, pour toutes les familles. Il ne remplace pas l'autorité parentale ni les valeurs que vous transmettez — il les soutient en rendant l'effort visible là où il était jusqu'ici invisible.</p>
     </div>
 
@@ -540,6 +685,26 @@
     </div>
   </footer>
 
+  <!-- Lecteur "story" plein écran, généré/piloté par JS -->
+  <div class="story-viewer" id="story-viewer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Le récit en images">
+    <div class="story-viewer__bars" id="story-bars"></div>
+    <button type="button" class="story-viewer__close" id="story-close" aria-label="Fermer le récit">✕</button>
+    <button type="button" class="story-viewer__nav story-viewer__nav--prev" id="story-prev" aria-label="Précédent">‹</button>
+    <button type="button" class="story-viewer__nav story-viewer__nav--next" id="story-next" aria-label="Suivant">›</button>
+    <div class="story-viewer__stage">
+      <div class="story-viewer__photo">
+        <button type="button" class="story-viewer__tapzone story-viewer__tapzone--prev" id="story-tap-prev" aria-label="Diapositive précédente"></button>
+        <button type="button" class="story-viewer__tapzone story-viewer__tapzone--next" id="story-tap-next" aria-label="Diapositive suivante"></button>
+        <img id="story-img" src="" alt="">
+      </div>
+      <div class="story-viewer__content">
+        <span class="story-viewer__num" id="story-num"></span>
+        <h2 class="story-viewer__title" id="story-title"></h2>
+        <p class="story-viewer__text" id="story-text"></p>
+      </div>
+    </div>
+  </div>
+
   <script src="/js/main.js" defer></script>
   <script>
     (function () {
@@ -557,6 +722,159 @@
         });
       }, { threshold: 0.15 });
       reveals.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+  <script>
+    (function () {
+      var SLIDES = [
+        {
+          num: 'Intro',
+          img: 'images/article-hero.jpg',
+          title: '« Tu le feras parce que je te le demande » — et si ça ne suffisait plus ?',
+          text: "Le problème n'est pas la motivation de votre enfant. C'est l'absence de retour sur ce qu'il fait."
+        },
+        {
+          num: '01 — Avant',
+          img: 'images/jeux-video.jpg',
+          title: 'Ce que les jeux vidéo ont compris avant nous',
+          text: "Les jeux vidéo renvoient un feedback immédiat : tu avances, tu montes en niveau, tu deviens meilleur."
+        },
+        {
+          num: '01 — Après',
+          img: 'images/tache-menagere.jpg',
+          title: 'Le même feedback, appliqué à la vraie vie',
+          text: "Les tâches du quotidien, elles, n'offraient rien de tout ça — jusqu'ici."
+        },
+        {
+          num: '02',
+          img: 'images/sans-xp.jpg',
+          title: 'Sans XP',
+          text: "Aucune progression visible, aucun retour. La motivation s'épuise vite."
+        },
+        {
+          num: '02',
+          img: 'images/avec-xp.jpg',
+          title: 'Avec XP',
+          text: "Fierté et élan naturel : l'enfant voit sa propre progression."
+        },
+        {
+          num: '03',
+          img: 'images/progression-app.jpg',
+          title: "Des points d'expérience ancrés dans le quotidien",
+          text: "Chaque tâche accomplie rapporte des XP. L'enfant monte de niveau et laisse une trace de ce qu'il a fait, jour après jour."
+        },
+        {
+          num: '04',
+          img: 'images/cagnotte.jpg',
+          title: "Et l'argent de poche dans tout ça ?",
+          text: "En option, en complément des XP — pour apprendre la valeur de l'effort. Mais le point de départ reste la progression."
+        },
+        {
+          num: '05',
+          img: 'images/harmonie.jpg',
+          title: 'Moins de conflits, plus d’élan',
+          text: "Moins de rappels, plus de coopération — une ambiance familiale plus sereine."
+        }
+      ];
+
+      var SLIDE_DURATION = 6000;
+
+      var viewer = document.getElementById('story-viewer');
+      var playBtn = document.getElementById('story-play-btn');
+      var closeBtn = document.getElementById('story-close');
+      var prevBtn = document.getElementById('story-prev');
+      var nextBtn = document.getElementById('story-next');
+      var tapPrev = document.getElementById('story-tap-prev');
+      var tapNext = document.getElementById('story-tap-next');
+      var barsWrap = document.getElementById('story-bars');
+      var imgEl = document.getElementById('story-img');
+      var numEl = document.getElementById('story-num');
+      var titleEl = document.getElementById('story-title');
+      var textEl = document.getElementById('story-text');
+
+      if (!viewer || !playBtn) return;
+
+      var current = 0;
+      var timer = null;
+      var bars = [];
+
+      SLIDES.forEach(function () {
+        var bar = document.createElement('div');
+        bar.className = 'story-viewer__bar';
+        var fill = document.createElement('span');
+        bar.appendChild(fill);
+        barsWrap.appendChild(bar);
+        bars.push(bar);
+      });
+
+      function renderSlide(index) {
+        var slide = SLIDES[index];
+        imgEl.src = slide.img;
+        imgEl.alt = slide.title;
+        numEl.textContent = slide.num;
+        titleEl.textContent = slide.title;
+        textEl.textContent = slide.text;
+
+        bars.forEach(function (bar, i) {
+          bar.classList.remove('is-active', 'is-done');
+          var fill = bar.querySelector('span');
+          fill.style.transition = 'none';
+          fill.style.width = '0%';
+          if (i < index) {
+            bar.classList.add('is-done');
+          }
+        });
+      }
+
+      function startTimer() {
+        clearTimeout(timer);
+        var bar = bars[current];
+        var fill = bar.querySelector('span');
+        bar.classList.add('is-active');
+        // force reflow so the transition restarts cleanly
+        fill.getBoundingClientRect();
+        fill.style.transition = 'width ' + SLIDE_DURATION + 'ms linear';
+        fill.style.width = '100%';
+        timer = setTimeout(function () { goTo(current + 1); }, SLIDE_DURATION);
+      }
+
+      function goTo(index) {
+        if (index < 0) index = 0;
+        if (index >= SLIDES.length) { close(); return; }
+        current = index;
+        renderSlide(current);
+        startTimer();
+      }
+
+      function open() {
+        viewer.classList.add('is-open');
+        viewer.setAttribute('aria-hidden', 'false');
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
+        goTo(0);
+      }
+
+      function close() {
+        clearTimeout(timer);
+        viewer.classList.remove('is-open');
+        viewer.setAttribute('aria-hidden', 'true');
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+      }
+
+      playBtn.addEventListener('click', open);
+      closeBtn.addEventListener('click', close);
+      prevBtn.addEventListener('click', function () { goTo(current - 1); });
+      nextBtn.addEventListener('click', function () { goTo(current + 1); });
+      tapPrev.addEventListener('click', function () { goTo(current - 1); });
+      tapNext.addEventListener('click', function () { goTo(current + 1); });
+
+      document.addEventListener('keydown', function (e) {
+        if (!viewer.classList.contains('is-open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowRight') goTo(current + 1);
+        if (e.key === 'ArrowLeft') goTo(current - 1);
+      });
     })();
   </script>
 </body>
