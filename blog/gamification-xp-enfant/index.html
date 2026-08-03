@@ -165,13 +165,6 @@
     .story-chapter--reverse .story-chapter__content {
       padding: 64px 56px 64px 64px;
     }
-    .story-chapter__num {
-      font-size: 3.5rem;
-      font-weight: 900;
-      color: var(--purple-light);
-      line-height: 1;
-      margin-bottom: 4px;
-    }
     .story-chapter__content h2,
     .story-chapter__content h3 {
       margin-top: 0;
@@ -180,7 +173,15 @@
       font-size: 1.05rem;
       font-weight: 700;
       color: var(--purple-dark);
-      margin: -8px 0 16px;
+      margin: 0 0 16px;
+    }
+    .story-chapter__content p {
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+    @media (max-width: 768px) {
+      .story-chapter__content p { text-align: left; hyphens: none; }
     }
 
     /* ── Bande "versus" : sans XP / avec XP, immersive ── */
@@ -496,7 +497,6 @@
         </div>
       </div>
       <div class="story-chapter__content">
-        <span class="story-chapter__num" aria-hidden="true">01</span>
         <h2>Ce que les jeux vidéo ont compris avant nous</h2>
         <p class="story-chapter__lead">Les jeux vidéo renvoient un feedback immédiat. Les tâches du quotidien, non — jusqu'ici.</p>
         <p>Les enfants passent des heures à progresser dans des jeux sans que personne ne les y force. Ils recommencent un niveau raté dix fois de suite. Ils optimisent, planifient, s'investissent. Pas parce qu'on leur demande — parce que le jeu leur renvoie constamment un signal : <strong>tu avances, tu montes en niveau, tu deviens meilleur.</strong></p>
@@ -559,7 +559,6 @@
         >
       </div>
       <div class="story-chapter__content">
-        <span class="story-chapter__num" aria-hidden="true">02</span>
         <h2>Des points d'expérience ancrés dans le quotidien</h2>
         <p class="story-chapter__lead">L'interface Kidly — la progression en temps réel</p>
         <p>Dans Family App, chaque tâche accomplie rapporte des points d'expérience — des XP. L'enfant les voit s'accumuler dans son application. Il monte de niveau. Il laisse une trace de ce qu'il a fait, jour après jour.</p>
@@ -588,7 +587,6 @@
         >
       </div>
       <div class="story-chapter__content">
-        <span class="story-chapter__num" aria-hidden="true">03</span>
         <h2>Et l'argent de poche dans tout ça ?</h2>
         <p class="story-chapter__lead">L'argent de poche — en option, en complément</p>
         <p>Certaines familles souhaitent associer une dimension financière à l'effort fourni — apprendre à gérer un budget, comprendre que le travail a une valeur. Family App le permet, en mode optionnel, en complément des XP.</p>
@@ -614,7 +612,6 @@
         >
       </div>
       <div class="story-chapter__content">
-        <span class="story-chapter__num" aria-hidden="true">04</span>
         <h2>Moins de conflits, plus d'élan</h2>
         <p class="story-chapter__lead">Moins de rappels, plus de coopération — une ambiance familiale plus sereine.</p>
         <p>Ce que les parents qui utilisent ce système remarquent en premier, ce n'est pas une transformation spectaculaire. C'est une légère diminution de la friction. Moins de rappels nécessaires. Un enfant qui vérifie lui-même ses tâches pour ne pas « perdre » sa progression. Une forme d'élan interne qui n'existait pas avant.</p>
