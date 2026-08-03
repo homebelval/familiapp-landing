@@ -165,9 +165,43 @@
     .story-chapter--reverse .story-chapter__content {
       padding: 64px 56px 64px 64px;
     }
+    .story-chapter--gray .story-chapter__content { background: var(--band-gray); }
     .story-chapter__content h2,
     .story-chapter__content h3 {
       margin-top: 0;
+    }
+
+    /* ── Alternance de fonds pleine largeur ── */
+    :root { --band-gray: #f4f2ee; }
+    .story-text--gray { background: var(--band-gray); }
+
+    .story-band {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      padding: 72px 56px;
+    }
+    .story-band--white { background: var(--white); }
+    .story-band--gray { background: var(--band-gray); }
+    .story-band__narrow { max-width: 760px; margin: 0 auto; }
+
+    /* ── Variante de séparateur sous les titres : trait court en accent ── */
+    .story-chapter__content h2,
+    .story-text h2,
+    .story-band h2 {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 24px;
+    }
+    .story-chapter__content h2::after,
+    .story-text h2::after,
+    .story-band h2::after {
+      content: "";
+      display: block;
+      width: 64px;
+      height: 4px;
+      border-radius: 2px;
+      margin-top: 16px;
+      background: linear-gradient(90deg, var(--purple), var(--purple-dark));
     }
     .story-chapter__lead {
       font-size: 1.05rem;
@@ -408,6 +442,7 @@
       }
       .story-versus__badge { width: 44px; height: 44px; font-size: .75rem; }
       .story-text { padding: 0 24px; }
+      .story-band { padding: 48px 24px; }
     }
   </style>
 </head>
@@ -473,7 +508,7 @@
     </div>
 
     <!-- Chapitre 01 : jeux vidéo vs tâches -->
-    <section class="story-chapter reveal">
+    <section class="story-chapter story-chapter--gray reveal">
       <div class="story-chapter__photo story-chapter__photo--split">
         <div class="story-chapter__subphoto">
           <img
@@ -539,7 +574,7 @@
       </div>
     </div>
 
-    <div class="story-text">
+    <div class="story-text story-text--gray">
       <p>Face à ce problème, beaucoup de familles essaient le système de récompenses : de l'argent de poche contre des tâches, des étoiles collées sur un tableau, des petits cadeaux à la fin de la semaine. L'intention est bonne, mais le résultat est souvent décevant.</p>
 
       <p>Pourquoi ? Parce qu'une récompense externe place la motivation en dehors de l'enfant. Il fait la tâche pour obtenir quelque chose — pas parce qu'il en est fier, pas parce qu'il grandit. Dès que la récompense disparaît ou perd de son attrait, la motivation s'évapore avec elle.</p>
@@ -571,7 +606,7 @@
       </div>
     </section>
 
-    <div class="story-text">
+    <div class="story-text story-text--gray">
       <p>Ce système est actif par défaut, pour toutes les familles. Il ne remplace pas l'autorité parentale ni les valeurs que vous transmettez — il les soutient en rendant l'effort visible là où il était jusqu'ici invisible.</p>
     </div>
 
@@ -601,7 +636,7 @@
     </section>
 
     <!-- Chapitre 04 : harmonie familiale -->
-    <section class="story-chapter reveal">
+    <section class="story-chapter story-chapter--gray reveal">
       <div class="story-chapter__photo">
         <img
           src="images/harmonie.jpg"
@@ -618,26 +653,28 @@
       </div>
     </section>
 
-    <div class="container">
-      <p>Ce n'est pas de la magie. C'est de la conception : rendre visible ce qui était invisible, rendre tangible ce qui était abstrait, donner à l'enfant une prise sur sa propre histoire.</p>
+    <section class="story-band story-band--white">
+      <p style="text-align:center;max-width:900px;margin:0 auto 40px;">Ce n'est pas de la magie. C'est de la conception : rendre visible ce qui était invisible, rendre tangible ce qui était abstrait, donner à l'enfant une prise sur sa propre histoire.</p>
 
-      <div class="article-cta">
-        <h3>Essayez le système XP avec votre famille</h3>
-        <p>Points d'expérience, niveaux, séries — tout est inclus gratuitement dès le premier jour.</p>
-        <a href="https://hub.family-app.fr/signup" class="btn btn--white btn--lg">🎁 Démarrer l'essai gratuit</a>
+      <div class="story-band__narrow">
+        <div class="article-cta">
+          <h3>Essayez le système XP avec votre famille</h3>
+          <p>Points d'expérience, niveaux, séries — tout est inclus gratuitement dès le premier jour.</p>
+          <a href="https://hub.family-app.fr/signup" class="btn btn--white btn--lg">🎁 Démarrer l'essai gratuit</a>
+        </div>
+
+        <div class="related-articles">
+          <h3>Lire aussi</h3>
+          <ul>
+            <li><a href="/blog/organiser-taches-enfants/">Comment organiser les tâches de vos enfants avec une application</a></li>
+            <li><a href="/blog/charge-mentale-parents/">Charge mentale des parents : comment l'alléger grâce au partage des tâches</a></li>
+            <li><a href="/blog/controle-parental-2026/">Contrôle parental en 2026 : au-delà du blocage</a></li>
+          </ul>
+        </div>
+
+        <p style="margin-top:32px;">← <a href="/blog/">Retour au blog</a></p>
       </div>
-
-      <div class="related-articles">
-        <h3>Lire aussi</h3>
-        <ul>
-          <li><a href="/blog/organiser-taches-enfants/">Comment organiser les tâches de vos enfants avec une application</a></li>
-          <li><a href="/blog/charge-mentale-parents/">Charge mentale des parents : comment l'alléger grâce au partage des tâches</a></li>
-          <li><a href="/blog/controle-parental-2026/">Contrôle parental en 2026 : au-delà du blocage</a></li>
-        </ul>
-      </div>
-
-      <p style="margin-top:32px;">← <a href="/blog/">Retour au blog</a></p>
-    </div>
+    </section>
   </div>
 
   <footer class="footer">
