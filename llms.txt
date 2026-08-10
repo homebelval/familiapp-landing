@@ -1,0 +1,23 @@
+# FamilyApp
+
+> FamilyApp est une application française d'organisation familiale : gestion des tâches gamifiée pour les enfants (via l'app dédiée Kidly), contrôle parental, calendrier partagé, suivi scolaire Pronote et cagnotte/argent de poche. Données hébergées en Europe. Essai gratuit de 30 jours.
+
+FamilyApp cible les parents en France qui veulent alléger la charge mentale du quotidien familial en répartissant les tâches entre parents et enfants, avec un système de points d'expérience (XP) qui motive les enfants sans conflit. L'accès web se fait sur hub.family-app.fr (connexion / essai gratuit) ; ce site (family-app.fr) est la landing page marketing et le blog.
+
+## Produit
+- [Accueil](https://family-app.fr/): présentation du produit, fonctionnalités (tâches gamifiées, contrôle parental, calendrier, suivi scolaire, cagnotte), tarifs et essai gratuit.
+- [Bêta](https://family-app.fr/beta/): programme bêta pour 50 familles fondatrices, accès gratuit au plan Family Plus.
+- [Essai gratuit / Connexion](https://hub.family-app.fr/signup): création de compte et démarrage de l'essai gratuit.
+
+## Blog
+- [Blog](https://family-app.fr/blog/): articles de conseils sur l'organisation familiale, la charge mentale et la motivation des enfants.
+- [Charge mentale des parents](https://family-app.fr/blog/charge-mentale-parents/): stratégies pour répartir les tâches en famille et alléger la charge mentale.
+- [Organiser les tâches des enfants](https://family-app.fr/blog/organiser-taches-enfants/): partage des tâches et routines gamifiées entre parents et enfants.
+- [Contrôle parental en 2026](https://family-app.fr/blog/controle-parental-2026/): guide sur le temps d'écran, le filtrage DNS et le contrôle parental moderne.
+- [Suivi scolaire Pronote](https://family-app.fr/blog/suivi-scolaire-pronote-parents/): comment suivre notes et devoirs sans mettre de pression scolaire.
+- [Gamification et motivation enfant](https://family-app.fr/blog/gamification-xp-enfant/): pourquoi un système de points d'expérience (XP) motive mieux les enfants que les rappels ou les récompenses classiques.
+
+## Légal
+- [Conditions d'utilisation](https://family-app.fr/terms/)
+- [Politique de confidentialité](https://family-app.fr/privacy/): conforme RGPD, données hébergées en Europe.
+- [Mentions légales](https://family-app.fr/legal/)
