@@ -96,6 +96,7 @@
 .article-body strong { color: var(--text); font-weight: 700; }
 .article-body a { color: var(--purple); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .3s; }
 .article-body a:hover { border-bottom-color: var(--purple); }
+.article-sources { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; border-top: 1px solid var(--border); padding-top: 20px; margin-top: 8px; }
 
 .article-cta {
   background: linear-gradient(135deg, var(--green), var(--green-dark));
