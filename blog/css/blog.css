@@ -78,20 +78,96 @@
 /* Article */
 .article-hero {
   background: linear-gradient(135deg, var(--purple) 0%, var(--purple-dark) 100%);
-  padding: 140px 20px 80px;
+  padding: 84px 20px 48px;
   text-align: center;
 }
 .article-hero h1 { color: #fff; font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 900; margin-bottom: 16px; max-width: 800px; margin-inline: auto; }
 .article-hero .meta { color: rgba(255,255,255,0.8); font-size: 0.95rem; }
 
-.article-photo-full {
-  width: 100%;
-  max-height: 460px;
-  overflow: hidden;
-  line-height: 0;
+/* Article hero for posts with a cover photo: title overlaid directly on the image.
+   Posts without a photo yet keep the plain gradient .article-hero above. */
+.article-hero-photo { position: relative; width: 100%; height: 520px; overflow: hidden; }
+.article-hero-photo picture { position: absolute; inset: 0; display: block; }
+.article-hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 46% 42%; display: block; }
+.article-hero-photo__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(15,15,26,.6) 0%, rgba(15,15,26,.2) 45%, rgba(15,15,26,.65) 100%);
 }
-.article-photo-full img { width: 100%; height: 100%; object-fit: cover; display: block; }
-@media (max-width: 640px) { .article-photo-full { max-height: 280px; } }
+.article-hero-photo__content {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 40px 20px;
+}
+.article-hero-photo__content h1 {
+  color: #fff; font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 900; margin-bottom: 16px; max-width: 800px;
+  text-shadow: 0 2px 16px rgba(0,0,0,.35);
+}
+.article-hero-photo__content .meta { color: rgba(255,255,255,.92); font-size: .95rem; text-shadow: 0 1px 8px rgba(0,0,0,.35); }
+@media (max-width: 640px) { .article-hero-photo { height: 340px; } }
+
+/* Article with companion column (video/photo demo alongside the text) */
+.article-layout {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 64px 24px 0;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 40px;
+  align-items: start;
+}
+.article-layout .article-body { max-width: none; margin: 0; padding: 0 0 100px; }
+
+.article-companion { position: sticky; top: 24px; }
+.companion-phone {
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto;
+  background: var(--text);
+  border-radius: 32px;
+  padding: 10px;
+  box-shadow: 0 24px 60px rgba(20,16,40,.28);
+}
+.companion-phone__notch { width: 50px; height: 5px; background: var(--dark-bg); border-radius: 3px; margin: 0 auto 8px; }
+.companion-phone__screen {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  aspect-ratio: 9/19.5;
+  background: linear-gradient(160deg, var(--amber), var(--green));
+  display: flex; align-items: center; justify-content: center;
+}
+.companion-phone__play {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(255,255,255,.92);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+.companion-phone__play::before {
+  content: "";
+  border-left: 18px solid var(--text);
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  margin-left: 5px;
+}
+.companion-phone__badge {
+  position: absolute; top: 12px; left: 12px;
+  background: rgba(15,15,26,.55); color: #fff;
+  font-size: .65rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 20px;
+}
+.companion-phone__caption {
+  position: absolute; bottom: 12px; left: 12px; right: 12px;
+  color: #fff; font-size: .72rem; font-weight: 700;
+  text-shadow: 0 1px 4px rgba(0,0,0,.4);
+  text-align: center;
+}
+.article-companion__note { text-align: center; font-size: .8rem; color: var(--text-muted); margin-top: 12px; }
+
+@media (max-width: 900px) {
+  .article-layout { grid-template-columns: 1fr; padding-top: 40px; }
+  .article-companion { position: static; max-width: 260px; margin: 0 auto 32px; }
+  .article-layout .article-body { padding-top: 0; }
+}
 
 .article-body {
   max-width: 760px;
