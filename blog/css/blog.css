@@ -121,7 +121,7 @@
 }
 .article-layout .article-body { max-width: none; margin: 0; padding: 0 0 100px; }
 
-.article-companion { position: sticky; top: 50%; transform: translateY(-50%); }
+.article-companion { position: sticky; top: 32px; }
 .companion-phone {
   width: 100%;
   max-width: 260px;
