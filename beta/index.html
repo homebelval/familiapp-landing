@@ -1085,6 +1085,9 @@
           : `${taken} famille${taken > 1 ? 's ont' : ' a'} déjà rejoint`;
       }
 
+      const bandTaken = document.getElementById('band-taken');
+      if (bandTaken) bandTaken.textContent = taken;
+
       const fill = document.getElementById('progress-fill');
       if (fill) setTimeout(() => { fill.style.width = pct + '%'; }, 300);
 
