@@ -118,7 +118,7 @@
 }
 .article-layout .article-body { max-width: none; margin: 0; padding: 0 0 100px; }
 
-.article-companion { position: sticky; top: 24px; }
+.article-companion { position: sticky; top: 50%; transform: translateY(-50%); }
 .companion-phone {
   width: 100%;
   max-width: 260px;
@@ -166,7 +166,7 @@
 
 @media (max-width: 900px) {
   .article-layout { grid-template-columns: 1fr; padding-top: 40px; }
-  .article-companion { position: static; max-width: 260px; margin: 0 auto 32px; }
+  .article-companion { position: static; max-width: 260px; margin: 0 auto 32px; transform: none; }
   .article-layout .article-body { padding-top: 0; }
 }
 
