@@ -136,12 +136,14 @@
   position: relative;
   border-radius: 22px;
   overflow: hidden;
-  aspect-ratio: 9/19.5;
+  width: 100%;
+  height: 0;
+  padding-bottom: 216.67%; /* 9:19.5 aspect ratio, as a definite-height box (percentage-height children need this — aspect-ratio alone isn't reliably treated as a definite height for them in every browser) */
   background: linear-gradient(160deg, var(--amber), var(--green));
-  display: flex; align-items: center; justify-content: center;
 }
 .companion-phone__video {
-  position: absolute; inset: 0;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
   width: 100%; height: 100%;
   object-fit: cover;
 }
