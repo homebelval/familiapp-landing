@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "npm run minify:css && npm run minify:js",
+    "build": "npm run build:headers && npm run minify:css && npm run minify:js",
+    "build:headers": "node scripts/build-headers.js",
     "minify:css": "postcss css/style.css -o css/style.css --no-map && postcss blog/css/blog.css -o blog/css/blog.css --no-map",
     "minify:js": "terser js/main.js -o js/main.js --compress --mangle && terser js/cookie-consent.js -o js/cookie-consent.js --compress --mangle"
   },
