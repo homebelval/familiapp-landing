@@ -45,6 +45,18 @@
 </head>
 <body>
   <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+  <!-- URGENCY BAR -->
+  <a href="/beta/" class="urgency-bar" id="urgency-bar" role="banner">
+    <div class="container">
+      <div class="urgency-bar__inner">
+        <span class="urgency-bar__text">🎯 Bêta fermée · Places limitées</span>
+        <span class="urgency-bar__pill" id="urgency-spots">⚡ <span id="urgency-num">50</span> places restantes</span>
+        <span class="urgency-bar__text">Plan Family Plus offert pendant toute la bêta</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- HEADER -->
   <header class="header" id="header">
     <div class="container">
       <div class="header__inner">
@@ -55,10 +67,10 @@
         <nav class="header__nav" id="header-nav" role="navigation" aria-label="Navigation principale">
           <a href="/#fonctionnalites" class="header__link">Fonctionnalités</a>
           <a href="/#tarifs" class="header__link">Tarifs</a>
+          <a href="/#faq" class="header__link">FAQ</a>
           <a href="/blog/" class="header__link">Blog</a>
-          <a href="/beta/" class="header__link">Bêta</a>
           <a href="https://hub.family-app.fr/login" class="btn btn--outline" rel="noopener">Connexion</a>
-          <a href="https://hub.family-app.fr/signup" class="btn btn--primary">🎁 Essai gratuit</a>
+          <a href="/beta/" class="btn btn--green beta-cta">🎉 Rejoindre la bêta</a>
         </nav>
         <button class="header__hamburger" id="hamburger-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="header-nav">
           <span></span><span></span><span></span>
@@ -184,5 +196,6 @@
   </footer>
 
   <script src="/js/main.js" defer></script>
+  <script type="module" src="/js/beta-banner.js"></script>
 </body>
 </html>

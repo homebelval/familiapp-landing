@@ -25,56 +25,7 @@
 
   <style>
     /* ── Beta page specific styles ── */
-
-    /* Urgency bar */
-    .urgency-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 200;
-      background: linear-gradient(90deg, #1a1230 0%, #2d1b69 50%, #1a1230 100%);
-      padding: 10px 0;
-      text-align: center;
-    }
-
-    /* Push content down: urgency bar (~40px) + header (~68px) */
-    body {
-      padding-top: 108px;
-    }
-
-    /* Header sticks just below the urgency bar */
-    .header {
-      position: fixed;
-      top: 40px;
-      left: 0;
-      right: 0;
-    }
-    .urgency-bar__inner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .urgency-bar__text {
-      color: rgba(255,255,255,0.85);
-      font-size: 0.82rem;
-      font-weight: 600;
-    }
-    .urgency-bar__pill {
-      background: linear-gradient(135deg, var(--purple), var(--purple-dark));
-      color: #fff;
-      font-size: 0.78rem;
-      font-weight: 800;
-      padding: 3px 12px;
-      border-radius: 20px;
-      animation: pillPulse 2.5s ease-in-out infinite;
-    }
-    @keyframes pillPulse {
-      0%,100% { box-shadow: 0 0 0 0 rgba(102,126,234,0); }
-      50% { box-shadow: 0 0 0 5px rgba(102,126,234,0.25); }
-    }
+    /* Urgency bar + header positioning now live in css/style.css (shared across every page). */
 
     /* Beta Hero */
     .beta-hero {
@@ -560,7 +511,7 @@
 <body>
 
   <!-- URGENCY BAR -->
-  <div class="urgency-bar" role="banner">
+  <a href="/beta/" class="urgency-bar" id="urgency-bar" role="banner">
     <div class="container">
       <div class="urgency-bar__inner">
         <span class="urgency-bar__text">🎯 Bêta fermée · Places limitées</span>
@@ -568,7 +519,7 @@
         <span class="urgency-bar__text">Plan Family Plus offert pendant toute la bêta</span>
       </div>
     </div>
-  </div>
+  </a>
 
   <!-- HEADER -->
   <header class="header" id="header">
@@ -579,10 +530,10 @@
           <span class="header__logo-text">Family<span>App</span></span>
         </a>
         <nav class="header__nav" id="header-nav" role="navigation" aria-label="Navigation principale">
-          <a href="/" class="header__link">Accueil</a>
           <a href="/#fonctionnalites" class="header__link">Fonctionnalités</a>
           <a href="/#tarifs" class="header__link">Tarifs</a>
           <a href="/#faq" class="header__link">FAQ</a>
+          <a href="/blog/" class="header__link">Blog</a>
           <a href="https://hub.family-app.fr/login" class="btn btn--outline" rel="noopener">Connexion</a>
           <a href="https://hub.family-app.fr/signup?plan=beta" class="btn btn--green beta-cta">🎉 Rejoindre la bêta</a>
         </nav>
@@ -1103,11 +1054,9 @@
           btn.classList.remove('btn--green');
           btn.classList.add('beta-cta--full');
         });
-        const pill = document.getElementById('urgency-spots');
-        if (pill) {
-          pill.textContent = '🔒 Bêta complète — liste d\'attente ouverte';
-          pill.style.background = 'rgba(255,255,255,0.15)';
-        }
+        const bar = document.getElementById('urgency-bar');
+        if (bar) bar.hidden = true;
+        document.documentElement.style.setProperty('--banner-h', '0px');
       }
     }
 
