@@ -30,6 +30,19 @@
 </head>
 <body>
   <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+<!-- HEADER:START -->
+  <!-- URGENCY BAR -->
+  <a href="/beta/" class="urgency-bar" id="urgency-bar" role="banner">
+    <div class="container">
+      <div class="urgency-bar__inner">
+        <span class="urgency-bar__text">🎯 Bêta fermée · Places limitées</span>
+        <span class="urgency-bar__pill" id="urgency-spots">⚡ <span id="urgency-num">50</span> places restantes</span>
+        <span class="urgency-bar__text">Plan Family Plus offert pendant toute la bêta</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- HEADER -->
   <header class="header" id="header">
     <div class="container">
       <div class="header__inner">
@@ -40,8 +53,8 @@
         <nav class="header__nav" id="header-nav" role="navigation" aria-label="Navigation principale">
           <a href="/#fonctionnalites" class="header__link">Fonctionnalités</a>
           <a href="/#tarifs" class="header__link">Tarifs</a>
+          <a href="/#faq" class="header__link">FAQ</a>
           <a href="/blog/" class="header__link">Blog</a>
-          <a href="/beta/" class="header__link">Bêta</a>
           <a href="https://hub.family-app.fr/login" class="btn btn--outline" rel="noopener">Connexion</a>
           <a href="https://hub.family-app.fr/signup" class="btn btn--primary">🎁 Essai gratuit</a>
         </nav>
@@ -51,6 +64,7 @@
       </div>
     </div>
   </header>
+  <!-- HEADER:END -->
 
   <section class="blog-hero" id="main-content">
     <div class="container">
@@ -60,6 +74,16 @@
   </section>
 
   <div class="blog-grid">
+    <a href="/blog/loi-reseaux-sociaux-mineurs-conseil-constitutionnel/" class="blog-card">
+      <div class="blog-card__cover" style="background:var(--purple-light);">⚖️</div>
+      <div class="blog-card__body">
+        <span class="blog-card__tag">Actualité</span>
+        <h2 class="blog-card__title">Réseaux sociaux : rien n'a changé à la rentrée — et c'est bien le problème</h2>
+        <p class="blog-card__excerpt">Le Conseil constitutionnel a censuré la loi interdisant les réseaux sociaux aux mineurs. Rien n'est bloqué à la rentrée — ce que FamilyApp fait à la place.</p>
+        <div class="blog-card__meta">5 min · Septembre 2026</div>
+      </div>
+    </a>
+
     <a href="/blog/taches-quotidiennes-enfants/" class="blog-card">
       <div class="blog-card__cover">
         <picture>
@@ -159,5 +183,6 @@
   </footer>
 
   <script src="/js/main.js" defer></script>
+  <script type="module" src="/js/beta-banner.js"></script>
 </body>
 </html>
